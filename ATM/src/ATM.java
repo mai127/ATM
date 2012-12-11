@@ -8,5 +8,7 @@ public class ATM {
        System.out.println("Another push testing!");
        
        System.out.print("3rd push");
+       System.out.print("4th push");
+
     }
 }
