@@ -8,5 +8,6 @@ public class Query extends Transaction{
 	public double queryResults(){
 		account=new Account(Type)
 		return account.getBalance();
+		
 	}
 }//class completely wrong must have class account first
