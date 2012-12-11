@@ -11,7 +11,8 @@ public class ATM {
        System.out.print("4th push");
        System.out.print("5th push");
        System.out.print("6th push");
-       System.out.print("7th push,");
+       System.out.print("7th push");
+       System.out.print("8th push");
 
     }
 }
