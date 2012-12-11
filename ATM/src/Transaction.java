@@ -3,9 +3,9 @@ public abstract class Transaction {
 
 	private int transactionId; //κωδικός συναλλαγής
 	
-	private int date;			//ημερομηνία συναλλ
+	private int date;			//ημερομηνία συναλλαγής
 	
-	public int getDate() {
+	public int getDate() {	//setters and getters
 		return date;
 	}
 
