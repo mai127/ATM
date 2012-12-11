@@ -6,5 +6,7 @@ public class ATM {
        System.out.println("test ATM project!");
        
        System.out.println("Another push testing!");
+       
+       System.out.print("3rd push");
     }
 }
