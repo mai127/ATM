@@ -18,4 +18,9 @@ public class ATM {
        System.out.print("11th push");
 
     }
+	
+	public void newMethod() {
+		
+		System.out.print("testing new method");
+	}
 }
