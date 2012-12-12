@@ -29,3 +29,9 @@ public void newestMethod() {
 		System.out.print("testing new method");
 	}
 }
+
+	public void newestMethod_1() {
+		
+		System.out.print("testing new method");
+	}
+}
