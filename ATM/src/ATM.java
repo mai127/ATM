@@ -23,4 +23,9 @@ public class ATM {
 		
 		System.out.print("testing new method");
 	}
+	
+public void newestMethod() {
+		
+		System.out.print("testing new method");
+	}
 }
