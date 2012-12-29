@@ -13,7 +13,7 @@ public class Withdraw extends Transaction{
 	
 	public void Withdrawl(){
 		int ammount=0;
-		if(acount.getBalance>=ammount)
+		if(account.getBalance>=ammount)
 			account.getBalance-=ammount;
 		
 	}
