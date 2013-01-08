@@ -6,7 +6,7 @@ public class Query extends Transaction{
 	
 	
 	public double queryResults(){
-		account=new Account(Type)
+		account=new Account();
 		return account.getBalance();
 		
 	}
