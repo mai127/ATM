@@ -13,10 +13,10 @@ public class Withdraw extends Transaction {
 	}
 	
 	
-	public void Withdrawl(double ammount, Account account) {
+	public Withdraw(double ammou, Account account) {
 		
-		if(account.getBalance()>=ammount)
-			account.setBalance(account.getBalance()-ammount);
+		if(account.getBalance()>=ammou)
+			account.setBalance(account.getBalance()-ammou);
 		
 	}
 }
