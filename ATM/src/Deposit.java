@@ -12,4 +12,7 @@ public class Deposit extends Transaction {
 		this.amount = amount;
 	}
 		
+	public void Deposit() {
+		
+	}
 }
