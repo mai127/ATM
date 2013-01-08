@@ -5,9 +5,7 @@ public class AmountTransfer {
 	private int accountNumber;
 	
 	public void transfer(double amnt, int accNo) {
-		 
-		//
-		//
+	
 	}
 
 }
