@@ -1,10 +1,12 @@
 
 public abstract class Transaction {
 
-	private int transactionId; //κωδικός συναλλαγής
+	protected int transactionId; 
+	protected int date;			
 	
-	private int date;			//ημερομηνία συναλλαγής
 	
+	
+	/*
 	public int getDate() {	//setters and getters
 		return date;
 	}
@@ -20,6 +22,7 @@ public abstract class Transaction {
 	public void setTransactionId(int transactionId) {
 		this.transactionId = transactionId;
 	}
+	*/
 	
 	
 	
