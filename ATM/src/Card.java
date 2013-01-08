@@ -1,5 +1,5 @@
 
-public abstract class Card {
+public class Card {
 	private String cardNO;
 	private String ownedBY;
 	private String pin;

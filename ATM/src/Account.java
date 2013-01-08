@@ -4,8 +4,8 @@ public class Account {
 	private String owner;
 	private int AccountNumber;
 	private double balance;
+	private Card card;
 	
-	public Account(){}
 	public String getOwner() {
 		return owner;
 	}
@@ -24,5 +24,20 @@ public class Account {
 	public void setBalance(double balance) {
 		this.balance = balance;
 	}
+	
+	public Account() {
+		owner = " ";
+		AccountNumber = 0;
+		balance = 0.0;
+		card = new Card();
+		
+	}
+	public Account(String ownr, int AccNum, double bal, Card crd) {
+		owner = ownr;
+		AccountNumber = AccNum;
+		balance = bal;
+		card = crd;
+	}
+	
 	
 }
