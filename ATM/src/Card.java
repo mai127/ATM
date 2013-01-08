@@ -1,24 +1,34 @@
 
 public class Card {
-	private String cardNO;
+	private int cardNO;
 	private String ownedBY;
-	private String pin;
+	private int pin;
 	
-	public void setPin (String p){
+	public void setPin (int p){
 		
 		pin=p;
 	}
 	
-	public String getPin(){
+	public int getPin(){
 		
 		return pin;
 	}
 	
-	public boolean access (String p){
+	public Card() {
+		cardNO = 0;
+		ownedBY = " ";
+		pin = 0;	
+	}
+	public Card(int crdNo, String ownBy, int pn) {
+		cardNO = crdNo;
+		ownedBY = ownBy;
+		pin = pn;	
+	}
+	
+	public boolean access (int p){
 		if(pin==p)
 			return true;
 		else
 			return false;
-		
 	}
 }
