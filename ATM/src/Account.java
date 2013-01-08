@@ -1,10 +1,11 @@
 
-public abstract class Account {
+public class Account {
 
 	private String owner;
 	private int AccountNumber;
 	private double balance;
-
+	
+	public Account(){}
 	public String getOwner() {
 		return owner;
 	}
