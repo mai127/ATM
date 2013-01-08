@@ -17,7 +17,7 @@ public class SavingsAccount extends Account {
 	public void setBalance(double balance) {
 		this.balance = balance;
 	}
-		// σε περίπτωση που κρατήσουμε το type
+
 	public void credit(int amount) {  
 		balance += amount;
 	}
