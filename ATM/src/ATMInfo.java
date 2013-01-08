@@ -10,7 +10,6 @@ public class ATMInfo {
 		this.location = location;
 	}
 	
-	private Bank bank;
 	private Transaction transaction;
 	
 	

@@ -24,10 +24,4 @@ public abstract class Account {
 		this.balance = balance;
 	}
 	
-	public void debit() {
-		
-	}
-	public void credit() {
-		
-	}
 }

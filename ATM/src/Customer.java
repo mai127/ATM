@@ -17,6 +17,5 @@ public class Customer {
 		this.address = address;
 	}
 	
-	private Bank bank;
 	private Account account;
 }
