@@ -21,7 +21,8 @@ public class ATMInfo {
 		transaction = trans;
 	}
 	
-	public void identifies() {
+	public identifies() {
+		
 		
 	}
 	
