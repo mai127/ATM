@@ -2,17 +2,17 @@
 public class Deposit extends Transaction {
 		
 	private double amount;
-	private Account account;
+	
 	
 	public double getAmount() {
 		return amount;
 	}
 
-	public void setAmount(double amount) {
+	public Deposit(double amount) {
 		this.amount = amount;
 	}
 		
-	public void Deposit() {
-		
+	public void accountHandler() {
+		account.setBalance(account.getBalance()+amount);
 	}
 }

@@ -1,14 +1,20 @@
+import java.util.ArrayList;
+
 
 public class ATMInfo {
 	private String location;
 	private String ManagedBy;
-	private Transaction transaction;
+	private ArrayList <Transaction> transaction=new ArrayList<Transaction>();
 	
 	public String getLocation() {
 		return location;
 	}
 	public void setLocation(String location) {
 		this.location = location;
+	}
+	
+	public void setTransaction(Transaction tr){
+		transaction.add(tr);
 	}
 	
 	public ATMInfo() {
@@ -18,10 +24,11 @@ public class ATMInfo {
 	public ATMInfo(String locat, String MngBy, Transaction trans) {
 		location = locat;
 		ManagedBy = MngBy;
-		transaction = trans;
+		transaction.add(trans);
 	}
-	
-	public identifies() {
+
+	public void identifies() {
+		transaction.get(transaction.size()-1).accountHandler();
 		
 		
 	}

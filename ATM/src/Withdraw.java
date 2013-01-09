@@ -1,22 +1,27 @@
 
 public class Withdraw extends Transaction {
 	
-	private double amount;
-	private Account account;
+	private double amou;
+	//private Account account;
 	public double getAmount() {
-		return amount;
+		return amou;
 	}
 
-	public void setAmount(double amount) {
+	public void setAmount(double amou) {
 		
-		this.amount = amount;
+		this.amou = amou;
+	}
+	
+	public Withdraw(double a,Account ac){
+		account=ac;
+		amou=a;
 	}
 	
 	
-	public Withdraw(double ammou, Account account) {
-		
-		if(account.getBalance()>=ammou)
-			account.setBalance(account.getBalance()-ammou);
+	public void accountHandler(){
+		if(account.getBalance()>=amou)
+			account.setBalance(account.getBalance()-amou);
 		
 	}
+	
 }

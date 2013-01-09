@@ -7,9 +7,14 @@ public class Bank {
 		Account accnt = new Account("Papadopoulos Giannis", 1234554321, 1020.09, crd);
 		Customer custmr = new Customer("Papadopoulos Giannis", "Egnatia 127 str.", accnt);
 		Withdraw withDr = new Withdraw(29.22,accnt);
+		
 		ATMInfo atmInf = new ATMInfo("Aristoteloys sqr. 165", "Beta", withDr);
+		//atmInf.setTransaction(q);
+		atmInf.identifies();
+		Query q=new Query(accnt);
+		atmInf.setTransaction(q);
+		atmInf.identifies();
+		//System.out.println(accnt.getBalance());
 		
-		
-		System.out.println(accnt.getBalance());
 	}
 }

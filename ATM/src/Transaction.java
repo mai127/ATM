@@ -3,10 +3,10 @@ public abstract class Transaction {
 
 	protected int transactionId; 
 	protected int date;			
+	protected Account account;
 	
 	
 	
-	/*
 	public int getDate() {	//setters and getters
 		return date;
 	}
@@ -22,7 +22,9 @@ public abstract class Transaction {
 	public void setTransactionId(int transactionId) {
 		this.transactionId = transactionId;
 	}
-	*/
+	
+	abstract void accountHandler();
+	
 	
 	
 	
