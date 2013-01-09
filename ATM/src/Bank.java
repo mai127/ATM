@@ -14,7 +14,7 @@ public class Bank {
 		Query q=new Query(accnt);
 		atmInf.setTransaction(q);
 		atmInf.identifies();
-		//System.out.println(accnt.getBalance());
+		
 		
 	}
 }

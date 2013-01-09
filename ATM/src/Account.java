@@ -39,5 +39,17 @@ public class Account {
 		card = crd;
 	}
 	
+	public boolean pinValidation(int pin){
+		if(card.getPin()==pin)
+			return true;
+		else 
+			return false; 
+		
+	}
+	
+	public void pinChange(int pin){
+		card.setPin(pin);
+		
+	}
 	
 }
