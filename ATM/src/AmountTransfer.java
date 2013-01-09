@@ -1,11 +1,11 @@
 
-public class AmountTransfer {
+public class AmountTransfer extends Transaction{
 	
 	private double amount;
 	private int accountNumber;
 	
-	public void transfer(double amnt, int accNo) {
-	
+	public void accountHandler() {
+		
 	}
 
 }
