@@ -5,6 +5,7 @@ public class ATMInfo {
 	private String location;
 	private String ManagedBy;
 	private ArrayList <Transaction> transaction=new ArrayList<Transaction>();
+	boolean authFlag =false;
 	
 	public String getLocation() {
 		return location;
@@ -28,11 +29,22 @@ public class ATMInfo {
 	}
 
 	public void identifies() {
+		
 		transaction.get(transaction.size()-1).accountHandler();
 		
 		
 	}
 	
+	public boolean authenticated(){
+		if (authFlag==true)
+			return true;
+		else 
+			return false;
+					
+	}
 	
-	
+	public void isAuthenticated(){
+		
+					
+	}
 }

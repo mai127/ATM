@@ -17,11 +17,14 @@ public class Withdraw extends Transaction {
 		amou=a;
 	}
 	
-	
+	@Override
 	public void accountHandler(){
 		if(account.getBalance()>=amou)
 			account.setBalance(account.getBalance()-amou);
 		
 	}
-	
+	public char transType() {
+		// TODO Auto-generated method stub
+		return 'w';
+	}
 }

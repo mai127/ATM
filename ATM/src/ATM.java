@@ -1,10 +1,15 @@
 
 public class ATM {
-	/*
-	public static void main(String args[]) {
-			
 	
+	public static void main(String args[]) {
+		char s='k';
+		System.out.println("Please press e for exit");
 		
-		System.out.println(accnt.getBalance());
-	}*/
+		while(s!='e'){
+			
+			
+			
+		}
+	
+	}
 }
