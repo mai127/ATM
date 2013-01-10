@@ -29,22 +29,25 @@ public class ATMInfo {
 	}
 
 	public void identifies() {
-		
-		transaction.get(transaction.size()-1).accountHandler();
-		
+		if(isAuthenticated())
+			transaction.get(transaction.size()-1).accountHandler();
+		else
+			//System.out.println(transaction.get(0).transType());
+			System.out.println("User Not authenticated");
 		
 	}
 	
 	public boolean authenticated(){
-		if (authFlag==true)
-			return true;
-		else 
-			return false;
-					
+		return authFlag;
 	}
 	
-	public void isAuthenticated(){
+	public boolean isAuthenticated(){
+		transaction.get(0).accountHandler();
+		//System.out.println(transaction.get(0).transType());
+		if(transaction.get(0).transType()=='V')
+			return true;
+		else
+			return false;
 		
-					
 	}
 }
