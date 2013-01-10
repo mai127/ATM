@@ -1,25 +1,32 @@
+import java.util.ArrayList;
+
 
 public class Bank {
+	private ArrayList <ATMInfo> atm=new ArrayList();
+	private ArrayList <Customer> customer=new ArrayList();
+	private ArrayList <Card> card=new ArrayList();
+	Customer c;
+	public void addCard(Card c){
+		card.add(c);
+		
+	}
 	
-	public static void main(String args[]) {
+	public void addCustomer(Customer c){
+		customer.add(c);
+		
+	}
 	
-		Card crd = new Card(1234567890,"UOM",1234);
-		Account accnt = new Account("Papadopoulos Giannis", 1234554321, 1020.09, crd);
-		Customer custmr = new Customer("Papadopoulos Giannis", "Egnatia 127 str.", accnt);
-		PinValidation pinvld=new PinValidation(1234,accnt);
+	public void addATM(ATMInfo a){
+		atm.add(a);
+	}
+	
+	public Account accountCard(int n){
+		int i;
+		for(i=0;i<customer.size();i++){
+			if(customer.get(i).getAccount().getCard()==n);
+				break;
+		}
 		
-		
-		ATMInfo atmInf = new ATMInfo("Aristoteloys sqr. 165", "Beta", pinvld);
-		//atmInf.setTransaction(q);
-		Withdraw withDr = new Withdraw(29.22,accnt);
-		atmInf.setTransaction(withDr);
-		atmInf.identifies();
-		Query q=new Query(accnt);
-		atmInf.setTransaction(q);
-		atmInf.identifies();
-	 
-				
-		
-		
-	} // end of main 
+		return customer.get(i).getAccount();
+	}
 } // end of Bank class

@@ -18,6 +18,11 @@ public class Customer {
 		this.address = address;
 	}
 	
+	public Account getAccount(){
+		return account;
+	}
+	
+	
 	public Customer() {
 		name = " ";
 		address = " ";
@@ -27,5 +32,6 @@ public class Customer {
 		name = nm;
 		address = addr;
 		account = acc;
+		account.setOwner(name);
 	}
 }

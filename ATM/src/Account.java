@@ -25,6 +25,16 @@ public class Account {
 		this.balance = balance;
 	}
 	
+	public void setCard(Card c){
+		card=c;
+		card.setaccountNo(AccountNumber);
+	}
+	
+	public int getCard(){
+		return card.getCardNO();
+	}
+	
+	
 	public Account() {
 		owner = " ";
 		AccountNumber = 0;
@@ -32,15 +42,17 @@ public class Account {
 		card = new Card();
 		
 	}
-	public Account(String ownr, int AccNum, double bal, Card crd) {
-		owner = ownr;
+	public Account(int AccNum, double bal) {
+		owner = " ";
 		AccountNumber = AccNum;
 		balance = bal;
-		card = crd;
+		card = new Card();
+		card.setOwnedBy(owner);
+		card.setaccountNo(AccountNumber);
 	}
 	
-	public boolean pinValidation(int pin){
-		if(card.getPin()==pin)
+	public boolean pinValidation(int num,int pin){
+		if(card.getPin()==pin&&card.getCardNO()==num)
 			return true;
 		else 
 			return false; 

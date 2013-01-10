@@ -1,9 +1,9 @@
 
 public class Card {
-	private int cardNO;
-	private String ownedBY;
+	private int cardNo;
+	private String OwnedBy;
 	private int pin;
-	
+	private int accountNo;
 	public void setPin (int p){
 		
 		pin=p;
@@ -13,16 +13,27 @@ public class Card {
 		
 		return pin;
 	}
+	public void setOwnedBy(String n){
+		OwnedBy=n;
+	}
+	public void setaccountNo(int a){
+		accountNo=a;
+	}
+	
+	public int getaccountNo(){
+		return accountNo;
+	}
 	
 	public Card() {
-		cardNO = 0;
-		ownedBY = " ";
+		cardNo=0;
+		OwnedBy = " ";
 		pin = 0;	
 	}
-	public Card(int crdNo, String ownBy, int pn) {
-		cardNO = crdNo;
-		ownedBY = ownBy;
-		pin = pn;	
+	public Card(int crdNo, int pn) {
+		cardNo=crdNo;
+		OwnedBy = " ";
+		pin = pn;
+		accountNo=0;
 	}
 	
 	public boolean access (int p){
@@ -31,4 +42,10 @@ public class Card {
 		else
 			return false;
 	}
+
+	public int getCardNO() {
+		return cardNo;
+	}
+
+
 }

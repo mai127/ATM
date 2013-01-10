@@ -1,17 +1,18 @@
 
 public class PinValidation extends Transaction{
-	private int oldPin;
-	private int newPin;
+	
+	private int cardno;
 	private int pin;
 	private boolean flag=false;
 	
-	public PinValidation(int p,Account ac){
+	public PinValidation(int cardn,int p,Account ac){
 		account=ac;
 		pin=p;
+		cardno=cardn;
 	}
 	@Override
 	public void accountHandler() {
-		flag=account.pinValidation(pin);
+		flag=account.pinValidation(cardno,pin);
 	}
 
 	
