@@ -13,7 +13,9 @@ public class ATMInfo {
 	public void setLocation(String location) {
 		this.location = location;
 	}
-	
+	public String getManagedBy() {
+		return ManagedBy;
+	}
 	public void setTransaction(Transaction tr){
 		transaction.add(tr);
 	}
@@ -27,7 +29,11 @@ public class ATMInfo {
 		ManagedBy = MngBy;
 		transaction.add(trans);
 	}
-
+	public ATMInfo(String locat, String MngBy) {
+		location = locat;
+		ManagedBy = MngBy;
+		transaction.add(null);
+	}
 	public void identifies() {
 		if(isAuthenticated()){
 			transaction.get(transaction.size()-1).accountHandler();
@@ -40,12 +46,14 @@ public class ATMInfo {
 		
 	}
 	
-
+	public void newAtmCustomer(){
+		transaction.clear();
+	}
 	
 	public boolean isAuthenticated(){
-		transaction.get(0).accountHandler();
-		System.out.println(transaction.get(0).transType());
-		if(transaction.get(0).transType()=='V')
+		transaction.get(1).accountHandler();
+		System.out.println(transaction.get(1).transType());
+		if(transaction.get(1).transType()=='V')
 			return true;
 		else
 			return false;

@@ -5,7 +5,7 @@ public class ATM {
 	public static void main(String args[]) {
 		char s='k';
 		Scanner scanner = new Scanner(System.in);
-		System.out.println("Please press e for exit");
+		
 		/*
 		try {
 			  // Load the JDBC driver 
@@ -52,44 +52,81 @@ public class ATM {
 		bank1.addCard(crd);
 		bank1.addCustomer(custmr);
 		
-		//PinValidation pinvld=new PinValidation(1234567890,12345,bank1.accountCard(1234567890));
+		/*
 		
 		
-		//ATMInfo atmInf = new ATMInfo("Aristoteloys sqr. 165", "Beta", pinvld);
-		//atmInf.setTransaction(q);
-		//Withdraw withDr = new Withdraw(29.22,bank1.accountCard(1234567890));
-		//atmInf.setTransaction(withDr);
-		//atmInf.identifies();
-		//Query q=new Query(bank1.accountCard(1234567890));
-		//atmInf.setTransaction(q);
-		//atmInf.identifies();
-		System.out.println(crd.getaccountNo()+" "+bank1.accountCard(1234567890).getBalance());
 		
 		
+		
+											DEN DOULEYEI EXEI BUG!!
+		
+		
+		
+		
+		
+		*/
 		Transaction tr,tr1,tr2;
-		while(s!='e'){
-			System.out.println("Dwse arithmo kartas");
+		ATMInfo atmInf = new ATMInfo("Aristoteloys sqr. 165", "Ethniki Trapeza");
+		
+		while(true){
+			System.out.println("ATM INFO\nTopothesia:"+atmInf.getLocation()+"\nTrapeza:"+atmInf.getManagedBy());
+			System.out.println("Parakalw eisagete Karta");
 			int c=scanner.nextInt();
-			System.out.println("Dwse pin kartas");
-			int p=scanner.nextInt();
 			
-			tr=new PinValidation(c,p,bank1.accountCard(c));
-			ATMInfo atmInf = new ATMInfo("Aristoteloys sqr. 165", "Beta", tr);
-			System.out.println("Dwse poso analipsis");
-			double a=scanner.nextDouble();
-			tr1=new Withdraw(a,bank1.accountCard(c));
-			atmInf.setTransaction(tr1);
-			atmInf.identifies();
-			tr2=new Query(bank1.accountCard(c));
-			atmInf.setTransaction(tr2);
-			atmInf.identifies();
-			tr=null;
-			tr1=null;
-			tr2=null;
-			s=scanner.next().charAt(0);
+
+				System.out.println("Dwse pin kartas");
+				int p=scanner.nextInt();
+				tr=new PinValidation(c,p,bank1.accountCard(c));
+				atmInf.setTransaction(tr);
+				atmInf.identifies();
+				System.out.println("Kalws Hrthate "+bank1.accountCard(c).getOwner());
+				System.out.println("\n\n\n");
+				while(s!='e'){
+					
+					System.out.println("Parakalw epilexte tin sunallagi sas");
+					System.out.println("Dwse A gia analhpsh\nDwse B gia katathesh\nDwse C gia erwthsh upoloipou\nDwse D gia metafora xrhmatwn se allo logariasmo\nDwse F gia allagi Pin\nDwse E gia eksodo");
+					
+					s=scanner.next().toLowerCase().charAt(0);
+					if(s=='a'){
+						System.out.println("Dwse poso analipsis");
+						double a=scanner.nextDouble();
+						tr1=new Withdraw(a,bank1.accountCard(c));
+						atmInf.setTransaction(tr1);
+						atmInf.identifies();
+						tr1=null;
+						//break;
+					}
+					
+					else if(s=='b'){
+						System.out.println("Valte Ta xrhmata stin upodoxh");
+						double a=scanner.nextDouble();
+						tr1=new Deposit(a,bank1.accountCard(c));
+						atmInf.setTransaction(tr1);
+						atmInf.identifies();
+						tr1=null;
+						//break;
+					}
+					else if(s=='c'){
+						tr1=new Query(bank1.accountCard(c));
+						atmInf.setTransaction(tr1);
+						atmInf.identifies();
+						tr1=null;
+						//break;
+					}
+					
+					else if (s=='e'){
+						System.out.println("Euxaristoume pou xrhsimopoihsate tis trapezikes mas uphresies "+bank1.accountCard(c).getOwner());
+						System.out.println("Parakalw paralavete tin karta sas");
+						break;
+					}
+					else{
+						System.out.println("Lathos epilogi prospathise ksana");
+
+					}
+					s=scanner.next().charAt(0);
+			}
+			atmInf.newAtmCustomer();
 		}
-		
-		
 	
 	}
 }
