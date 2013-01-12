@@ -55,153 +55,153 @@ public class ATM_gui1 {
 		frame.getContentPane().add(textField);
 		textField.setColumns(10);
 		
-		JButton btnNewButton = new JButton("1");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton bt1 = new JButton("1");
+		bt1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				textField.setText(textField.getText()+"1");
 			}
 		});
-		btnNewButton.setBounds(133, 183, 45, 23);
-		frame.getContentPane().add(btnNewButton);
+		bt1.setBounds(133, 183, 45, 23);
+		frame.getContentPane().add(bt1);
 		
-		JButton button = new JButton("2");
-		button.addActionListener(new ActionListener() {
+		JButton bt2 = new JButton("2");
+		bt2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textField.setText(textField.getText()+"2");
 			}
 		});
-		button.setBounds(183, 183, 45, 23);
-		frame.getContentPane().add(button);
+		bt2.setBounds(183, 183, 45, 23);
+		frame.getContentPane().add(bt2);
 		
-		JButton button_1 = new JButton("3");
-		button_1.addActionListener(new ActionListener() {
+		JButton bt3 = new JButton("3");
+		bt3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textField.setText(textField.getText()+"3");
 			}
 		});
-		button_1.setBounds(233, 183, 45, 23);
-		frame.getContentPane().add(button_1);
+		bt3.setBounds(233, 183, 45, 23);
+		frame.getContentPane().add(bt3);
 		
-		JButton button_2 = new JButton("4");
-		button_2.addActionListener(new ActionListener() {
+		JButton bt4 = new JButton("4");
+		bt4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textField.setText(textField.getText()+"4");
 			}
 		});
-		button_2.setBounds(133, 217, 45, 23);
-		frame.getContentPane().add(button_2);
+		bt4.setBounds(133, 217, 45, 23);
+		frame.getContentPane().add(bt4);
 		
-		JButton button_3 = new JButton("5");
-		button_3.addActionListener(new ActionListener() {
+		JButton bt5 = new JButton("5");
+		bt5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textField.setText(textField.getText()+"5");
 			}
 		});
-		button_3.setBounds(183, 217, 45, 23);
-		frame.getContentPane().add(button_3);
+		bt5.setBounds(183, 217, 45, 23);
+		frame.getContentPane().add(bt5);
 		
-		JButton button_4 = new JButton("6");
-		button_4.addActionListener(new ActionListener() {
+		JButton bt6 = new JButton("6");
+		bt6.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textField.setText(textField.getText()+"6");
 			}
 		});
-		button_4.setBounds(233, 217, 45, 23);
-		frame.getContentPane().add(button_4);
+		bt6.setBounds(233, 217, 45, 23);
+		frame.getContentPane().add(bt6);
 		
-		JButton button_5 = new JButton("9");
-		button_5.addActionListener(new ActionListener() {
+		JButton bt9 = new JButton("9");
+		bt9.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textField.setText(textField.getText()+"9");
 			}
 		});
-		button_5.setBounds(233, 251, 45, 23);
-		frame.getContentPane().add(button_5);
+		bt9.setBounds(233, 251, 45, 23);
+		frame.getContentPane().add(bt9);
 		
-		JButton button_6 = new JButton("8");
-		button_6.addActionListener(new ActionListener() {
+		JButton bt8 = new JButton("8");
+		bt8.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textField.setText(textField.getText()+"8");
 			}
 		});
-		button_6.setBounds(183, 251, 45, 23);
-		frame.getContentPane().add(button_6);
+		bt8.setBounds(183, 251, 45, 23);
+		frame.getContentPane().add(bt8);
 		
-		JButton button_7 = new JButton("7");
-		button_7.addActionListener(new ActionListener() {
+		JButton bt7 = new JButton("7");
+		bt7.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textField.setText(textField.getText()+"7");
 			}
 		});
-		button_7.setBounds(133, 251, 45, 23);
-		frame.getContentPane().add(button_7);
+		bt7.setBounds(133, 251, 45, 23);
+		frame.getContentPane().add(bt7);
 		
-		JButton button_8 = new JButton(" ");
-		button_8.setBounds(233, 287, 45, 23);
-		frame.getContentPane().add(button_8);
+		JButton btx = new JButton(" ");
+		btx.setBounds(233, 287, 45, 23);
+		frame.getContentPane().add(btx);
 		
-		JButton button_9 = new JButton("0");
-		button_9.addActionListener(new ActionListener() {
+		JButton bt0 = new JButton("0");
+		bt0.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textField.setText(textField.getText()+"0");
 			}
 		});
-		button_9.setBounds(183, 287, 45, 23);
-		frame.getContentPane().add(button_9);
+		bt0.setBounds(183, 287, 45, 23);
+		frame.getContentPane().add(bt0);
 		
-		JButton button_10 = new JButton(" ");
-		button_10.setBounds(133, 287, 45, 23);
-		frame.getContentPane().add(button_10);
+		JButton bty = new JButton(" ");
+		bty.setBounds(133, 287, 45, 23);
+		frame.getContentPane().add(bty);
 		
-		JButton btnNewButton_1 = new JButton("Cancel");
-		btnNewButton_1.setBounds(306, 183, 89, 23);
-		frame.getContentPane().add(btnNewButton_1);
+		JButton btCancel = new JButton("Cancel");
+		btCancel.setBounds(306, 183, 89, 23);
+		frame.getContentPane().add(btCancel);
 		
-		JButton btnClear = new JButton("Clear");
-		btnClear.addActionListener(new ActionListener() {
+		JButton clear = new JButton("Clear");
+		clear.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				int carerPos = textField.getCaretPosition()-1;
 				textField.setText(textField.getText().substring(0, carerPos) + 
 						textField.getText().substring(carerPos+1));
 			}
 		});
-		btnClear.setBounds(306, 217, 89, 23);
-		frame.getContentPane().add(btnClear);
+		clear.setBounds(306, 217, 89, 23);
+		frame.getContentPane().add(clear);
 		
-		JButton btnEnter = new JButton("Enter");
-		btnEnter.setBounds(306, 251, 89, 23);
-		frame.getContentPane().add(btnEnter);
+		JButton btEnter = new JButton("Enter");
+		btEnter.setBounds(306, 251, 89, 23);
+		frame.getContentPane().add(btEnter);
 		
-		JButton btnNewButton_2 = new JButton("Withdrawal");
-		btnNewButton_2.setBounds(5, 26, 100, 23);
-		frame.getContentPane().add(btnNewButton_2);
+		JButton btWithdrawal = new JButton("Withdrawal");
+		btWithdrawal.setBounds(5, 26, 100, 23);
+		frame.getContentPane().add(btWithdrawal);
 		
-		JButton btnDeposit = new JButton("Deposit");
-		btnDeposit.setBounds(5, 59, 100, 23);
-		frame.getContentPane().add(btnDeposit);
+		JButton btDeposit = new JButton("Deposit");
+		btDeposit.setBounds(5, 59, 100, 23);
+		frame.getContentPane().add(btDeposit);
 		
-		JButton btnBalance = new JButton("Balance");
-		btnBalance.setBounds(5, 93, 100, 23);
-		frame.getContentPane().add(btnBalance);
+		JButton btBalance = new JButton("Balance");
+		btBalance.setBounds(5, 93, 100, 23);
+		frame.getContentPane().add(btBalance);
 		
-		JButton btnTransfer = new JButton("Transfer");
-		btnTransfer.setBounds(5, 127, 100, 23);
-		frame.getContentPane().add(btnTransfer);
+		JButton btTransfer = new JButton("Transfer");
+		btTransfer.setBounds(5, 127, 100, 23);
+		frame.getContentPane().add(btTransfer);
 		
 		JSeparator separator = new JSeparator();
 		separator.setBounds(35, 171, 483, 2);
 		frame.getContentPane().add(separator);
 		
-		JLabel lblNewLabel = new JLabel("CARD");
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setForeground(Color.BLACK);
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblNewLabel.setBackground(Color.LIGHT_GRAY);
-		lblNewLabel.setBounds(449, 55, 88, 23);
-		frame.getContentPane().add(lblNewLabel);
+		JLabel lblCard = new JLabel("CARD");
+		lblCard.setHorizontalAlignment(SwingConstants.CENTER);
+		lblCard.setForeground(Color.BLACK);
+		lblCard.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblCard.setBackground(Color.LIGHT_GRAY);
+		lblCard.setBounds(449, 55, 88, 23);
+		frame.getContentPane().add(lblCard);
 		
-		JButton btnNewButton_3 = new JButton(" ");
-		btnNewButton_3.setBounds(449, 80, 88, 11);
-		frame.getContentPane().add(btnNewButton_3);
+		JButton btCard = new JButton(" ");
+		btCard.setBounds(449, 80, 88, 11);
+		frame.getContentPane().add(btCard);
 	}
 }
