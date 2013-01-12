@@ -11,7 +11,7 @@ public class ATM_GUI {
 		  // Create the frame
 		JFrame frame = new JFrame("ATM");
 		  // Main frame settings 
-		frame.setSize(300, 300);
+		frame.setSize(300, 400);
 		frame.setLocation(500,200);
 		
 		  // Create additional JPanels
@@ -19,11 +19,22 @@ public class ATM_GUI {
 		JPanel keypad = new JPanel();
 		JPanel options = new JPanel();
 		
-		monitor.setPreferredSize(new Dimension(150,50));
-		monitor.add(BorderLayout.CENTER, new JTextArea("Monitor"));
+		 // Add all Panels on a JFrame
+		frame.add(monitor, BorderLayout.NORTH);
+		frame.add(keypad, BorderLayout.WEST);  
+		frame.add(options, BorderLayout.CENTER);
 		
-		  // keypad JPanel settings
-		keypad.setPreferredSize(new Dimension(180,250));
+		
+		
+		  // monitor components and their settings
+		JTextArea textArea = new JTextArea();  
+		textArea.setPreferredSize(new Dimension(260,140));
+		textArea.setBackground(Color.lightGray);
+		monitor.add(BorderLayout.CENTER,textArea);
+		monitor.setBackground(Color.DARK_GRAY);
+		
+		  // keypad components and their settings
+		keypad.setPreferredSize(new Dimension(180,180));
 		keypad.setBackground(Color.gray);
 		  
 		  // create JButtons for keypad 
@@ -80,7 +91,7 @@ public class ATM_GUI {
 		
 		  // JPanel settings
 		options.setPreferredSize(new Dimension(150,200));
-		options.setBackground(Color.red);
+		options.setBackground(Color.gray);
 		  // create JButtons for options
 		JButton cancel = new JButton("Cancel");
 		cancel.setPreferredSize(new Dimension(100,30));
@@ -95,13 +106,6 @@ public class ATM_GUI {
 		options.add(enter);
 		
 		
-		
-		
-		
-		  // Add all Panels on a JFrame
-		frame.add(monitor, BorderLayout.NORTH);
-		frame.add(keypad, BorderLayout.WEST);  
-		frame.add(options, BorderLayout.CENTER);
 		
 		  // show the frame
 		frame.setVisible(true);
