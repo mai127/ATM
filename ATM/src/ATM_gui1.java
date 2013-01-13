@@ -165,9 +165,11 @@ public class ATM_gui1 {
 		JButton clear = new JButton("Clear");
 		clear.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				int carerPos = textField.getCaretPosition()-1;
-				textField.setText(textField.getText().substring(0, carerPos) + 
-						textField.getText().substring(carerPos+1));
+				if(!textField.getText().isEmpty()) {
+					int caretPos = textField.getCaretPosition()-1;
+					textField.setText(textField.getText().substring(0, caretPos) + 
+						textField.getText().substring(caretPos+1));
+				}
 			}
 		});
 		clear.setBounds(306, 217, 89, 23);
