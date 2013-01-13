@@ -154,6 +154,11 @@ public class ATM_gui1 {
 		frame.getContentPane().add(bty);
 		
 		JButton btCancel = new JButton("Cancel");
+		btCancel.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				textField.setText("");
+			}
+		});
 		btCancel.setBounds(306, 183, 89, 23);
 		frame.getContentPane().add(btCancel);
 		
