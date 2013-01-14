@@ -15,7 +15,10 @@ public class PinValidation extends Transaction{
 		flag=account.pinValidation(cardno,pin);
 	}
 
-	
+	public boolean getFlag(){
+		return flag;
+		
+	}
 	public char transType() {
 		// TODO Auto-generated method stub
 		if (flag == true)
