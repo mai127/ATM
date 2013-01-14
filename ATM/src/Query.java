@@ -12,8 +12,8 @@ public class Query extends Transaction{
 		System.out.println( account.getBalance());
 		
 	}
-	public char transType() {
+	public String transType() {
 		// TODO Auto-generated method stub
-		return 'q';
+		return "Balance Query";
 	}
 }//class completely wrong must have class account first

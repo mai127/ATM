@@ -19,12 +19,12 @@ public class PinValidation extends Transaction{
 		return flag;
 		
 	}
-	public char transType() {
+	public String transType() {
 		// TODO Auto-generated method stub
 		if (flag == true)
-			return 'V';
+			return "Authenticated";
 		else
-			return 'q';
+			return "Not Authenticated";
 				
 	}
 }

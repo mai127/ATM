@@ -25,7 +25,7 @@ public abstract class Transaction {
 	
 	abstract void accountHandler();
 	
-	abstract char transType();
+	abstract String transType();
 	
 	
 }

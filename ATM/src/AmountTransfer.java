@@ -20,8 +20,9 @@ public class AmountTransfer extends Transaction{
 		}
 		transAc.setBalance(transAc.getBalance()+amount);
 	}
-	public char transType() {
+	public String transType() {
 		// TODO Auto-generated method stub
-		return 't';
+		
+		return amount+" Transfered to"+transAc.getAccountNumber();
 	}
 }

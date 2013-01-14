@@ -23,8 +23,8 @@ public class Withdraw extends Transaction {
 			account.setBalance(account.getBalance()-amou);
 		
 	}
-	public char transType() {
+	public String transType() {
 		// TODO Auto-generated method stub
-		return 'w';
+		return amou+" Withdrawed";
 	}
 }

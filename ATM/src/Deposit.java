@@ -19,8 +19,8 @@ public class Deposit extends Transaction {
 	public void accountHandler() {
 		account.setBalance(account.getBalance()+amount);
 	}
-	public char transType() {
+	public String transType() {
 		// TODO Auto-generated method stub
-		return 'd';
+		return amount +" Deposited";
 	}
 }
