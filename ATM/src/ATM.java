@@ -79,7 +79,7 @@ public class ATM {
 				tr=new PinValidation(c,p,bank1.accountCard(c));
 				atmInf.setTransaction(tr);
 				atmInf.identifies();
-				System.out.println("Kalws Hrthate "+bank1.accountCard(c).getOwner());
+				
 				System.out.println("\n\n\n");
 				while(s!='e'){
 					
@@ -94,6 +94,7 @@ public class ATM {
 						atmInf.setTransaction(tr1);
 						atmInf.identifies();
 						tr1=null;
+						continue;
 						//break;
 					}
 					
@@ -104,6 +105,7 @@ public class ATM {
 						atmInf.setTransaction(tr1);
 						atmInf.identifies();
 						tr1=null;
+						continue;
 						//break;
 					}
 					else if(s=='c'){
@@ -111,6 +113,7 @@ public class ATM {
 						atmInf.setTransaction(tr1);
 						atmInf.identifies();
 						tr1=null;
+						continue;
 						//break;
 					}
 					
@@ -118,6 +121,7 @@ public class ATM {
 						System.out.println("Euxaristoume pou xrhsimopoihsate tis trapezikes mas uphresies "+bank1.accountCard(c).getOwner());
 						System.out.println("Parakalw paralavete tin karta sas");
 						break;
+						
 					}
 					else{
 						System.out.println("Lathos epilogi prospathise ksana");
