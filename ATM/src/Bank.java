@@ -5,7 +5,7 @@ public class Bank {
 	private ArrayList <ATMInfo> atm=new ArrayList();
 	private ArrayList <Customer> customer=new ArrayList();
 	private ArrayList <Card> card=new ArrayList();
-	Customer c;
+	
 	public void addCard(Card c){
 		card.add(c);
 		
