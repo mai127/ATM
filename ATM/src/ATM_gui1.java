@@ -46,6 +46,7 @@ public class ATM_gui1 {
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 563, 369);
+		frame.setResizable(false);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
@@ -137,6 +138,7 @@ public class ATM_gui1 {
 		frame.getContentPane().add(bt7);
 		
 		JButton btx = new JButton(" ");
+		btx.setEnabled(false);		
 		btx.setBounds(233, 287, 45, 23);
 		frame.getContentPane().add(btx);
 		
@@ -150,6 +152,7 @@ public class ATM_gui1 {
 		frame.getContentPane().add(bt0);
 		
 		JButton bty = new JButton(" ");
+		bty.setEnabled(false);
 		bty.setBounds(133, 287, 45, 23);
 		frame.getContentPane().add(bty);
 		
