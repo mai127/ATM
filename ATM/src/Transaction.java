@@ -3,7 +3,7 @@ public abstract class Transaction {
 
 	protected int transactionId; 
 	protected int date;			
-	protected Account account;
+	protected Account account,transAc;
 	
 	
 	

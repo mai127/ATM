@@ -3,7 +3,7 @@ public class AmountTransfer extends Transaction{
 	
 	private int amount;
 	private int accountNumber;
-	private Account transAc;
+	
 	
 	public AmountTransfer(int amou,Account originalAccount,Account TransferAccount){
 		amount=amou;
