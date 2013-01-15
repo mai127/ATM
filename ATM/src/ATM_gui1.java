@@ -12,6 +12,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextArea;
 import javax.swing.ImageIcon;
+import java.awt.SystemColor;
+import javax.swing.JPanel;
+import javax.swing.border.LineBorder;
 
 
 public class ATM_gui1 {
@@ -47,25 +50,33 @@ public class ATM_gui1 {
 	 */
 	private void initialize() {
 		frame = new JFrame();
+		frame.getContentPane().setForeground(SystemColor.desktop);
+		frame.getContentPane().setBackground(Color.LIGHT_GRAY);
 		frame.setBounds(100, 100, 565, 433);
 	//	frame.setResizable(false);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
 		textField = new JTextField();
+		textField.setFont(new Font("Tahoma", Font.BOLD, 14));
+		textField.setForeground(Color.black);
+		textField.setBackground(SystemColor.activeCaption);
 		textField.setEditable(false);
 		textField.setBounds(115, 44, 335, 171);
 		frame.getContentPane().add(textField);
-		textField.setColumns(10);
+		textField.setColumns(4);
+		textField.setBorder(javax.swing.BorderFactory.createLineBorder(Color.gray));
 		
-		JButton bt1 = new JButton("");
-		bt1.setIcon(new ImageIcon("C:\\Users\\mai127\\Desktop\\bt1.png"));
+		
+		
+		ImageIcon bt1icon = new ImageIcon("images/1.png");
+		JButton bt1 = new JButton(bt1icon);
 		bt1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				textField.setText(textField.getText()+"1");
 			}
 		});
-		bt1.setBounds(23, 248, 62, 51);
+		bt1.setBounds(23, 248, 51, 42);
 		frame.getContentPane().add(bt1);
 		
 		JButton bt2 = new JButton("2");
@@ -202,6 +213,7 @@ public class ATM_gui1 {
 		frame.getContentPane().add(btTransfer);
 		
 		JSeparator separator = new JSeparator();
+		separator.setBackground(Color.GRAY);
 		separator.setBounds(34, 235, 483, 2);
 		frame.getContentPane().add(separator);
 		
@@ -226,9 +238,12 @@ public class ATM_gui1 {
 		frame.getContentPane().add(btPinChange);
 		
 		JTextArea txtrAtmBank = new JTextArea();
-		txtrAtmBank.setFont(new Font("Monospaced", Font.BOLD, 20));
+		txtrAtmBank.setForeground(Color.BLACK);
+		txtrAtmBank.setEditable(false);
+		txtrAtmBank.setBackground(Color.LIGHT_GRAY);
+		txtrAtmBank.setFont(new Font("Tahoma", Font.BOLD, 24));
 		txtrAtmBank.setText("ATM Bank");
-		txtrAtmBank.setBounds(230, 11, 100, 23);
+		txtrAtmBank.setBounds(216, -1, 129, 34);
 		frame.getContentPane().add(txtrAtmBank);
 	}
 }
