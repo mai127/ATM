@@ -10,6 +10,8 @@ import java.awt.Font;
 import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JTextArea;
+import javax.swing.ImageIcon;
 
 
 public class ATM_gui1 {
@@ -45,24 +47,25 @@ public class ATM_gui1 {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 563, 369);
-		frame.setResizable(false);
+		frame.setBounds(100, 100, 565, 433);
+	//	frame.setResizable(false);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
 		textField = new JTextField();
 		textField.setEditable(false);
-		textField.setBounds(109, 26, 335, 134);
+		textField.setBounds(115, 44, 335, 171);
 		frame.getContentPane().add(textField);
 		textField.setColumns(10);
 		
-		JButton bt1 = new JButton("1");
+		JButton bt1 = new JButton("");
+		bt1.setIcon(new ImageIcon("C:\\Users\\mai127\\Desktop\\bt1.png"));
 		bt1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				textField.setText(textField.getText()+"1");
 			}
 		});
-		bt1.setBounds(133, 183, 45, 23);
+		bt1.setBounds(23, 248, 62, 51);
 		frame.getContentPane().add(bt1);
 		
 		JButton bt2 = new JButton("2");
@@ -71,7 +74,7 @@ public class ATM_gui1 {
 				textField.setText(textField.getText()+"2");
 			}
 		});
-		bt2.setBounds(183, 183, 45, 23);
+		bt2.setBounds(195, 248, 45, 23);
 		frame.getContentPane().add(bt2);
 		
 		JButton bt3 = new JButton("3");
@@ -80,7 +83,7 @@ public class ATM_gui1 {
 				textField.setText(textField.getText()+"3");
 			}
 		});
-		bt3.setBounds(233, 183, 45, 23);
+		bt3.setBounds(245, 248, 45, 23);
 		frame.getContentPane().add(bt3);
 		
 		JButton bt4 = new JButton("4");
@@ -89,7 +92,7 @@ public class ATM_gui1 {
 				textField.setText(textField.getText()+"4");
 			}
 		});
-		bt4.setBounds(133, 217, 45, 23);
+		bt4.setBounds(145, 282, 45, 23);
 		frame.getContentPane().add(bt4);
 		
 		JButton bt5 = new JButton("5");
@@ -98,7 +101,7 @@ public class ATM_gui1 {
 				textField.setText(textField.getText()+"5");
 			}
 		});
-		bt5.setBounds(183, 217, 45, 23);
+		bt5.setBounds(195, 282, 45, 23);
 		frame.getContentPane().add(bt5);
 		
 		JButton bt6 = new JButton("6");
@@ -107,7 +110,7 @@ public class ATM_gui1 {
 				textField.setText(textField.getText()+"6");
 			}
 		});
-		bt6.setBounds(233, 217, 45, 23);
+		bt6.setBounds(245, 282, 45, 23);
 		frame.getContentPane().add(bt6);
 		
 		JButton bt9 = new JButton("9");
@@ -116,7 +119,7 @@ public class ATM_gui1 {
 				textField.setText(textField.getText()+"9");
 			}
 		});
-		bt9.setBounds(233, 251, 45, 23);
+		bt9.setBounds(245, 316, 45, 23);
 		frame.getContentPane().add(bt9);
 		
 		JButton bt8 = new JButton("8");
@@ -125,7 +128,7 @@ public class ATM_gui1 {
 				textField.setText(textField.getText()+"8");
 			}
 		});
-		bt8.setBounds(183, 251, 45, 23);
+		bt8.setBounds(195, 316, 45, 23);
 		frame.getContentPane().add(bt8);
 		
 		JButton bt7 = new JButton("7");
@@ -134,12 +137,12 @@ public class ATM_gui1 {
 				textField.setText(textField.getText()+"7");
 			}
 		});
-		bt7.setBounds(133, 251, 45, 23);
+		bt7.setBounds(145, 316, 45, 23);
 		frame.getContentPane().add(bt7);
 		
 		JButton btx = new JButton(" ");
 		btx.setEnabled(false);		
-		btx.setBounds(233, 287, 45, 23);
+		btx.setBounds(245, 352, 45, 23);
 		frame.getContentPane().add(btx);
 		
 		JButton bt0 = new JButton("0");
@@ -148,12 +151,12 @@ public class ATM_gui1 {
 				textField.setText(textField.getText()+"0");
 			}
 		});
-		bt0.setBounds(183, 287, 45, 23);
+		bt0.setBounds(195, 352, 45, 23);
 		frame.getContentPane().add(bt0);
 		
 		JButton bty = new JButton(" ");
 		bty.setEnabled(false);
-		bty.setBounds(133, 287, 45, 23);
+		bty.setBounds(145, 352, 45, 23);
 		frame.getContentPane().add(bty);
 		
 		JButton btCancel = new JButton("Cancel");
@@ -162,7 +165,7 @@ public class ATM_gui1 {
 				textField.setText("");
 			}
 		});
-		btCancel.setBounds(306, 183, 89, 23);
+		btCancel.setBounds(318, 248, 89, 23);
 		frame.getContentPane().add(btCancel);
 		
 		JButton clear = new JButton("Clear");
@@ -175,31 +178,31 @@ public class ATM_gui1 {
 				}
 			}
 		});
-		clear.setBounds(306, 217, 89, 23);
+		clear.setBounds(318, 282, 89, 23);
 		frame.getContentPane().add(clear);
 		
 		JButton btEnter = new JButton("Enter");
-		btEnter.setBounds(306, 251, 89, 23);
+		btEnter.setBounds(318, 316, 89, 23);
 		frame.getContentPane().add(btEnter);
 		
 		JButton btWithdrawal = new JButton("Withdrawal");
-		btWithdrawal.setBounds(5, 26, 100, 23);
+		btWithdrawal.setBounds(10, 48, 100, 23);
 		frame.getContentPane().add(btWithdrawal);
 		
 		JButton btDeposit = new JButton("Deposit");
-		btDeposit.setBounds(5, 59, 100, 23);
+		btDeposit.setBounds(10, 81, 100, 23);
 		frame.getContentPane().add(btDeposit);
 		
 		JButton btBalance = new JButton("Balance");
-		btBalance.setBounds(5, 93, 100, 23);
+		btBalance.setBounds(10, 115, 100, 23);
 		frame.getContentPane().add(btBalance);
 		
 		JButton btTransfer = new JButton("Transfer");
-		btTransfer.setBounds(5, 127, 100, 23);
+		btTransfer.setBounds(10, 149, 100, 23);
 		frame.getContentPane().add(btTransfer);
 		
 		JSeparator separator = new JSeparator();
-		separator.setBounds(35, 171, 483, 2);
+		separator.setBounds(34, 235, 483, 2);
 		frame.getContentPane().add(separator);
 		
 		JLabel lblCard = new JLabel("CARD");
@@ -207,11 +210,25 @@ public class ATM_gui1 {
 		lblCard.setForeground(Color.BLACK);
 		lblCard.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblCard.setBackground(Color.LIGHT_GRAY);
-		lblCard.setBounds(449, 55, 88, 23);
+		lblCard.setBounds(455, 73, 88, 23);
 		frame.getContentPane().add(lblCard);
 		
 		JButton btCard = new JButton(" ");
-		btCard.setBounds(449, 80, 88, 11);
+		btCard.setBounds(455, 98, 88, 11);
 		frame.getContentPane().add(btCard);
+		
+		JButton btPinChange = new JButton("Pin Change");
+		btPinChange.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		btPinChange.setBounds(10, 183, 100, 23);
+		frame.getContentPane().add(btPinChange);
+		
+		JTextArea txtrAtmBank = new JTextArea();
+		txtrAtmBank.setFont(new Font("Monospaced", Font.BOLD, 20));
+		txtrAtmBank.setText("ATM Bank");
+		txtrAtmBank.setBounds(230, 11, 100, 23);
+		frame.getContentPane().add(txtrAtmBank);
 	}
 }
