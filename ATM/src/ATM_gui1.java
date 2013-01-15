@@ -15,6 +15,7 @@ import javax.swing.ImageIcon;
 import java.awt.SystemColor;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
+import javax.swing.Icon;
 
 
 public class ATM_gui1 {
@@ -51,8 +52,8 @@ public class ATM_gui1 {
 	private void initialize() {
 		frame = new JFrame();
 		frame.getContentPane().setForeground(SystemColor.desktop);
-		frame.getContentPane().setBackground(Color.LIGHT_GRAY);
-		frame.setBounds(100, 100, 565, 433);
+		frame.getContentPane().setBackground(new Color(169, 169, 169));
+		frame.setBounds(100, 100, 643, 500);
 	//	frame.setResizable(false);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
@@ -67,8 +68,10 @@ public class ATM_gui1 {
 		textField.setColumns(4);
 		textField.setBorder(javax.swing.BorderFactory.createLineBorder(Color.gray));
 		
+
+// --- keypad creation -----------------------------------------------------		
 		
-		
+		  // creation and settings of button 1
 		ImageIcon bt1icon = new ImageIcon("images/1.png");
 		JButton bt1 = new JButton(bt1icon);
 		bt1.addActionListener(new ActionListener() {
@@ -76,111 +79,188 @@ public class ATM_gui1 {
 				textField.setText(textField.getText()+"1");
 			}
 		});
-		bt1.setBounds(23, 248, 51, 42);
+		bt1.setBorderPainted(false); 
+		bt1.setContentAreaFilled(false); 
+		bt1.setFocusPainted(false); 
+		bt1.setOpaque(false);
+		bt1.setBounds(137, 256, 51, 42);
 		frame.getContentPane().add(bt1);
-		
-		JButton bt2 = new JButton("2");
+		  
+		  // creation and settings of button 2		
+		ImageIcon bt2icon = new ImageIcon("images/2.png");
+		JButton bt2 = new JButton(bt2icon);
 		bt2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textField.setText(textField.getText()+"2");
 			}
 		});
-		bt2.setBounds(195, 248, 45, 23);
+		bt2.setBorderPainted(false); 
+		bt2.setContentAreaFilled(false); 
+		bt2.setFocusPainted(false); 
+		bt2.setOpaque(false);
+		bt2.setBounds(198, 256, 51, 42);
 		frame.getContentPane().add(bt2);
 		
-		JButton bt3 = new JButton("3");
+		  // creation and settings of button 3
+		ImageIcon bt3icon = new ImageIcon("images/3.png");
+		JButton bt3 = new JButton(bt3icon);
 		bt3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textField.setText(textField.getText()+"3");
 			}
 		});
-		bt3.setBounds(245, 248, 45, 23);
+		bt3.setBorderPainted(false); 
+		bt3.setContentAreaFilled(false); 
+		bt3.setFocusPainted(false); 
+		bt3.setOpaque(false);
+		bt3.setBounds(259, 256, 51, 42);
 		frame.getContentPane().add(bt3);
 		
-		JButton bt4 = new JButton("4");
+		  // creation and settings of button 4
+		ImageIcon bt4icon = new ImageIcon("images/4.png");
+		JButton bt4 = new JButton(bt4icon);
+		bt4.setBackground(Color.WHITE);
 		bt4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textField.setText(textField.getText()+"4");
 			}
 		});
-		bt4.setBounds(145, 282, 45, 23);
+		bt4.setBorderPainted(false); 
+		bt4.setContentAreaFilled(false); 
+		bt4.setFocusPainted(false); 
+		bt4.setOpaque(false);
+		bt4.setBounds(137, 304, 51, 42);
 		frame.getContentPane().add(bt4);
 		
-		JButton bt5 = new JButton("5");
+ 		  // creation and settings of button 5
+		ImageIcon bt5icon = new ImageIcon("images/5.png");
+		JButton bt5 = new JButton(bt5icon);
 		bt5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textField.setText(textField.getText()+"5");
 			}
 		});
-		bt5.setBounds(195, 282, 45, 23);
+		bt5.setBorderPainted(false); 
+		bt5.setContentAreaFilled(false); 
+		bt5.setFocusPainted(false); 
+		bt5.setOpaque(false);
+		bt5.setBounds(198, 304, 51, 42);
 		frame.getContentPane().add(bt5);
 		
-		JButton bt6 = new JButton("6");
+	      // creation and settings of button 6
+		ImageIcon bt6icon = new ImageIcon("images/6.png");
+		JButton bt6 = new JButton(bt6icon);
 		bt6.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textField.setText(textField.getText()+"6");
 			}
 		});
-		bt6.setBounds(245, 282, 45, 23);
+		bt6.setOpaque(false);
+		bt6.setFocusPainted(false);
+		bt6.setContentAreaFilled(false);
+		bt6.setBorderPainted(false);
+		bt6.setBounds(259, 304, 51, 42);
 		frame.getContentPane().add(bt6);
 		
-		JButton bt9 = new JButton("9");
-		bt9.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				textField.setText(textField.getText()+"9");
-			}
-		});
-		bt9.setBounds(245, 316, 45, 23);
-		frame.getContentPane().add(bt9);
-		
-		JButton bt8 = new JButton("8");
-		bt8.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				textField.setText(textField.getText()+"8");
-			}
-		});
-		bt8.setBounds(195, 316, 45, 23);
-		frame.getContentPane().add(bt8);
-		
-		JButton bt7 = new JButton("7");
+		  // creation and settings of button 7
+		ImageIcon bt7icon = new ImageIcon("images/7.png");
+		JButton bt7 = new JButton(bt7icon);
 		bt7.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textField.setText(textField.getText()+"7");
 			}
 		});
-		bt7.setBounds(145, 316, 45, 23);
+		bt7.setOpaque(false);
+		bt7.setFocusPainted(false);
+		bt7.setContentAreaFilled(false);
+		bt7.setBorderPainted(false);
+		bt7.setBounds(137, 352, 51, 42);
 		frame.getContentPane().add(bt7);
 		
-		JButton btx = new JButton(" ");
-		btx.setEnabled(false);		
-		btx.setBounds(245, 352, 45, 23);
-		frame.getContentPane().add(btx);
+		  // creation and settings of button 8
+		ImageIcon bt8icon = new ImageIcon("images/8.png");
+		JButton bt8 = new JButton(bt8icon);
+		bt8.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				textField.setText(textField.getText()+"8");
+			}
+		});
+		bt8.setOpaque(false);
+		bt8.setFocusPainted(false);
+		bt8.setContentAreaFilled(false);
+		bt8.setBorderPainted(false);
+		bt8.setBounds(198, 352, 51, 42);
+		frame.getContentPane().add(bt8);
+
+		  // creation and settings of button 9
+		ImageIcon bt9icon = new ImageIcon("images/9.png");
+		JButton bt9 = new JButton(bt9icon);
+		bt9.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				textField.setText(textField.getText()+"9");
+			}
+		});
+		bt9.setOpaque(false);
+		bt9.setFocusPainted(false);
+		bt9.setContentAreaFilled(false);
+		bt9.setBorderPainted(false);
+		bt9.setBounds(259, 352, 51, 42);
+		frame.getContentPane().add(bt9);
 		
-		JButton bt0 = new JButton("0");
+		  // creation and settings of button 0
+		ImageIcon bt0icon = new ImageIcon("images/0.png");
+		JButton bt0 = new JButton(bt0icon);
 		bt0.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textField.setText(textField.getText()+"0");
 			}
 		});
-		bt0.setBounds(195, 352, 45, 23);
+		bt0.setOpaque(false);
+		bt0.setFocusPainted(false);
+		bt0.setContentAreaFilled(false);
+		bt0.setBorderPainted(false);
+		bt0.setBounds(198, 400, 51, 42);
 		frame.getContentPane().add(bt0);
 		
-		JButton bty = new JButton(" ");
-		bty.setEnabled(false);
-		bty.setBounds(145, 352, 45, 23);
+		  // creation and settings of button x
+		ImageIcon btxicon = new ImageIcon("images/x-y.png");
+		JButton btx = new JButton(btxicon);
+		btx.setOpaque(false);
+		btx.setFocusPainted(false);
+		btx.setContentAreaFilled(false);
+		btx.setBorderPainted(false);
+		btx.setBounds(137, 400, 51, 42);
+		frame.getContentPane().add(btx);
+		
+		  // creation and settings of button x
+		ImageIcon btyicon = new ImageIcon("images/x-y.png");
+		JButton bty = new JButton(btyicon);
+		bty.setOpaque(false);
+		bty.setFocusPainted(false);
+		bty.setContentAreaFilled(false);
+		bty.setBorderPainted(false);
+		bty.setBounds(259, 400, 51, 42);
 		frame.getContentPane().add(bty);
 		
-		JButton btCancel = new JButton("Cancel");
-		btCancel.addActionListener(new ActionListener() {
+		  // creation and settings of button cancel
+		ImageIcon btcancelicon = new ImageIcon("images/cancel.png");
+		JButton btcancel = new JButton(btcancelicon);
+		btcancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				textField.setText("");
 			}
 		});
-		btCancel.setBounds(318, 248, 89, 23);
-		frame.getContentPane().add(btCancel);
+		btcancel.setBounds(336, 256, 75, 42);
+		btcancel.setOpaque(false);
+		btcancel.setFocusPainted(false);
+		btcancel.setContentAreaFilled(false);
+		btcancel.setBorderPainted(false);
+		frame.getContentPane().add(btcancel);
 		
-		JButton clear = new JButton("Clear");
-		clear.addActionListener(new ActionListener() {
+		  // creation and settings of button clear
+		ImageIcon btclearicon = new ImageIcon("images/clear.png");
+		JButton btclear = new JButton(btclearicon);
+		btclear.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(!textField.getText().isEmpty()) {
 					int caretPos = textField.getCaretPosition()-1;
@@ -189,12 +269,36 @@ public class ATM_gui1 {
 				}
 			}
 		});
-		clear.setBounds(318, 282, 89, 23);
-		frame.getContentPane().add(clear);
-		
-		JButton btEnter = new JButton("Enter");
-		btEnter.setBounds(318, 316, 89, 23);
+		btclear.setOpaque(false);
+		btclear.setFocusPainted(false);
+		btclear.setContentAreaFilled(false);
+		btclear.setBorderPainted(false);
+		btclear.setBounds(336, 304, 75, 42);
+		frame.getContentPane().add(btclear);
+		 
+		  // creation and settings of button enter
+		ImageIcon btentericon = new ImageIcon("images/enter.png");
+		JButton btEnter = new JButton(btentericon);
+		btEnter.setOpaque(false);
+		btEnter.setFocusPainted(false);
+		btEnter.setContentAreaFilled(false);
+		btEnter.setBorderPainted(false);
+		btEnter.setBounds(336, 352, 75, 42);
 		frame.getContentPane().add(btEnter);
+		
+		  // creation and settings of button z	
+		ImageIcon btzicon = new ImageIcon("images/z.png");
+		JButton btz = new JButton(btzicon);
+		btz.setOpaque(false);
+		btz.setFocusPainted(false);
+		btz.setContentAreaFilled(false);
+		btz.setBorderPainted(false);
+		btz.setBounds(336, 400, 75, 42);
+		frame.getContentPane().add(btz);
+		
+// --- end of keypad creation ----------------------------------------------
+		
+		
 		
 		JButton btWithdrawal = new JButton("Withdrawal");
 		btWithdrawal.setBounds(10, 48, 100, 23);
@@ -222,11 +326,11 @@ public class ATM_gui1 {
 		lblCard.setForeground(Color.BLACK);
 		lblCard.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblCard.setBackground(Color.LIGHT_GRAY);
-		lblCard.setBounds(455, 73, 88, 23);
+		lblCard.setBounds(455, 73, 166, 23);
 		frame.getContentPane().add(lblCard);
 		
 		JButton btCard = new JButton(" ");
-		btCard.setBounds(455, 98, 88, 11);
+		btCard.setBounds(455, 98, 166, 6);
 		frame.getContentPane().add(btCard);
 		
 		JButton btPinChange = new JButton("Pin Change");
@@ -240,10 +344,25 @@ public class ATM_gui1 {
 		JTextArea txtrAtmBank = new JTextArea();
 		txtrAtmBank.setForeground(Color.BLACK);
 		txtrAtmBank.setEditable(false);
-		txtrAtmBank.setBackground(Color.LIGHT_GRAY);
+		txtrAtmBank.setBackground(new Color(169, 169, 169));
 		txtrAtmBank.setFont(new Font("Tahoma", Font.BOLD, 24));
 		txtrAtmBank.setText("ATM Bank");
 		txtrAtmBank.setBounds(216, -1, 129, 34);
 		frame.getContentPane().add(txtrAtmBank);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 	}
 }
