@@ -30,7 +30,12 @@ public class ATM_GUI {
 	ATMInfo atmInf = new ATMInfo("Aristoteloys sqr. 165", "Ethniki Trapeza");
 	
 	int p,c;
-	
+	boolean enterpin=false;
+	boolean enterwith=false;
+	boolean enterbal=false;
+	boolean enterdep=false;
+	boolean entrpinch=false;
+	boolean entertrans=false;
 	
 	//Buttons and labels
 	JButton btCard = new JButton(" ");
@@ -41,6 +46,7 @@ public class ATM_GUI {
 	JButton btDeposit = new JButton("Deposit");
 	JButton btPinChange = new JButton("Pin Change");
 	JButton btTransfer = new JButton("Transfer");
+	JLabel lblCard = new JLabel("CARD");
 	
 	JTextArea txtrAtmBank = new JTextArea();
 	
@@ -393,8 +399,25 @@ public class ATM_GUI {
 			});
 			btconfPin.setBounds(10, 193, 100, 23);
 			frame.getContentPane().add(btconfPin);
+			
+		
+		btCard.setBounds(455, 98, 166, 6);
+		btCard.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+
+				c=Integer.parseInt(textField.getText());
+				lblCard.setText("No"+c);
+				textField.setText("");
+				btCard.setEnabled(false);
+				txtrAtmBank.setText("Dwse Pin");
+	
+				}
+			});
+		frame.getContentPane().add(btCard);
 		
 		JSeparator separator = new JSeparator();
+		
+		
 		separator.setBackground(Color.GRAY);
 		separator.setBounds(34, 235, 483, 2);
 		frame.getContentPane().add(separator);
@@ -403,7 +426,7 @@ public class ATM_GUI {
 		
 		
 		
-		JLabel lblCard = new JLabel("CARD");
+		
 		lblCard.setHorizontalAlignment(SwingConstants.CENTER);
 		lblCard.setForeground(Color.BLACK);
 		lblCard.setFont(new Font("Tahoma", Font.BOLD, 11));
@@ -411,13 +434,11 @@ public class ATM_GUI {
 		lblCard.setBounds(455, 73, 166, 23);
 		frame.getContentPane().add(lblCard);
 		
-		JButton btCard = new JButton(" ");
-		btCard.setBounds(455, 98, 166, 6);
-		frame.getContentPane().add(btCard);
 		
 		
 		
-		JTextArea txtrAtmBank = new JTextArea();
+		
+		
 		txtrAtmBank.setForeground(Color.BLACK);
 		txtrAtmBank.setEditable(false);
 		txtrAtmBank.setBackground(new Color(169, 169, 169));
