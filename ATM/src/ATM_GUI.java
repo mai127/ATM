@@ -45,12 +45,13 @@ public class ATM_GUI {
 	
 	JButton btCard = new JButton(" ");
 	
-	JButton btconfPin = new JButton("Confirm Pin");
+	JButton btExTrans = new JButton("Exit Transaction");
 	JButton btBalance = new JButton("Balance");
 	JButton btWithdrawal = new JButton("Withdrawal");
 	JButton btDeposit = new JButton("Deposit");
 	JButton btPinChange = new JButton("Pin Change");
 	JButton btTransfer = new JButton("Transfer");
+	
 	JLabel lblCard = new JLabel("CARD");
 	
 	JTextArea txtrAtmBank = new JTextArea();
@@ -386,6 +387,9 @@ public class ATM_GUI {
 				
 				
 				}
+			else{
+				txtrAtmBank.setText("parakalw epilexte\nsunalagi");
+			}
 			}
 		});
 		frame.getContentPane().add(btEnter);
@@ -453,21 +457,21 @@ public class ATM_GUI {
 		btPinChange.setBounds(10, 159, 100, 23);
 		frame.getContentPane().add(btPinChange);
 		
-		btconfPin.addActionListener(new ActionListener() {
+		btExTrans.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-			p=Integer.parseInt(textField.getText());
-			tr=new PinValidation(c,p,bank1.accountCard(c));
-				atmInf.setTransaction(tr);
-				atmInf.identifies();
-				if(atmInf.isAuthenticated()){
-					txtrAtmBank.setText("We are In");
-				}
-				else
-					txtrAtmBank.setText("Not In");
+				if(enterwith||enterbal|| enterdep||entrpinch||entertrans){
+					 enterwith=false;
+					 enterbal=false;
+					 enterdep=false;
+					 entrpinch=false;
+					 entertrans=false;
+					 textField.setText("");
+					 txtrAtmBank.setText("H synalagi\nakurwthike\nparakalw epilexte\nsunalagi");
+					}
 				}
 			});
-			btconfPin.setBounds(10, 193, 100, 23);
-			frame.getContentPane().add(btconfPin);
+		btExTrans.setBounds(10, 193, 100, 23);
+			frame.getContentPane().add(btExTrans);
 			
 		
 		btCard.setBounds(455, 98, 166, 6);
