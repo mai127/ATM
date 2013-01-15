@@ -441,7 +441,7 @@ public class ATM_GUI {
 		
 		txtrAtmBank.setForeground(Color.BLACK);
 		txtrAtmBank.setEditable(false);
-		txtrAtmBank.setBackground(new Color(169, 169, 169));
+		txtrAtmBank.setBackground(SystemColor.activeCaption);
 		txtrAtmBank.setFont(new Font("Tahoma", Font.BOLD, 24));
 		txtrAtmBank.setText("ATM Bank");
 		txtrAtmBank.setBounds(128, 24, 326, 158);
