@@ -16,4 +16,4 @@ public class Query extends Transaction{
 		// TODO Auto-generated method stub
 		return "Balance Query";
 	}
-}//class completely wrong must have class account first
+}

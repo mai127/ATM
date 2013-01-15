@@ -52,19 +52,7 @@ public class ATM {
 		bank1.addCard(crd);
 		bank1.addCustomer(custmr);
 		
-		/*
-		
-		
-		
-		
-		
-											DEN DOULEYEI EXEI BUG!!
-		
-		
-		
-		
-		
-		*/
+
 		Transaction tr,tr1,tr2;
 		ATMInfo atmInf = new ATMInfo("Aristoteloys sqr. 165", "Ethniki Trapeza");
 		
