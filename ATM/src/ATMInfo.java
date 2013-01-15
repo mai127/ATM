@@ -48,6 +48,7 @@ public class ATMInfo {
 	
 	public void newAtmCustomer(){
 		transaction.clear();
+		transaction.add(null);
 	}
 	
 	public boolean isAuthenticated(){

@@ -334,7 +334,10 @@ public class ATM_GUI {
 						textField.setText("");
 					}
 					else{
-						txtrAtmBank.setText("Wrong Pin Please try Again");
+						txtrAtmBank.setText("Wrong credentials\n Please try Again");
+						btCard.setEnabled(true);
+						textField.setText("");
+						atmInf.newAtmCustomer();
 						}
 					}
 			else if(enterbal){
@@ -362,6 +365,27 @@ public class ATM_GUI {
 					txtrAtmBank.setText("parakalw \neisagete poso\nkai patiste\nenter");
 					}
 				}
+			else if(enterwith){
+				if(!textField.getText().isEmpty()){
+					int a=Integer.parseInt(textField.getText());
+					tr1=new Withdraw(a,bank1.accountCard(c));
+					atmInf.setTransaction(tr1);
+					atmInf.identifies();
+					tr1=null;
+					textField.setText("");
+					txtrAtmBank.setText("Euxaristoume gia\n tin sunalagi");
+					enterwith=false;
+					}
+				else
+					{
+					enterwith=true;
+					txtrAtmBank.setText("parakalw \neisagete poso\nkai patiste\nenter");
+					}
+				}
+			else if(entertrans){
+				
+				
+				}
 			}
 		});
 		frame.getContentPane().add(btEnter);
@@ -384,22 +408,19 @@ public class ATM_GUI {
 		btWithdrawal.setBounds(10, 24, 100, 23);
 		btWithdrawal.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				int a=Integer.parseInt(textField.getText());
-				tr1=new Withdraw(a,bank1.accountCard(c));
-				atmInf.setTransaction(tr1);
-				atmInf.identifies();
-				tr1=null;
+				txtrAtmBank.setText("Parakalw eisagete\nposo analipsis\nkai patiste\nenter");
+				
+				enterwith=true;
 				}
 			});
 		frame.getContentPane().add(btWithdrawal);
 		
 		
 		btDeposit.setBounds(10, 57, 100, 23);
-		
 		btDeposit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				txtrAtmBank.setText("Parakalw eisagete\nposo analipsis\nkai patiste\nenter");
+				txtrAtmBank.setText("Parakalw eisagete\nposo katathesis\nkai patiste\nenter");
 				
 				enterdep=true;
 				
