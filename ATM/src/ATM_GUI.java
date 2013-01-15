@@ -95,7 +95,7 @@ public class ATM_GUI {
 		textField.setForeground(Color.black);
 		textField.setBackground(SystemColor.activeCaption);
 		textField.setEditable(false);
-		textField.setBounds(115, 44, 335, 171);
+		textField.setBounds(128, 193, 326, 34);
 		frame.getContentPane().add(textField);
 		textField.setColumns(4);
 		textField.setBorder(javax.swing.BorderFactory.createLineBorder(Color.gray));
@@ -333,7 +333,7 @@ public class ATM_GUI {
 		
 		
 		
-		btWithdrawal.setBounds(10, 48, 100, 23);
+		btWithdrawal.setBounds(10, 24, 100, 23);
 		btWithdrawal.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				int a=Integer.parseInt(textField.getText());
@@ -346,7 +346,7 @@ public class ATM_GUI {
 		frame.getContentPane().add(btWithdrawal);
 		
 		
-		btDeposit.setBounds(10, 81, 100, 23);
+		btDeposit.setBounds(10, 57, 100, 23);
 		
 		btDeposit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -360,7 +360,7 @@ public class ATM_GUI {
 		frame.getContentPane().add(btDeposit);
 		
 		
-		btBalance.setBounds(10, 115, 100, 23);
+		btBalance.setBounds(10, 91, 100, 23);
 		btBalance.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
 				tr1=new Query(bank1.accountCard(c));
@@ -373,7 +373,7 @@ public class ATM_GUI {
 		frame.getContentPane().add(btBalance);
 		
 		
-		btTransfer.setBounds(10, 149, 100, 23);
+		btTransfer.setBounds(10, 125, 100, 23);
 		
 		frame.getContentPane().add(btTransfer);
 		
@@ -381,7 +381,7 @@ public class ATM_GUI {
 			public void actionPerformed(ActionEvent arg0) {
 			}
 		});
-		btPinChange.setBounds(10, 183, 100, 23);
+		btPinChange.setBounds(10, 159, 100, 23);
 		frame.getContentPane().add(btPinChange);
 		
 		btconfPin.addActionListener(new ActionListener() {
@@ -444,7 +444,7 @@ public class ATM_GUI {
 		txtrAtmBank.setBackground(new Color(169, 169, 169));
 		txtrAtmBank.setFont(new Font("Tahoma", Font.BOLD, 24));
 		txtrAtmBank.setText("ATM Bank");
-		txtrAtmBank.setBounds(216, -1, 129, 34);
+		txtrAtmBank.setBounds(128, 24, 326, 158);
 		frame.getContentPane().add(txtrAtmBank);
 		
 		
