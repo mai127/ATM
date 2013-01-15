@@ -22,7 +22,28 @@ public class ATM_GUI {
 
 	private JFrame frame;
 	private JTextField textField;
-
+	Bank bank1=bank1=new Bank();
+	Card crd = new Card(1234567890,12345);
+	Account accnt = new Account(1234554321, 1020);
+	Customer custmr = new Customer("Papadopoulos Giannis", "Egnatia 127 str.", accnt);
+	Transaction tr,tr1,tr2;
+	ATMInfo atmInf = new ATMInfo("Aristoteloys sqr. 165", "Ethniki Trapeza");
+	
+	int p,c;
+	
+	
+	//Buttons and labels
+	JButton btCard = new JButton(" ");
+	
+	JButton btconfPin = new JButton("Confirm Pin");
+	JButton btBalance = new JButton("Balance");
+	JButton btWithdrawal = new JButton("Withdrawal");
+	JButton btDeposit = new JButton("Deposit");
+	JButton btPinChange = new JButton("Pin Change");
+	JButton btTransfer = new JButton("Transfer");
+	
+	JTextArea txtrAtmBank = new JTextArea();
+	
 	/**
 	 * Launch the application.
 	 */
@@ -43,6 +64,9 @@ public class ATM_GUI {
 	 * Create the application.
 	 */
 	public ATM_GUI() {
+		accnt.setCard(crd);
+		bank1.addCard(crd);
+		bank1.addCustomer(custmr);
 		initialize();
 	}
 
@@ -50,6 +74,8 @@ public class ATM_GUI {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		
+		
 		frame = new JFrame();
 		frame.getContentPane().setForeground(SystemColor.desktop);
 		frame.getContentPane().setBackground(new Color(169, 169, 169));
@@ -300,26 +326,82 @@ public class ATM_GUI {
 		
 		
 		
-		JButton btWithdrawal = new JButton("Withdrawal");
+		
 		btWithdrawal.setBounds(10, 48, 100, 23);
+		btWithdrawal.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				int a=Integer.parseInt(textField.getText());
+				tr1=new Withdraw(a,bank1.accountCard(c));
+				atmInf.setTransaction(tr1);
+				atmInf.identifies();
+				tr1=null;
+				}
+			});
 		frame.getContentPane().add(btWithdrawal);
 		
-		JButton btDeposit = new JButton("Deposit");
+		
 		btDeposit.setBounds(10, 81, 100, 23);
+		JButton btDeposit = new JButton("Deposit");
+		btDeposit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				int a=Integer.parseInt(textField.getText());
+				tr1=new Deposit(a,bank1.accountCard(c));
+				atmInf.setTransaction(tr1);
+				atmInf.identifies();
+				tr1=null;
+			}
+		});
 		frame.getContentPane().add(btDeposit);
 		
-		JButton btBalance = new JButton("Balance");
+		
 		btBalance.setBounds(10, 115, 100, 23);
+		btBalance.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+				tr1=new Query(bank1.accountCard(c));
+				atmInf.setTransaction(tr1);
+				atmInf.identifies();
+	
+				tr1=null;
+				}
+			});
 		frame.getContentPane().add(btBalance);
 		
-		JButton btTransfer = new JButton("Transfer");
+		
 		btTransfer.setBounds(10, 149, 100, 23);
+		
 		frame.getContentPane().add(btTransfer);
+		
+		btPinChange.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		btPinChange.setBounds(10, 183, 100, 23);
+		frame.getContentPane().add(btPinChange);
+		
+		btconfPin.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			p=Integer.parseInt(textField.getText());
+			tr=new PinValidation(c,p,bank1.accountCard(c));
+				atmInf.setTransaction(tr);
+				atmInf.identifies();
+				if(atmInf.isAuthenticated()){
+					txtrAtmBank.setText("We are In");
+				}
+				else
+					txtrAtmBank.setText("Not In");
+				}
+			});
+			btconfPin.setBounds(10, 193, 100, 23);
+			frame.getContentPane().add(btconfPin);
 		
 		JSeparator separator = new JSeparator();
 		separator.setBackground(Color.GRAY);
 		separator.setBounds(34, 235, 483, 2);
 		frame.getContentPane().add(separator);
+		
+		
+		
+		
 		
 		JLabel lblCard = new JLabel("CARD");
 		lblCard.setHorizontalAlignment(SwingConstants.CENTER);
@@ -333,13 +415,7 @@ public class ATM_GUI {
 		btCard.setBounds(455, 98, 166, 6);
 		frame.getContentPane().add(btCard);
 		
-		JButton btPinChange = new JButton("Pin Change");
-		btPinChange.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
-		btPinChange.setBounds(10, 183, 100, 23);
-		frame.getContentPane().add(btPinChange);
+		
 		
 		JTextArea txtrAtmBank = new JTextArea();
 		txtrAtmBank.setForeground(Color.BLACK);
