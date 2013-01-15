@@ -347,7 +347,7 @@ public class ATM_GUI {
 		
 		
 		btDeposit.setBounds(10, 81, 100, 23);
-		JButton btDeposit = new JButton("Deposit");
+		
 		btDeposit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				int a=Integer.parseInt(textField.getText());
