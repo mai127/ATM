@@ -489,8 +489,10 @@ public class ATM_GUI {
 		btconfPin.setFocusPainted(false);
 		btconfPin.setContentAreaFilled(false);
 		btconfPin.setBorderPainted(false);
+		btconfPin.setBounds(599, 266, 83, 47);
+		frame.getContentPane().add(btconfPin);
 		//btconfPin.addActionListener(new ActionListener() {};	
-		
+	
 		btExTrans.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(enterwith||enterbal|| enterdep||entrpinch||entertrans){
@@ -502,7 +504,7 @@ public class ATM_GUI {
 					textField.setText("");
 					txtrAtmBank.setText("H synalagi\nakurwthike\nparakalw epilexte\nsunalagi");
 				}
-				p=Integer.parseInt(textField.getText());
+			/*	p=Integer.parseInt(textField.getText());
 				tr=new PinValidation(c,p,bank1.accountCard(c));
 				atmInf.setTransaction(tr);
 				atmInf.identifies();
@@ -511,6 +513,7 @@ public class ATM_GUI {
 				}
 				else
 					txtrAtmBank.setText("Not In");
+				*/
 				}
 		});
 
@@ -521,8 +524,6 @@ public class ATM_GUI {
 		btExTrans.setBorderPainted(false);
 		btExTrans.setBounds(105, 320, 83, 47);
 		frame.getContentPane().add(btExTrans);
-		btconfPin.setBounds(599, 266, 83, 47);
-		frame.getContentPane().add(btconfPin);
 			
 		
 		btCard.setBounds(637, 389, 162, 6);
