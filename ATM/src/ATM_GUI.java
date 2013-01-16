@@ -39,7 +39,7 @@ public class ATM_GUI {
 	
 	//Buttons and labels
 	JButton btCard = new JButton(" ");
-	JButton btExTrans = new JButton("Exit Transaction");
+	JButton btExTrans = new JButton("");
 	JButton btconfPin = new JButton("");
 	JButton btBalance = new JButton("");
 	JButton btWithdrawal = new JButton("");
@@ -87,7 +87,7 @@ public class ATM_GUI {
 		frame.getContentPane().setBackground(new Color(169, 169, 169));
 		frame.setBounds(100, 100, 821, 726);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setContentPane(new JLabel(new ImageIcon("images/atm-bg.jpg")));
+		//frame.setContentPane(new JLabel(new ImageIcon("images/atm-bg.jpg")));
 		frame.getContentPane().setLayout(null);
 		
 		textField = new JTextField();
@@ -402,8 +402,7 @@ public class ATM_GUI {
 // --- end of keypad creation ----------------------------------------------
 		
 		
-		ImageIcon btwithdricon = new ImageIcon("images/x-y.png");
-		btWithdrawal.setIcon(btwithdricon);
+		btWithdrawal.setIcon(btxicon);
 		btWithdrawal.setOpaque(false);
 		btWithdrawal.setFocusPainted(false);
 		btWithdrawal.setContentAreaFilled(false);
@@ -423,9 +422,7 @@ public class ATM_GUI {
 			});
 		frame.getContentPane().add(btWithdrawal);
 		
-		
-		ImageIcon btdepicon = new ImageIcon("images/x-y.png");
-		btDeposit.setIcon(btdepicon);
+		btDeposit.setIcon(btxicon);
 		btDeposit.setOpaque(false);
 		btDeposit.setFocusPainted(false);
 		btDeposit.setContentAreaFilled(false);
@@ -445,14 +442,13 @@ public class ATM_GUI {
 		});
 		frame.getContentPane().add(btDeposit);
 		
-		ImageIcon btbalicon = new ImageIcon("images/x-y.png");
-		btBalance.setIcon(btbalicon);
+		btBalance.setIcon(btxicon);
 		btBalance.setOpaque(false);
 		btBalance.setFocusPainted(false);
 		btBalance.setContentAreaFilled(false);
 		btBalance.setBorderPainted(false);
 		
-		btBalance.setBounds(105, 266, 83, 47);
+		btBalance.setBounds(105, 265, 83, 47);
 		btBalance.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
 					enterbal=true;
@@ -467,8 +463,7 @@ public class ATM_GUI {
 			});
 		frame.getContentPane().add(btBalance);
 		
-		ImageIcon bttransicon = new ImageIcon("images/x-y.png");
-		btTransfer.setIcon(bttransicon);
+		btTransfer.setIcon(btxicon);
 		btTransfer.setOpaque(false);
 		btTransfer.setFocusPainted(false);
 		btTransfer.setContentAreaFilled(false);
@@ -477,8 +472,7 @@ public class ATM_GUI {
 		btTransfer.setBounds(599, 155, 83, 47);
 		frame.getContentPane().add(btTransfer);
 	
-		ImageIcon btpinchicon = new ImageIcon("images/x-y.png");
-		btPinChange.setIcon(btpinchicon);
+		btPinChange.setIcon(btxicon);
 		btPinChange.setOpaque(false);
 		btPinChange.setFocusPainted(false);
 		btPinChange.setContentAreaFilled(false);
@@ -490,8 +484,7 @@ public class ATM_GUI {
 		btPinChange.setBounds(599, 210, 83, 47);
 		frame.getContentPane().add(btPinChange);
 	
-		ImageIcon btpinconficon = new ImageIcon("images/x-y.png");
-		btconfPin.setIcon(btpinconficon);
+		btconfPin.setIcon(btxicon);
 		btconfPin.setOpaque(false);
 		btconfPin.setFocusPainted(false);
 		btconfPin.setContentAreaFilled(false);
@@ -520,11 +513,16 @@ public class ATM_GUI {
 					txtrAtmBank.setText("Not In");
 				}
 		});
-		
-			btExTrans.setBounds(10, 193, 100, 23);
-		    frame.getContentPane().add(btExTrans);
-			btconfPin.setBounds(599, 266, 83, 47);
-			frame.getContentPane().add(btconfPin);
+
+		btExTrans.setIcon(btxicon);
+		btExTrans.setOpaque(false);
+		btExTrans.setFocusPainted(false);
+		btExTrans.setContentAreaFilled(false);
+		btExTrans.setBorderPainted(false);
+		btExTrans.setBounds(105, 320, 83, 47);
+		frame.getContentPane().add(btExTrans);
+		btconfPin.setBounds(599, 266, 83, 47);
+		frame.getContentPane().add(btconfPin);
 			
 		
 		btCard.setBounds(637, 389, 162, 6);
@@ -550,22 +548,14 @@ public class ATM_GUI {
 		separator.setBounds(22, 464, 754, 6);
 		frame.getContentPane().add(separator);
 		
-		
-		
-		
-		
-		
+	
 		lblCard.setHorizontalAlignment(SwingConstants.CENTER);
 		lblCard.setForeground(Color.BLACK);
 		lblCard.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblCard.setBackground(Color.LIGHT_GRAY);
 		lblCard.setBounds(634, 364, 166, 23);
 		frame.getContentPane().add(lblCard);
-		
-		
-		
-		
-		
+	
 		
 		txtrAtmBank.setForeground(Color.BLACK);
 		txtrAtmBank.setEditable(false);
@@ -635,6 +625,14 @@ public class ATM_GUI {
 		dtrpnConfirmPin.setOpaque(false);
 		dtrpnConfirmPin.setBounds(680, 278, 91, 20);
 		frame.getContentPane().add(dtrpnConfirmPin);
+		
+		JEditorPane dtrpnExitTransaction = new JEditorPane();
+		dtrpnExitTransaction.setText("Exit Transac");
+		dtrpnExitTransaction.setOpaque(false);
+		dtrpnExitTransaction.setFont(new Font("Tahoma", Font.BOLD, 14));
+		dtrpnExitTransaction.setEditable(false);
+		dtrpnExitTransaction.setBounds(22, 335, 91, 20);
+		frame.getContentPane().add(dtrpnExitTransaction);
 			
 		
 	}
