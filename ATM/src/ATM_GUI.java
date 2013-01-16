@@ -48,11 +48,12 @@ public class ATM_GUI {
 	boolean enterdep=false;
 	boolean enterpich=false;
 	boolean entertrans=false;
+	boolean entertrans2=false;
 	
 	//Buttons and labels
 	JButton btCard = new JButton(" ");
 	JButton btExTrans = new JButton("");
-	JButton btconfPin = new JButton("");
+	JButton btExit = new JButton("");
 	JButton btBalance = new JButton("");
 	JButton btWithdrawal = new JButton("");
 	JButton btDeposit = new JButton("");
@@ -338,9 +339,10 @@ public class ATM_GUI {
 						atmInf.setTransaction(tr);
 						atmInf.identifies();
 						if(atmInf.isAuthenticated()){
-						atmScr.setText("Parakalw epilexte/ntin sunalagi/nsas");
-						enterpin=false;
-								textField.setText("");
+							atmScr.setText("Parakalw epilexte/ntin sunalagi/nsas");
+							enterpin=false;
+							textField.setText("");
+							enableButtons();
 						}
 						else{
 							atmScr.setText("Wrong credentials\n Please try Again");
@@ -349,6 +351,7 @@ public class ATM_GUI {
 							atmInf.newAtmCustomer();
 							c=0;
 							p=0;
+							t=0;
 						}
 				}
 				else if(enterbal){
@@ -397,8 +400,41 @@ public class ATM_GUI {
 						}
 				}
 				else if(entertrans){
+					if(!textField.getText().isEmpty()){
+						int t=Integer.parseInt(textField.getText());
+						textField.setText("");
+						atmScr.setText("Dwse poso\nmetaforas");
+										
+						entertrans2=true;
+						enterpich=false;
+					}
+					else
+					{
+					entertrans=true;
+					entertrans2=false;
+					atmScr.setText("parakalw Dwste logariasmo\n metaforas\nkai patise enter");
+					}
 				
 						entertrans=false;
+				}
+				else if(entertrans2){
+					if(!textField.getText().isEmpty()){
+						int a=Integer.parseInt(textField.getText());
+						tr1=new AmountTransfer(a,bank1.accountCard(c),bank1.accountAccountNo(t));
+						atmInf.setTransaction(tr1);
+						atmInf.identifies();
+						tr1=null;
+						textField.setText("");
+						atmScr.setText("H metafora sas\negine me epitixia");
+						entertrans2=false;
+					}
+					else
+					{
+					entertrans2=true;
+					atmScr.setText("parakalw Dwste poso\n metaforas\nkai patise enter");
+					}
+				
+						entertrans2=false;
 				}
 				else if(enterpich){
 					if(!textField.getText().isEmpty()){
@@ -439,8 +475,104 @@ public class ATM_GUI {
 		frame.getContentPane().add(btz);
 		
 // --- end of keypad creation ----------------------------------------------
+//-------- button handlers------------------------------------------------------
+		btWithdrawal.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				atmScr.setText("Parakalw eisagete\nposo analipsis\nkai patiste\nenter");
+				enterwith=true;
+				disableButtons();
+				
+				}
+			});
+		btDeposit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				atmScr.setText("Parakalw eisagete\nposo katathesis\nkai patiste\nenter");
+				enterdep=true;
+				disableButtons();
+				
+			}
+		});
 		
+		btBalance.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					enterbal=true;
+					textField.setText("");
+					atmScr.setText("Erwtisi upoloipou?\nEpilexte enter \ngia epivevaiwsh");
+					disableButtons();
+				}
+			});
 		
+		btPinChange.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				atmScr.setText("Eisagete to neo\npin kai patiste\nenter");
+				enterpich=true;
+				disableButtons();
+			}
+		});
+		
+		btExTrans.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(enterwith||enterbal|| enterdep||enterpich||entertrans||entertrans2){
+					enterwith=false;
+					enterbal=false;
+					enterdep=false;
+					enterpich=false;
+					entertrans=false;
+					entertrans2=false;
+					textField.setText("");
+					atmScr.setText("H synalagi\nakurwthike\nparakalw epilexte\nsunalagi");
+				}
+
+			}
+		});
+		
+		btCard.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+
+				c=Integer.parseInt(textField.getText());
+				lblCard.setText("No"+c);
+				textField.setText("");
+				btCard.setEnabled(false);
+				atmScr.setText("Dwse Pin kai patise enter");
+				enterpin=true;
+
+
+	
+				}
+		});
+		
+		btTransfer.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				textField.setText("");
+				atmScr.setText("Dwse logariasmo\n metaforas\nkai patise enter");
+				
+				entertrans=true;
+
+
+	
+				}
+		});
+		btExit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(!enterwith&&!enterbal&&!enterdep&&!enterpich&&!entertrans&&!entertrans2){
+					btCard.setEnabled(true);
+					textField.setText("");
+					atmInf.newAtmCustomer();
+					c=0;
+					p=0;
+					t=0;
+					atmScr.setText("Telos sunalagwn\nParakalw paralavete\ntin karta sas");
+				}
+
+				else
+					atmScr.setText("Parakalw oloklirwste\ntis sunalages sas\nprwta");
+	
+				}
+		});
+		
+//-------------------------------- END of Button handlers---------------------------------------
+		
+		disableButtons();
 		btWithdrawal.setIcon(btxicon);
 		btWithdrawal.setOpaque(false);
 		btWithdrawal.setFocusPainted(false);
@@ -448,13 +580,7 @@ public class ATM_GUI {
 		btWithdrawal.setBorderPainted(false);
 		
 		btWithdrawal.setBounds(105, 155, 83, 47);
-		btWithdrawal.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				atmScr.setText("Parakalw eisagete\nposo analipsis\nkai patiste\nenter");
-				enterwith=true;
-				
-				}
-			});
+		
 		frame.getContentPane().add(btWithdrawal);
 		
 		btDeposit.setIcon(btxicon);
@@ -464,13 +590,7 @@ public class ATM_GUI {
 		btDeposit.setBorderPainted(false);
 		
 		btDeposit.setBounds(105, 210, 83, 47);	
-		btDeposit.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				atmScr.setText("Parakalw eisagete\nposo katathesis\nkai patiste\nenter");
-				enterdep=true;
-				
-			}
-		});
+		
 		frame.getContentPane().add(btDeposit);
 		
 		btBalance.setIcon(btxicon);
@@ -480,14 +600,7 @@ public class ATM_GUI {
 		btBalance.setBorderPainted(false);
 		
 		btBalance.setBounds(105, 265, 83, 47);
-		btBalance.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent arg0) {
-					enterbal=true;
-					textField.setText("");
-					atmScr.setText("Erwtisi upoloipou?\nEpilexte enter \ngia epivevaiwsh");
-					
-				}
-			});
+		
 		frame.getContentPane().add(btBalance);
 		
 		btTransfer.setIcon(btxicon);
@@ -504,38 +617,19 @@ public class ATM_GUI {
 		btPinChange.setFocusPainted(false);
 		btPinChange.setContentAreaFilled(false);
 		btPinChange.setBorderPainted(false);
-		btPinChange.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				atmScr.setText("Eisagete to neo\npin kai patiste\nenter");
-				enterpich=true;
-			}
-		});
+		
 		btPinChange.setBounds(599, 210, 83, 47);
 		frame.getContentPane().add(btPinChange);
 	
-		btconfPin.setIcon(btxicon);
-		btconfPin.setOpaque(false);
-		btconfPin.setFocusPainted(false);
-		btconfPin.setContentAreaFilled(false);
-		btconfPin.setBorderPainted(false);
-		btconfPin.setBounds(599, 266, 83, 47);
-		frame.getContentPane().add(btconfPin);
+		btExit.setIcon(btxicon);
+		btExit.setOpaque(false);
+		btExit.setFocusPainted(false);
+		btExit.setContentAreaFilled(false);
+		btExit.setBorderPainted(false);
+		btExit.setBounds(599, 266, 83, 47);
+		frame.getContentPane().add(btExit);
 		
-	
-		btExTrans.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				if(enterwith||enterbal|| enterdep||enterpich||entertrans){
-					enterwith=false;
-					enterbal=false;
-					enterdep=false;
-					enterpich=false;
-					entertrans=false;
-					textField.setText("");
-					atmScr.setText("H synalagi\nakurwthike\nparakalw epilexte\nsunalagi");
-				}
 
-			}
-		});
 
 		btExTrans.setIcon(btxicon);
 		btExTrans.setOpaque(false);
@@ -547,20 +641,7 @@ public class ATM_GUI {
 			
 		
 		btCard.setBounds(637, 389, 162, 6);
-		btCard.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
 
-				c=Integer.parseInt(textField.getText());
-				lblCard.setText("No"+c);
-				textField.setText("");
-				btCard.setEnabled(false);
-				atmScr.setText("Dwse Pin kai patise enter");
-				enterpin=true;
-
-
-	
-				}
-		});
 		frame.getContentPane().add(btCard);
 		
 		JSeparator separator = new JSeparator();
@@ -669,6 +750,29 @@ public class ATM_GUI {
 	    String s=baos.toString();
 	    baos.reset();
 		return s;
+		
+	}
+	
+	void enableButtons(){
+		btBalance.setEnabled(true);
+		btWithdrawal.setEnabled(true);
+		btDeposit.setEnabled(true);
+		btPinChange.setEnabled(true);
+		btTransfer.setEnabled(true);
+		
+	}
+	void disableButtons(){
+		btBalance.setEnabled(false);
+		btWithdrawal.setEnabled(false);
+		btDeposit.setEnabled(false);
+		btPinChange.setEnabled(false);
+		btTransfer.setEnabled(false);
+	}
+	void enableKeyPad(){
+		
+	}
+	void disableKeyPad(){
+		
 		
 	}
 }
