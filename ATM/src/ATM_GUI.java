@@ -59,7 +59,7 @@ public class ATM_GUI {
 	JButton btDeposit = new JButton("");
 	JButton btPinChange = new JButton("");
 	JButton btTransfer = new JButton("");
-	JLabel lblCard = new JLabel("");
+	JLabel lblCard = new JLabel("_");
 	
 	JTextArea atmScr = new JTextArea();
 	
@@ -339,7 +339,7 @@ public class ATM_GUI {
 						atmInf.setTransaction(tr);
 						atmInf.identifies();
 						if(atmInf.isAuthenticated()){
-							atmScr.setText("Parakalw epilexte/ntin sunalagi/nsas");
+							atmScr.setText("Parakalw epilexte\ntin sunalagi\nsas");
 							enterpin=false;
 							textField.setText("");
 							enableButtons();
@@ -364,6 +364,7 @@ public class ATM_GUI {
 						textField.setText("");
 						String s=getsBalance();
 						atmScr.setText("To upoloipo sas einai:\n"+s);
+						enableButtons();
 				}
 				else if(enterdep){
 						if(!textField.getText().isEmpty()){
@@ -375,6 +376,7 @@ public class ATM_GUI {
 							textField.setText("");
 							atmScr.setText("Euxaristoume gia\n tin sunalagi");
 							enterdep=false;
+							enableButtons();
 						}
 						else
 						{
@@ -392,6 +394,7 @@ public class ATM_GUI {
 							textField.setText("");
 							atmScr.setText("Euxaristoume gia\n tin sunalagi");
 							enterwith=false;
+							enableButtons();
 						}
 						else
 						{
@@ -407,6 +410,7 @@ public class ATM_GUI {
 										
 						entertrans2=true;
 						enterpich=false;
+						
 					}
 					else
 					{
@@ -427,6 +431,7 @@ public class ATM_GUI {
 						textField.setText("");
 						atmScr.setText("H metafora sas\negine me epitixia");
 						entertrans2=false;
+						enableButtons();
 					}
 					else
 					{
@@ -446,6 +451,7 @@ public class ATM_GUI {
 						textField.setText("");
 						atmScr.setText("To pin sas\nallaxe me epitixia");
 						enterpich=false;
+						enableButtons();
 					}
 					else
 					{
@@ -456,6 +462,7 @@ public class ATM_GUI {
 				}
 				else{
 					atmScr.setText("parakalw epilexte\nsunalagi");
+					enableButtons();
 				}
 			}
 		});
@@ -521,6 +528,7 @@ public class ATM_GUI {
 					entertrans2=false;
 					textField.setText("");
 					atmScr.setText("H synalagi\nakurwthike\nparakalw epilexte\nsunalagi");
+					enableButtons();
 				}
 
 			}
@@ -528,15 +536,17 @@ public class ATM_GUI {
 		
 		btCard.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-
-				c=Integer.parseInt(textField.getText());
-				lblCard.setText("No"+c);
-				textField.setText("");
-				btCard.setEnabled(false);
-				atmScr.setText("Dwse Pin kai patise enter");
-				enterpin=true;
-
-
+				//if(!lblCard.getText().equals("_")){
+					c=Integer.parseInt(textField.getText());
+					lblCard.setText("No"+c);
+					textField.setText("");
+					btCard.setEnabled(false);
+					atmScr.setText("Dwse Pin kai patise enter");
+					enterpin=true;
+				/*}
+				else{
+					atmScr.setText("Dwse arithmo kartas kai \npatise to \nkoumpi tis kartas");
+				}*/
 	
 				}
 		});
@@ -562,6 +572,8 @@ public class ATM_GUI {
 					p=0;
 					t=0;
 					atmScr.setText("Telos sunalagwn\nParakalw paralavete\ntin karta sas");
+					//atmScr.setText("Telos sunalagwn\nParakalw paralavete\ntin karta sas\npatwntas to koumpi\ntis kartas");
+					lblCard.setText("_");
 				}
 
 				else
@@ -725,7 +737,7 @@ public class ATM_GUI {
 		
 		JEditorPane dtrpnConfirmPin = new JEditorPane();
 		dtrpnConfirmPin.setEditable(false);
-		dtrpnConfirmPin.setText("Confirm Pin");
+		dtrpnConfirmPin.setText("Exit Card");
 		dtrpnConfirmPin.setFont(new Font("Tahoma", Font.BOLD, 14));
 		dtrpnConfirmPin.setOpaque(false);
 		dtrpnConfirmPin.setBounds(680, 278, 91, 20);
