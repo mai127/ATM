@@ -40,13 +40,13 @@ public class ATM_GUI {
     PrintStream old = System.out;
     
 	
-	int p,c;
+	int p,c,t;
 	boolean entercard=false;
 	boolean enterpin=false;
 	boolean enterwith=false;
 	boolean enterbal=false;
 	boolean enterdep=false;
-	boolean entrpinch=false;
+	boolean enterpich=false;
 	boolean entertrans=false;
 	
 	//Buttons and labels
@@ -60,7 +60,7 @@ public class ATM_GUI {
 	JButton btTransfer = new JButton("");
 	JLabel lblCard = new JLabel("");
 	
-	JTextArea txtrAtmBank = new JTextArea();
+	JTextArea atmScr = new JTextArea();
 	
 	/**
 	 * Launch the application.
@@ -338,12 +338,12 @@ public class ATM_GUI {
 						atmInf.setTransaction(tr);
 						atmInf.identifies();
 						if(atmInf.isAuthenticated()){
-						txtrAtmBank.setText("Parakalw epilexte/ntin sunalagi/nsas");
+						atmScr.setText("Parakalw epilexte/ntin sunalagi/nsas");
 						enterpin=false;
 								textField.setText("");
 						}
 						else{
-							txtrAtmBank.setText("Wrong credentials\n Please try Again");
+							atmScr.setText("Wrong credentials\n Please try Again");
 							btCard.setEnabled(true);
 							textField.setText("");
 							atmInf.newAtmCustomer();
@@ -360,7 +360,7 @@ public class ATM_GUI {
 						enterbal=false;
 						textField.setText("");
 						String s=getsBalance();
-						txtrAtmBank.setText("To upoloipo sas einai:\n"+s);
+						atmScr.setText("To upoloipo sas einai:\n"+s);
 				}
 				else if(enterdep){
 						if(!textField.getText().isEmpty()){
@@ -370,13 +370,13 @@ public class ATM_GUI {
 							atmInf.identifies();
 							tr1=null;
 							textField.setText("");
-							txtrAtmBank.setText("Euxaristoume gia\n tin sunalagi");
+							atmScr.setText("Euxaristoume gia\n tin sunalagi");
 							enterdep=false;
 						}
 						else
 						{
 							enterdep=true;
-							txtrAtmBank.setText("parakalw \neisagete poso\nkai patiste\nenter");
+							atmScr.setText("parakalw \neisagete poso\nkai patiste\nenter");
 						}
 				}
 				else if(enterwith){
@@ -387,21 +387,39 @@ public class ATM_GUI {
 							atmInf.identifies();
 							tr1=null;
 							textField.setText("");
-							txtrAtmBank.setText("Euxaristoume gia\n tin sunalagi");
+							atmScr.setText("Euxaristoume gia\n tin sunalagi");
 							enterwith=false;
 						}
 						else
 						{
 						enterwith=true;
-						txtrAtmBank.setText("parakalw \neisagete poso\nkai patiste\nenter");
+						atmScr.setText("parakalw \neisagete poso\nkai patiste\nenter");
 						}
 				}
 				else if(entertrans){
 				
-				
+						entertrans=false;
+				}
+				else if(enterpich){
+					if(!textField.getText().isEmpty()){
+						int a=Integer.parseInt(textField.getText());
+						tr1=new PinChange(a,bank1.accountCard(c));
+						atmInf.setTransaction(tr1);
+						atmInf.identifies();
+						tr1=null;
+						textField.setText("");
+						atmScr.setText("To pin sas\nallaxe me epitixia");
+						enterpich=false;
+					}
+					else
+					{
+					enterpich=true;
+					atmScr.setText("parakalw \neisagete neo pin\nkai patiste\nenter");
+					}
+					
 				}
 				else{
-					txtrAtmBank.setText("parakalw epilexte\nsunalagi");
+					atmScr.setText("parakalw epilexte\nsunalagi");
 				}
 			}
 		});
@@ -432,7 +450,7 @@ public class ATM_GUI {
 		btWithdrawal.setBounds(105, 155, 83, 47);
 		btWithdrawal.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				txtrAtmBank.setText("Parakalw eisagete\nposo analipsis\nkai patiste\nenter");
+				atmScr.setText("Parakalw eisagete\nposo analipsis\nkai patiste\nenter");
 				enterwith=true;
 				
 				}
@@ -448,7 +466,7 @@ public class ATM_GUI {
 		btDeposit.setBounds(105, 210, 83, 47);	
 		btDeposit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				txtrAtmBank.setText("Parakalw eisagete\nposo katathesis\nkai patiste\nenter");
+				atmScr.setText("Parakalw eisagete\nposo katathesis\nkai patiste\nenter");
 				enterdep=true;
 				
 			}
@@ -466,7 +484,7 @@ public class ATM_GUI {
 				public void actionPerformed(ActionEvent arg0) {
 					enterbal=true;
 					textField.setText("");
-					txtrAtmBank.setText("Erwtisi upoloipou?\nEpilexte enter \ngia epivevaiwsh");
+					atmScr.setText("Erwtisi upoloipou?\nEpilexte enter \ngia epivevaiwsh");
 					
 				}
 			});
@@ -488,6 +506,8 @@ public class ATM_GUI {
 		btPinChange.setBorderPainted(false);
 		btPinChange.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				atmScr.setText("Eisagete to neo\npin kai patiste\nenter");
+				enterpich=true;
 			}
 		});
 		btPinChange.setBounds(599, 210, 83, 47);
@@ -504,14 +524,14 @@ public class ATM_GUI {
 	
 		btExTrans.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				if(enterwith||enterbal|| enterdep||entrpinch||entertrans){
+				if(enterwith||enterbal|| enterdep||enterpich||entertrans){
 					enterwith=false;
 					enterbal=false;
 					enterdep=false;
-					entrpinch=false;
+					enterpich=false;
 					entertrans=false;
 					textField.setText("");
-					txtrAtmBank.setText("H synalagi\nakurwthike\nparakalw epilexte\nsunalagi");
+					atmScr.setText("H synalagi\nakurwthike\nparakalw epilexte\nsunalagi");
 				}
 
 			}
@@ -534,7 +554,7 @@ public class ATM_GUI {
 				lblCard.setText("No"+c);
 				textField.setText("");
 				btCard.setEnabled(false);
-				txtrAtmBank.setText("Dwse Pin kai patise enter");
+				atmScr.setText("Dwse Pin kai patise enter");
 				enterpin=true;
 
 
@@ -560,14 +580,14 @@ public class ATM_GUI {
 		frame.getContentPane().add(lblCard);
 	
 		
-		txtrAtmBank.setForeground(Color.BLACK);
-		txtrAtmBank.setEditable(false);
-		txtrAtmBank.setBackground(new Color(51, 153, 255));
-		txtrAtmBank.setFont(new Font("Tahoma", Font.BOLD, 24));
-		txtrAtmBank.setBounds(186, 144, 409, 180);
-		txtrAtmBank.setBorder(javax.swing.BorderFactory.createLineBorder(Color.black,2));
-		txtrAtmBank.setText("Dwse arithmo kartas kai \npatise to \nkoumpi tis kartas");
-		frame.getContentPane().add(txtrAtmBank);
+		atmScr.setForeground(Color.BLACK);
+		atmScr.setEditable(false);
+		atmScr.setBackground(new Color(51, 153, 255));
+		atmScr.setFont(new Font("Tahoma", Font.BOLD, 24));
+		atmScr.setBounds(186, 144, 409, 180);
+		atmScr.setBorder(javax.swing.BorderFactory.createLineBorder(Color.black,2));
+		atmScr.setText("Dwse arithmo kartas kai \npatise to \nkoumpi tis kartas");
+		frame.getContentPane().add(atmScr);
 		
 		JLabel label = new JLabel("");
 		ImageIcon lbInsCard = new ImageIcon("images/insert-card.png");
