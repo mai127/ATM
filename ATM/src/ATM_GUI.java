@@ -13,16 +13,15 @@ import java.awt.event.ActionEvent;
 import javax.swing.JTextArea;
 import javax.swing.ImageIcon;
 import java.awt.SystemColor;
-import javax.swing.JPanel;
-import javax.swing.border.LineBorder;
-import javax.swing.Icon;
+import javax.swing.JEditorPane;
+
 
 
 public class ATM_GUI {
 
 	private JFrame frame;
 	private JTextField textField;
-	Bank bank1=bank1=new Bank();
+	Bank bank1 = new Bank();
 	Card crd = new Card(1234567890,12345);
 	Account accnt = new Account(1234554321, 1020);
 	Customer custmr = new Customer("Papadopoulos Giannis", "Egnatia 127 str.", accnt);
@@ -30,7 +29,6 @@ public class ATM_GUI {
 	ATMInfo atmInf = new ATMInfo("Aristoteloys sqr. 165", "Ethniki Trapeza");
 	
 	int p,c;
-	boolean entercard=false;
 	boolean enterpin=false;
 	boolean enterwith=false;
 	boolean enterbal=false;
@@ -39,20 +37,15 @@ public class ATM_GUI {
 	boolean entertrans=false;
 	
 	//Buttons and labels
-	ImageIcon btentericon = new ImageIcon("images/enter.png");
-	JButton btEnter = new JButton(btentericon);
-	
-	
 	JButton btCard = new JButton(" ");
 	
-	JButton btExTrans = new JButton("Exit Transaction");
-	JButton btBalance = new JButton("Balance");
-	JButton btWithdrawal = new JButton("Withdrawal");
-	JButton btDeposit = new JButton("Deposit");
-	JButton btPinChange = new JButton("Pin Change");
-	JButton btTransfer = new JButton("Transfer");
-	
-	JLabel lblCard = new JLabel("CARD");
+	JButton btconfPin = new JButton("");
+	JButton btBalance = new JButton("");
+	JButton btWithdrawal = new JButton("");
+	JButton btDeposit = new JButton("");
+	JButton btPinChange = new JButton("");
+	JButton btTransfer = new JButton("");
+	JLabel lblCard = new JLabel("");
 	
 	JTextArea txtrAtmBank = new JTextArea();
 	
@@ -86,26 +79,25 @@ public class ATM_GUI {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		
-		
+				
 		frame = new JFrame();
+		frame.setResizable(false);
 		frame.getContentPane().setForeground(SystemColor.desktop);
 		frame.getContentPane().setBackground(new Color(169, 169, 169));
-		frame.setBounds(100, 100, 643, 500);
-	//	frame.setResizable(false);
+		frame.setBounds(100, 100, 821, 726);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setContentPane(new JLabel(new ImageIcon("images/atm-bg.jpg")));
 		frame.getContentPane().setLayout(null);
 		
 		textField = new JTextField();
 		textField.setFont(new Font("Tahoma", Font.BOLD, 14));
 		textField.setForeground(Color.black);
-		textField.setBackground(SystemColor.activeCaption);
+		textField.setBackground(new Color(0, 153, 255));
 		textField.setEditable(false);
-		textField.setBounds(128, 193, 326, 34);
-		frame.getContentPane().add(textField);
+		textField.setBounds(186, 335, 409, 34);
 		textField.setColumns(4);
-		textField.setBorder(javax.swing.BorderFactory.createLineBorder(Color.gray));
-		
+		textField.setBorder(javax.swing.BorderFactory.createLineBorder(Color.black,2));
+		frame.getContentPane().add(textField);
 
 // --- keypad creation -----------------------------------------------------		
 		
@@ -121,7 +113,7 @@ public class ATM_GUI {
 		bt1.setContentAreaFilled(false); 
 		bt1.setFocusPainted(false); 
 		bt1.setOpaque(false);
-		bt1.setBounds(137, 256, 51, 42);
+		bt1.setBounds(260, 490, 51, 42);
 		frame.getContentPane().add(bt1);
 		  
 		  // creation and settings of button 2		
@@ -136,7 +128,7 @@ public class ATM_GUI {
 		bt2.setContentAreaFilled(false); 
 		bt2.setFocusPainted(false); 
 		bt2.setOpaque(false);
-		bt2.setBounds(198, 256, 51, 42);
+		bt2.setBounds(321, 490, 51, 42);
 		frame.getContentPane().add(bt2);
 		
 		  // creation and settings of button 3
@@ -151,7 +143,7 @@ public class ATM_GUI {
 		bt3.setContentAreaFilled(false); 
 		bt3.setFocusPainted(false); 
 		bt3.setOpaque(false);
-		bt3.setBounds(259, 256, 51, 42);
+		bt3.setBounds(382, 490, 51, 42);
 		frame.getContentPane().add(bt3);
 		
 		  // creation and settings of button 4
@@ -167,7 +159,7 @@ public class ATM_GUI {
 		bt4.setContentAreaFilled(false); 
 		bt4.setFocusPainted(false); 
 		bt4.setOpaque(false);
-		bt4.setBounds(137, 304, 51, 42);
+		bt4.setBounds(260, 538, 51, 42);
 		frame.getContentPane().add(bt4);
 		
  		  // creation and settings of button 5
@@ -182,7 +174,7 @@ public class ATM_GUI {
 		bt5.setContentAreaFilled(false); 
 		bt5.setFocusPainted(false); 
 		bt5.setOpaque(false);
-		bt5.setBounds(198, 304, 51, 42);
+		bt5.setBounds(321, 538, 51, 42);
 		frame.getContentPane().add(bt5);
 		
 	      // creation and settings of button 6
@@ -197,7 +189,7 @@ public class ATM_GUI {
 		bt6.setFocusPainted(false);
 		bt6.setContentAreaFilled(false);
 		bt6.setBorderPainted(false);
-		bt6.setBounds(259, 304, 51, 42);
+		bt6.setBounds(382, 538, 51, 42);
 		frame.getContentPane().add(bt6);
 		
 		  // creation and settings of button 7
@@ -212,7 +204,7 @@ public class ATM_GUI {
 		bt7.setFocusPainted(false);
 		bt7.setContentAreaFilled(false);
 		bt7.setBorderPainted(false);
-		bt7.setBounds(137, 352, 51, 42);
+		bt7.setBounds(260, 586, 51, 42);
 		frame.getContentPane().add(bt7);
 		
 		  // creation and settings of button 8
@@ -227,7 +219,7 @@ public class ATM_GUI {
 		bt8.setFocusPainted(false);
 		bt8.setContentAreaFilled(false);
 		bt8.setBorderPainted(false);
-		bt8.setBounds(198, 352, 51, 42);
+		bt8.setBounds(321, 586, 51, 42);
 		frame.getContentPane().add(bt8);
 
 		  // creation and settings of button 9
@@ -242,7 +234,7 @@ public class ATM_GUI {
 		bt9.setFocusPainted(false);
 		bt9.setContentAreaFilled(false);
 		bt9.setBorderPainted(false);
-		bt9.setBounds(259, 352, 51, 42);
+		bt9.setBounds(382, 586, 51, 42);
 		frame.getContentPane().add(bt9);
 		
 		  // creation and settings of button 0
@@ -257,7 +249,7 @@ public class ATM_GUI {
 		bt0.setFocusPainted(false);
 		bt0.setContentAreaFilled(false);
 		bt0.setBorderPainted(false);
-		bt0.setBounds(198, 400, 51, 42);
+		bt0.setBounds(321, 634, 51, 42);
 		frame.getContentPane().add(bt0);
 		
 		  // creation and settings of button x
@@ -267,7 +259,7 @@ public class ATM_GUI {
 		btx.setFocusPainted(false);
 		btx.setContentAreaFilled(false);
 		btx.setBorderPainted(false);
-		btx.setBounds(137, 400, 51, 42);
+		btx.setBounds(260, 634, 51, 42);
 		frame.getContentPane().add(btx);
 		
 		  // creation and settings of button x
@@ -277,7 +269,7 @@ public class ATM_GUI {
 		bty.setFocusPainted(false);
 		bty.setContentAreaFilled(false);
 		bty.setBorderPainted(false);
-		bty.setBounds(259, 400, 51, 42);
+		bty.setBounds(382, 634, 51, 42);
 		frame.getContentPane().add(bty);
 		
 		  // creation and settings of button cancel
@@ -288,7 +280,7 @@ public class ATM_GUI {
 				textField.setText("");
 			}
 		});
-		btcancel.setBounds(336, 256, 75, 42);
+		btcancel.setBounds(459, 490, 75, 42);
 		btcancel.setOpaque(false);
 		btcancel.setFocusPainted(false);
 		btcancel.setContentAreaFilled(false);
@@ -311,87 +303,17 @@ public class ATM_GUI {
 		btclear.setFocusPainted(false);
 		btclear.setContentAreaFilled(false);
 		btclear.setBorderPainted(false);
-		btclear.setBounds(336, 304, 75, 42);
+		btclear.setBounds(459, 538, 75, 42);
 		frame.getContentPane().add(btclear);
 		 
 		  // creation and settings of button enter
-		
+		ImageIcon btentericon = new ImageIcon("images/enter.png");
+		JButton btEnter = new JButton(btentericon);
 		btEnter.setOpaque(false);
 		btEnter.setFocusPainted(false);
 		btEnter.setContentAreaFilled(false);
 		btEnter.setBorderPainted(false);
-		btEnter.setBounds(336, 352, 75, 42);
-		btEnter.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			
-			if(enterpin){
-				p=Integer.parseInt(textField.getText());
-				tr=new PinValidation(c,p,bank1.accountCard(c));
-					atmInf.setTransaction(tr);
-					atmInf.identifies();
-					if(atmInf.isAuthenticated()){
-						txtrAtmBank.setText("Parakalw epilexte/ntin sunalagi/nsas");
-						enterpin=false;
-						textField.setText("");
-					}
-					else{
-						txtrAtmBank.setText("Wrong credentials\n Please try Again");
-						btCard.setEnabled(true);
-						textField.setText("");
-						atmInf.newAtmCustomer();
-						}
-					}
-			else if(enterbal){
-				tr1=new Query(bank1.accountCard(c));
-				atmInf.setTransaction(tr1);
-				atmInf.identifies();
-				tr1=null;
-				enterbal=false;
-				textField.setText("");
-				}
-			else if(enterdep){
-				if(!textField.getText().isEmpty()){
-					int a=Integer.parseInt(textField.getText());
-					tr1=new Deposit(a,bank1.accountCard(c));
-					atmInf.setTransaction(tr1);
-					atmInf.identifies();
-					tr1=null;
-					textField.setText("");
-					txtrAtmBank.setText("Euxaristoume gia\n tin sunalagi");
-					enterdep=false;
-					}
-				else
-					{
-					enterdep=true;
-					txtrAtmBank.setText("parakalw \neisagete poso\nkai patiste\nenter");
-					}
-				}
-			else if(enterwith){
-				if(!textField.getText().isEmpty()){
-					int a=Integer.parseInt(textField.getText());
-					tr1=new Withdraw(a,bank1.accountCard(c));
-					atmInf.setTransaction(tr1);
-					atmInf.identifies();
-					tr1=null;
-					textField.setText("");
-					txtrAtmBank.setText("Euxaristoume gia\n tin sunalagi");
-					enterwith=false;
-					}
-				else
-					{
-					enterwith=true;
-					txtrAtmBank.setText("parakalw \neisagete poso\nkai patiste\nenter");
-					}
-				}
-			else if(entertrans){
-				
-				
-				}
-			else{
-				txtrAtmBank.setText("parakalw epilexte\nsunalagi");
-			}
-			}
-		});
+		btEnter.setBounds(459, 586, 75, 42);
 		frame.getContentPane().add(btEnter);
 		
 		  // creation and settings of button z	
@@ -401,80 +323,117 @@ public class ATM_GUI {
 		btz.setFocusPainted(false);
 		btz.setContentAreaFilled(false);
 		btz.setBorderPainted(false);
-		btz.setBounds(336, 400, 75, 42);
+		btz.setBounds(459, 634, 75, 42);
 		frame.getContentPane().add(btz);
 		
 // --- end of keypad creation ----------------------------------------------
 		
 		
+		ImageIcon btwithdricon = new ImageIcon("images/x-y.png");
+		btWithdrawal.setIcon(btwithdricon);
+		btWithdrawal.setOpaque(false);
+		btWithdrawal.setFocusPainted(false);
+		btWithdrawal.setContentAreaFilled(false);
+		btWithdrawal.setBorderPainted(false);
 		
-		
-		btWithdrawal.setBounds(10, 24, 100, 23);
+		btWithdrawal.setBounds(105, 155, 83, 47);
 		btWithdrawal.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				txtrAtmBank.setText("Parakalw eisagete\nposo analipsis\nkai patiste\nenter");
-				
-				enterwith=true;
+				int a=Integer.parseInt(textField.getText());
+				tr1=new Withdraw(a,bank1.accountCard(c));
+				atmInf.setTransaction(tr1);
+				atmInf.identifies();
+				tr1=null;
 				}
 			});
 		frame.getContentPane().add(btWithdrawal);
 		
 		
-		btDeposit.setBounds(10, 57, 100, 23);
+		ImageIcon btdepicon = new ImageIcon("images/x-y.png");
+		btDeposit.setIcon(btdepicon);
+		btDeposit.setOpaque(false);
+		btDeposit.setFocusPainted(false);
+		btDeposit.setContentAreaFilled(false);
+		btDeposit.setBorderPainted(false);
+		
+		btDeposit.setBounds(105, 210, 83, 47);	
 		btDeposit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
-				txtrAtmBank.setText("Parakalw eisagete\nposo katathesis\nkai patiste\nenter");
-				
-				enterdep=true;
-				
-				
+				int a=Integer.parseInt(textField.getText());
+				tr1=new Deposit(a,bank1.accountCard(c));
+				atmInf.setTransaction(tr1);
+				atmInf.identifies();
+				tr1=null;
 			}
 		});
 		frame.getContentPane().add(btDeposit);
 		
+		ImageIcon btbalicon = new ImageIcon("images/x-y.png");
+		btBalance.setIcon(btbalicon);
+		btBalance.setOpaque(false);
+		btBalance.setFocusPainted(false);
+		btBalance.setContentAreaFilled(false);
+		btBalance.setBorderPainted(false);
 		
-		btBalance.setBounds(10, 91, 100, 23);
+		btBalance.setBounds(105, 266, 83, 47);
 		btBalance.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-				enterbal=true;
-				textField.setText("");
-				txtrAtmBank.setText("Erwtisi upoloipou?\nEpilexte enter \ngia epivevaiwsh");
-				
+				tr1=new Query(bank1.accountCard(c));
+				atmInf.setTransaction(tr1);
+				atmInf.identifies();
+	
+				tr1=null;
 				}
 			});
 		frame.getContentPane().add(btBalance);
 		
+		ImageIcon bttransicon = new ImageIcon("images/x-y.png");
+		btTransfer.setIcon(bttransicon);
+		btTransfer.setOpaque(false);
+		btTransfer.setFocusPainted(false);
+		btTransfer.setContentAreaFilled(false);
+		btTransfer.setBorderPainted(false);
 		
-		btTransfer.setBounds(10, 125, 100, 23);
-		
+		btTransfer.setBounds(599, 155, 83, 47);
 		frame.getContentPane().add(btTransfer);
 		
+		ImageIcon btpinchicon = new ImageIcon("images/x-y.png");
+		btPinChange.setIcon(btpinchicon);
+		btPinChange.setOpaque(false);
+		btPinChange.setFocusPainted(false);
+		btPinChange.setContentAreaFilled(false);
+		btPinChange.setBorderPainted(false);
 		btPinChange.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			}
 		});
-		btPinChange.setBounds(10, 159, 100, 23);
+		btPinChange.setBounds(599, 210, 83, 47);
 		frame.getContentPane().add(btPinChange);
-		
-		btExTrans.addActionListener(new ActionListener() {
+			
+		ImageIcon btpinconficon = new ImageIcon("images/x-y.png");
+		btconfPin.setIcon(btpinconficon);
+		btconfPin.setOpaque(false);
+		btconfPin.setFocusPainted(false);
+		btconfPin.setContentAreaFilled(false);
+		btconfPin.setBorderPainted(false);
+		btconfPin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				if(enterwith||enterbal|| enterdep||entrpinch||entertrans){
-					 enterwith=false;
-					 enterbal=false;
-					 enterdep=false;
-					 entrpinch=false;
-					 entertrans=false;
-					 textField.setText("");
-					 txtrAtmBank.setText("H synalagi\nakurwthike\nparakalw epilexte\nsunalagi");
-					}
+			p=Integer.parseInt(textField.getText());
+			tr=new PinValidation(c,p,bank1.accountCard(c));
+				atmInf.setTransaction(tr);
+				atmInf.identifies();
+				if(atmInf.isAuthenticated()){
+					txtrAtmBank.setText("We are In");
+				}
+				else
+					txtrAtmBank.setText("Not In");
 				}
 			});
-		btExTrans.setBounds(10, 193, 100, 23);
-			frame.getContentPane().add(btExTrans);
+			btconfPin.setBounds(599, 266, 83, 47);
+			frame.getContentPane().add(btconfPin);
 			
 		
-		btCard.setBounds(455, 98, 166, 6);
+		btCard.setBounds(637, 389, 162, 6);
 		btCard.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 
@@ -482,18 +441,19 @@ public class ATM_GUI {
 				lblCard.setText("No"+c);
 				textField.setText("");
 				btCard.setEnabled(false);
-				txtrAtmBank.setText("Dwse Pin kai patise enter");
-				enterpin=true;
+				btCard.setBackground(Color.green);
+				txtrAtmBank.setText("Dwse Pin");
 	
 				}
 			});
 		frame.getContentPane().add(btCard);
 		
 		JSeparator separator = new JSeparator();
+		separator.setForeground(Color.BLACK);
 		
 		
-		separator.setBackground(Color.GRAY);
-		separator.setBounds(34, 235, 483, 2);
+		separator.setBackground(Color.BLACK);
+		separator.setBounds(22, 464, 754, 6);
 		frame.getContentPane().add(separator);
 		
 		
@@ -505,7 +465,7 @@ public class ATM_GUI {
 		lblCard.setForeground(Color.BLACK);
 		lblCard.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblCard.setBackground(Color.LIGHT_GRAY);
-		lblCard.setBounds(455, 73, 166, 23);
+		lblCard.setBounds(634, 364, 166, 23);
 		frame.getContentPane().add(lblCard);
 		
 		
@@ -515,25 +475,73 @@ public class ATM_GUI {
 		
 		txtrAtmBank.setForeground(Color.BLACK);
 		txtrAtmBank.setEditable(false);
-		txtrAtmBank.setBackground(SystemColor.activeCaption);
+		txtrAtmBank.setBackground(new Color(51, 153, 255));
 		txtrAtmBank.setFont(new Font("Tahoma", Font.BOLD, 24));
-		txtrAtmBank.setText("Dwse arithmo kartas kai \npatise to \nkoumpi tis kartas");
-		txtrAtmBank.setBounds(128, 24, 326, 158);
+		txtrAtmBank.setBounds(186, 144, 409, 180);
+		txtrAtmBank.setBorder(javax.swing.BorderFactory.createLineBorder(Color.black,2));
 		frame.getContentPane().add(txtrAtmBank);
 		
+		JLabel label = new JLabel("");
+		ImageIcon lbInsCard = new ImageIcon("images/insert-card.png");
+		label.setIcon(lbInsCard);
+		label.setBounds(703, 404, 27, 35);
+		frame.getContentPane().add(label);
 		
+		JLabel hl_label = new JLabel("");
+		ImageIcon lbHeadline = new ImageIcon("images/ATM-Machine.jpg");
+		hl_label.setIcon(lbHeadline);
+		hl_label.setBounds(150, 17, 477, 86);
+		hl_label.setBorder(javax.swing.BorderFactory.createLineBorder(Color.black,2));
+		frame.getContentPane().add(hl_label);
 		
+		JEditorPane dtrpnWithdrawal = new JEditorPane();
+		dtrpnWithdrawal.setEditable(false);
+		dtrpnWithdrawal.setOpaque(false);
+		dtrpnWithdrawal.setFont(new Font("Tahoma", Font.BOLD, 14));
+		dtrpnWithdrawal.setText("Withdrawal");
+		dtrpnWithdrawal.setBounds(22, 166, 91, 20);
+		frame.getContentPane().add(dtrpnWithdrawal);
 		
+		JEditorPane dtrpnDeposit = new JEditorPane();
+		dtrpnDeposit.setEditable(false);
+		dtrpnDeposit.setText("Deposit");
+		dtrpnDeposit.setFont(new Font("Tahoma", Font.BOLD, 14));
+		dtrpnDeposit.setOpaque(false);
+		dtrpnDeposit.setBounds(22, 222, 91, 20);
+		frame.getContentPane().add(dtrpnDeposit);
 		
+		JEditorPane dtrpnBalance = new JEditorPane();
+		dtrpnBalance.setEditable(false);
+		dtrpnBalance.setText("Balance");
+		dtrpnBalance.setFont(new Font("Tahoma", Font.BOLD, 14));
+		dtrpnBalance.setOpaque(false);
+		dtrpnBalance.setBounds(22, 278, 91, 20);
+		frame.getContentPane().add(dtrpnBalance);
 		
+		JEditorPane dtrpnTransfer = new JEditorPane();
+		dtrpnTransfer.setEditable(false);
+		dtrpnTransfer.setText("Transfer");
+		dtrpnTransfer.setFont(new Font("Tahoma", Font.BOLD, 14));
+		dtrpnTransfer.setOpaque(false);
+		dtrpnTransfer.setBounds(680, 166, 91, 20);
+		frame.getContentPane().add(dtrpnTransfer);
 		
+		JEditorPane dtrpnPinChange = new JEditorPane();
+		dtrpnPinChange.setEditable(false);
+		dtrpnPinChange.setText("Pin Change");
+		dtrpnPinChange.setFont(new Font("Tahoma", Font.BOLD, 14));
+		dtrpnPinChange.setOpaque(false);
+		dtrpnPinChange.setBounds(680, 222, 91, 20);
+		frame.getContentPane().add(dtrpnPinChange);
 		
-		
-		
-		
-		
-		
-		
+		JEditorPane dtrpnConfirmPin = new JEditorPane();
+		dtrpnConfirmPin.setEditable(false);
+		dtrpnConfirmPin.setText("Confirm Pin");
+		dtrpnConfirmPin.setFont(new Font("Tahoma", Font.BOLD, 14));
+		dtrpnConfirmPin.setOpaque(false);
+		dtrpnConfirmPin.setBounds(680, 278, 91, 20);
+		frame.getContentPane().add(dtrpnConfirmPin);
+			
 		
 	}
 }
