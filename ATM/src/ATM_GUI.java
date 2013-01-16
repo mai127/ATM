@@ -29,6 +29,7 @@ public class ATM_GUI {
 	ATMInfo atmInf = new ATMInfo("Aristoteloys sqr. 165", "Ethniki Trapeza");
 	
 	int p,c;
+	boolean entercard=false;
 	boolean enterpin=false;
 	boolean enterwith=false;
 	boolean enterbal=false;
@@ -38,7 +39,7 @@ public class ATM_GUI {
 	
 	//Buttons and labels
 	JButton btCard = new JButton(" ");
-	
+	JButton btExTrans = new JButton("Exit Transaction");
 	JButton btconfPin = new JButton("");
 	JButton btBalance = new JButton("");
 	JButton btWithdrawal = new JButton("");
@@ -316,6 +317,78 @@ public class ATM_GUI {
 		btEnter.setBounds(459, 586, 75, 42);
 		frame.getContentPane().add(btEnter);
 		
+		btEnter.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(enterpin) {
+					p=Integer.parseInt(textField.getText());
+					tr=new PinValidation(c,p,bank1.accountCard(c));
+					atmInf.setTransaction(tr);
+					atmInf.identifies();
+					if(atmInf.isAuthenticated()) {
+						txtrAtmBank.setText("Parakalw epilexte/ntin sunalagi/nsas");
+						enterpin=false;
+						textField.setText("");
+					}
+					else {
+						txtrAtmBank.setText("Wrong credentials\n Please try Again");
+						btCard.setEnabled(true);
+						textField.setText("");
+						atmInf.newAtmCustomer();
+					}
+				}
+				else if(enterbal) {
+					tr1=new Query(bank1.accountCard(c));
+					atmInf.setTransaction(tr1);
+					atmInf.identifies();
+					tr1=null;
+					enterbal=false;
+					textField.setText("");
+				}
+				else if(enterdep){
+					if(!textField.getText().isEmpty()) {
+						int a=Integer.parseInt(textField.getText());
+						tr1=new Deposit(a,bank1.accountCard(c));
+						atmInf.setTransaction(tr1);
+						atmInf.identifies();
+						tr1=null;
+						textField.setText("");
+						txtrAtmBank.setText("Euxaristoume gia\n tin sunalagi");
+						enterdep=false;
+					}
+					else {
+						enterdep=true;
+						txtrAtmBank.setText("parakalw \neisagete poso\nkai patiste\nenter");
+					}
+				}
+				else if(enterwith) {
+					if(!textField.getText().isEmpty()){
+						int a=Integer.parseInt(textField.getText());
+						tr1=new Withdraw(a,bank1.accountCard(c));
+						atmInf.setTransaction(tr1);
+						atmInf.identifies();
+						tr1=null;
+						textField.setText("");
+						txtrAtmBank.setText("Euxaristoume gia\n tin sunalagi");
+						enterwith=false;
+					}
+					else {
+						enterwith=true;
+						txtrAtmBank.setText("parakalw \neisagete poso\nkai patiste\nenter");
+					}
+				}
+				else if(entertrans) {
+				
+				}
+				else{
+					txtrAtmBank.setText("parakalw epilexte\nsunalagi");
+				}
+			}
+		});
+					
+					
+				
+		
+		
 		  // creation and settings of button z	
 		ImageIcon btzicon = new ImageIcon("images/z.png");
 		JButton btz = new JButton(btzicon);
@@ -339,6 +412,8 @@ public class ATM_GUI {
 		btWithdrawal.setBounds(105, 155, 83, 47);
 		btWithdrawal.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				txtrAtmBank.setText("Parakalw eisagete\nposo analipsis\nkai patiste\nenter");
+				enterwith=true;
 				int a=Integer.parseInt(textField.getText());
 				tr1=new Withdraw(a,bank1.accountCard(c));
 				atmInf.setTransaction(tr1);
@@ -359,6 +434,8 @@ public class ATM_GUI {
 		btDeposit.setBounds(105, 210, 83, 47);	
 		btDeposit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				txtrAtmBank.setText("Parakalw eisagete\nposo katathesis\nkai patiste\nenter");
+				enterdep=true;
 				int a=Integer.parseInt(textField.getText());
 				tr1=new Deposit(a,bank1.accountCard(c));
 				atmInf.setTransaction(tr1);
@@ -378,11 +455,14 @@ public class ATM_GUI {
 		btBalance.setBounds(105, 266, 83, 47);
 		btBalance.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-				tr1=new Query(bank1.accountCard(c));
-				atmInf.setTransaction(tr1);
-				atmInf.identifies();
-	
-				tr1=null;
+					enterbal=true;
+					textField.setText("");
+					txtrAtmBank.setText("Erwtisi upoloipou?\nEpilexte enter \ngia epivevaiwsh");
+					tr1=new Query(bank1.accountCard(c));
+					atmInf.setTransaction(tr1);
+					atmInf.identifies();
+		
+					tr1=null;
 				}
 			});
 		frame.getContentPane().add(btBalance);
@@ -396,7 +476,7 @@ public class ATM_GUI {
 		
 		btTransfer.setBounds(599, 155, 83, 47);
 		frame.getContentPane().add(btTransfer);
-		
+	
 		ImageIcon btpinchicon = new ImageIcon("images/x-y.png");
 		btPinChange.setIcon(btpinchicon);
 		btPinChange.setOpaque(false);
@@ -409,17 +489,28 @@ public class ATM_GUI {
 		});
 		btPinChange.setBounds(599, 210, 83, 47);
 		frame.getContentPane().add(btPinChange);
-			
+	
 		ImageIcon btpinconficon = new ImageIcon("images/x-y.png");
 		btconfPin.setIcon(btpinconficon);
 		btconfPin.setOpaque(false);
 		btconfPin.setFocusPainted(false);
 		btconfPin.setContentAreaFilled(false);
 		btconfPin.setBorderPainted(false);
-		btconfPin.addActionListener(new ActionListener() {
+		//btconfPin.addActionListener(new ActionListener() {};	
+		
+		btExTrans.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-			p=Integer.parseInt(textField.getText());
-			tr=new PinValidation(c,p,bank1.accountCard(c));
+				if(enterwith||enterbal|| enterdep||entrpinch||entertrans){
+					enterwith=false;
+					enterbal=false;
+					enterdep=false;
+					entrpinch=false;
+					entertrans=false;
+					textField.setText("");
+					txtrAtmBank.setText("H synalagi\nakurwthike\nparakalw epilexte\nsunalagi");
+				}
+				p=Integer.parseInt(textField.getText());
+				tr=new PinValidation(c,p,bank1.accountCard(c));
 				atmInf.setTransaction(tr);
 				atmInf.identifies();
 				if(atmInf.isAuthenticated()){
@@ -428,7 +519,10 @@ public class ATM_GUI {
 				else
 					txtrAtmBank.setText("Not In");
 				}
-			});
+		});
+		
+			btExTrans.setBounds(10, 193, 100, 23);
+		    frame.getContentPane().add(btExTrans);
 			btconfPin.setBounds(599, 266, 83, 47);
 			frame.getContentPane().add(btconfPin);
 			
@@ -445,7 +539,7 @@ public class ATM_GUI {
 				txtrAtmBank.setText("Dwse Pin");
 	
 				}
-			});
+		});
 		frame.getContentPane().add(btCard);
 		
 		JSeparator separator = new JSeparator();
