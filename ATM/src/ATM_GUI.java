@@ -585,7 +585,7 @@ public class ATM_GUI {
 		});
 		btExit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				if(!enterwith&&!enterbal&&!enterdep&&!enterpich&&!entertrans&&!entertrans2){
+				if(!enterwith&&!enterbal&&!enterdep&&!enterpich&&!entertrans&&!entertrans2&&!lblCard.getText().equals("_")){
 					btCard.setEnabled(true);
 					textField.setText("");
 					atmInf.newAtmCustomer();
@@ -598,6 +598,7 @@ public class ATM_GUI {
 					disableButtons();
 					btExTrans.setEnabled(false);
 					btExit.setEnabled(false);
+					enableKeyPad();
 				}
 
 				else
