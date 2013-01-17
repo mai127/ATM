@@ -354,6 +354,8 @@ public class ATM_GUI {
 							textField.setText("");
 							enableButtons();
 							disableKeyPad();
+							btExit.setEnabled(true);
+							btExTrans.setEnabled(true);
 						}
 						else{
 							atmScr.setText("Wrong credentials\n Please try Again");
@@ -593,6 +595,9 @@ public class ATM_GUI {
 					//atmScr.setText("Telos sunalagwn\nParakalw paralavete\ntin karta sas");
 					atmScr.setText("Telos sunalagwn\nParakalw paralavete\ntin karta sas\npatwntas to koumpi\ntis kartas");
 					lblCard.setText("_");
+					disableButtons();
+					btExTrans.setEnabled(false);
+					btExit.setEnabled(false);
 				}
 
 				else
@@ -604,6 +609,8 @@ public class ATM_GUI {
 //-------------------------------- END of Button handlers---------------------------------------
 		
 		disableButtons();
+		btExTrans.setEnabled(false);
+		btExit.setEnabled(false);
 		btWithdrawal.setIcon(btxicon);
 		btWithdrawal.setOpaque(false);
 		btWithdrawal.setFocusPainted(false);
