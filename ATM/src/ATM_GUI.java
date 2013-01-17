@@ -61,6 +61,16 @@ public class ATM_GUI {
 	JButton btTransfer = new JButton("");
 	JLabel lblCard = new JLabel("_");
 	
+	JButton bt1 = new JButton("");
+	JButton bt2 = new JButton("");
+	JButton bt3 = new JButton("");
+	JButton bt4 = new JButton("");
+	JButton bt5 = new JButton("");
+	JButton bt6 = new JButton("");
+	JButton bt7 = new JButton("");
+	JButton bt8 = new JButton("");
+	JButton bt9 = new JButton("");
+	JButton bt0 = new JButton("");
 	JTextArea atmScr = new JTextArea();
 	
 	/**
@@ -117,7 +127,7 @@ public class ATM_GUI {
 		
 		  // creation and settings of button 1
 		ImageIcon bt1icon = new ImageIcon("images/1.png");
-		JButton bt1 = new JButton(bt1icon);
+		bt1.setIcon(bt1icon);
 		bt1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				textField.setText(textField.getText()+"1");
@@ -132,7 +142,7 @@ public class ATM_GUI {
 		  
 		  // creation and settings of button 2		
 		ImageIcon bt2icon = new ImageIcon("images/2.png");
-		JButton bt2 = new JButton(bt2icon);
+		bt2.setIcon(bt2icon);
 		bt2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textField.setText(textField.getText()+"2");
@@ -147,7 +157,7 @@ public class ATM_GUI {
 		
 		  // creation and settings of button 3
 		ImageIcon bt3icon = new ImageIcon("images/3.png");
-		JButton bt3 = new JButton(bt3icon);
+		bt3.setIcon(bt3icon);
 		bt3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textField.setText(textField.getText()+"3");
@@ -162,7 +172,7 @@ public class ATM_GUI {
 		
 		  // creation and settings of button 4
 		ImageIcon bt4icon = new ImageIcon("images/4.png");
-		JButton bt4 = new JButton(bt4icon);
+		bt4.setIcon(bt4icon);
 		bt4.setBackground(Color.WHITE);
 		bt4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -178,7 +188,7 @@ public class ATM_GUI {
 		
  		  // creation and settings of button 5
 		ImageIcon bt5icon = new ImageIcon("images/5.png");
-		JButton bt5 = new JButton(bt5icon);
+		bt5.setIcon(bt5icon);
 		bt5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textField.setText(textField.getText()+"5");
@@ -193,7 +203,7 @@ public class ATM_GUI {
 		
 	      // creation and settings of button 6
 		ImageIcon bt6icon = new ImageIcon("images/6.png");
-		JButton bt6 = new JButton(bt6icon);
+		bt6.setIcon(bt6icon);
 		bt6.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textField.setText(textField.getText()+"6");
@@ -208,7 +218,7 @@ public class ATM_GUI {
 		
 		  // creation and settings of button 7
 		ImageIcon bt7icon = new ImageIcon("images/7.png");
-		JButton bt7 = new JButton(bt7icon);
+		bt7.setIcon(bt7icon);
 		bt7.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textField.setText(textField.getText()+"7");
@@ -223,7 +233,7 @@ public class ATM_GUI {
 		
 		  // creation and settings of button 8
 		ImageIcon bt8icon = new ImageIcon("images/8.png");
-		JButton bt8 = new JButton(bt8icon);
+		bt8.setIcon(bt8icon);
 		bt8.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textField.setText(textField.getText()+"8");
@@ -238,7 +248,7 @@ public class ATM_GUI {
 
 		  // creation and settings of button 9
 		ImageIcon bt9icon = new ImageIcon("images/9.png");
-		JButton bt9 = new JButton(bt9icon);
+		bt9.setIcon(bt9icon);
 		bt9.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textField.setText(textField.getText()+"9");
@@ -253,7 +263,7 @@ public class ATM_GUI {
 		
 		  // creation and settings of button 0
 		ImageIcon bt0icon = new ImageIcon("images/0.png");
-		JButton bt0 = new JButton(bt0icon);
+		bt0.setIcon(bt0icon);
 		bt0.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textField.setText(textField.getText()+"0");
@@ -343,6 +353,7 @@ public class ATM_GUI {
 							enterpin=false;
 							textField.setText("");
 							enableButtons();
+							disableKeyPad();
 						}
 						else{
 							atmScr.setText("Wrong credentials\n Please try Again");
@@ -365,6 +376,7 @@ public class ATM_GUI {
 						String s=getsBalance();
 						atmScr.setText("To upoloipo sas einai:\n"+s);
 						enableButtons();
+						disableKeyPad();
 				}
 				else if(enterdep){
 						if(!textField.getText().isEmpty()){
@@ -377,6 +389,7 @@ public class ATM_GUI {
 							atmScr.setText("Euxaristoume gia\n tin sunalagi");
 							enterdep=false;
 							enableButtons();
+							disableKeyPad();
 						}
 						else
 						{
@@ -395,6 +408,7 @@ public class ATM_GUI {
 							atmScr.setText("Euxaristoume gia\n tin sunalagi");
 							enterwith=false;
 							enableButtons();
+							disableKeyPad();
 						}
 						else
 						{
@@ -432,6 +446,7 @@ public class ATM_GUI {
 						atmScr.setText("H metafora sas\negine me epitixia");
 						entertrans2=false;
 						enableButtons();
+						disableKeyPad();
 					}
 					else
 					{
@@ -452,6 +467,7 @@ public class ATM_GUI {
 						atmScr.setText("To pin sas\nallaxe me epitixia");
 						enterpich=false;
 						enableButtons();
+						disableKeyPad();
 					}
 					else
 					{
@@ -488,7 +504,7 @@ public class ATM_GUI {
 				atmScr.setText("Parakalw eisagete\nposo analipsis\nkai patiste\nenter");
 				enterwith=true;
 				disableButtons();
-				
+				enableKeyPad();
 				}
 			});
 		btDeposit.addActionListener(new ActionListener() {
@@ -496,7 +512,7 @@ public class ATM_GUI {
 				atmScr.setText("Parakalw eisagete\nposo katathesis\nkai patiste\nenter");
 				enterdep=true;
 				disableButtons();
-				
+				enableKeyPad();
 			}
 		});
 		
@@ -506,6 +522,7 @@ public class ATM_GUI {
 					textField.setText("");
 					atmScr.setText("Erwtisi upoloipou?\nEpilexte enter \ngia epivevaiwsh");
 					disableButtons();
+					enableKeyPad();
 				}
 			});
 		
@@ -514,6 +531,7 @@ public class ATM_GUI {
 				atmScr.setText("Eisagete to neo\npin kai patiste\nenter");
 				enterpich=true;
 				disableButtons();
+				enableKeyPad();
 			}
 		});
 		
@@ -529,6 +547,7 @@ public class ATM_GUI {
 					textField.setText("");
 					atmScr.setText("H synalagi\nakurwthike\nparakalw epilexte\nsunalagi");
 					enableButtons();
+					enableKeyPad();
 				}
 
 			}
@@ -536,17 +555,17 @@ public class ATM_GUI {
 		
 		btCard.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				//if(!lblCard.getText().equals("_")){
+				if(lblCard.getText().equals("_")&&!textField.getText().isEmpty()){
 					c=Integer.parseInt(textField.getText());
 					lblCard.setText("No"+c);
 					textField.setText("");
 					btCard.setEnabled(false);
 					atmScr.setText("Dwse Pin kai patise enter");
 					enterpin=true;
-				/*}
+				}
 				else{
 					atmScr.setText("Dwse arithmo kartas kai \npatise to \nkoumpi tis kartas");
-				}*/
+				}
 	
 				}
 		});
@@ -571,8 +590,8 @@ public class ATM_GUI {
 					c=0;
 					p=0;
 					t=0;
-					atmScr.setText("Telos sunalagwn\nParakalw paralavete\ntin karta sas");
-					//atmScr.setText("Telos sunalagwn\nParakalw paralavete\ntin karta sas\npatwntas to koumpi\ntis kartas");
+					//atmScr.setText("Telos sunalagwn\nParakalw paralavete\ntin karta sas");
+					atmScr.setText("Telos sunalagwn\nParakalw paralavete\ntin karta sas\npatwntas to koumpi\ntis kartas");
 					lblCard.setText("_");
 				}
 
@@ -781,10 +800,28 @@ public class ATM_GUI {
 		btTransfer.setEnabled(false);
 	}
 	void enableKeyPad(){
-		
+		bt1.setEnabled(true);
+		bt2.setEnabled(true);
+		bt3.setEnabled(true);
+		bt4.setEnabled(true);
+		bt5.setEnabled(true);
+		bt6.setEnabled(true);
+		bt7.setEnabled(true);
+		bt8.setEnabled(true);
+		bt9.setEnabled(true);
+		bt0.setEnabled(true);
 	}
 	void disableKeyPad(){
-		
+		bt1.setEnabled(false);
+		bt2.setEnabled(false);
+		bt3.setEnabled(false);
+		bt4.setEnabled(false);
+		bt5.setEnabled(false);
+		bt6.setEnabled(false);
+		bt7.setEnabled(false);
+		bt8.setEnabled(false);
+		bt9.setEnabled(false);
+		bt0.setEnabled(false);
 		
 	}
 }
