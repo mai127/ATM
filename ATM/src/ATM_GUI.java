@@ -110,7 +110,7 @@ public class ATM_GUI {
 		frame.getContentPane().setBackground(new Color(169, 169, 169));
 		frame.setBounds(100, 100, 821, 726);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		//frame.setContentPane(new JLabel(new ImageIcon("images/atm-bg.jpg")));
+		frame.setContentPane(new JLabel(new ImageIcon("images/atm-bg1.jpg")));
 		frame.getContentPane().setLayout(null);
 		
 		textField = new JTextField();
