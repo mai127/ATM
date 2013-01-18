@@ -6,6 +6,7 @@ import javax.swing.JButton;
 import javax.swing.JSeparator;
 import javax.swing.JLabel;
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
@@ -15,7 +16,6 @@ import javax.swing.ImageIcon;
 import java.awt.SystemColor;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-
 import javax.swing.JEditorPane;
 
 
@@ -109,6 +109,7 @@ public class ATM_GUI {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setContentPane(new JLabel(new ImageIcon("images/atm-bg1.jpg")));
 		frame.getContentPane().setLayout(null);
+		frame.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		
 		textField = new JTextField();
 		textField.setFont(new Font("Tahoma", Font.BOLD, 14));
@@ -130,11 +131,12 @@ public class ATM_GUI {
 				textField.setText(textField.getText()+"1");
 			}
 		});
-		bt1.setBorderPainted(false); 
+		bt1.setBorderPainted(false);
 		bt1.setContentAreaFilled(false); 
 		bt1.setFocusPainted(false); 
 		bt1.setOpaque(false);
 		bt1.setBounds(260, 490, 51, 42);
+		
 		frame.getContentPane().add(bt1);
 		  
 		  // creation and settings of button 2		
@@ -284,8 +286,7 @@ public class ATM_GUI {
 		frame.getContentPane().add(btx);
 		
 		  // creation and settings of button x
-		ImageIcon btyicon = new ImageIcon("images/x-y.png");
-		JButton bty = new JButton(btyicon);
+		JButton bty = new JButton(btxicon);
 		bty.setOpaque(false);
 		bty.setFocusPainted(false);
 		bty.setContentAreaFilled(false);
@@ -355,7 +356,7 @@ public class ATM_GUI {
 							btExTrans.setEnabled(true);
 						}
 						else{
-							atmScr.setText("Wrong credentials\n Please try Again");
+							atmScr.setText("Wrong credentials\nPlease try Again");
 							btCard.setEnabled(true);
 							textField.setText("");
 							atmInf.newAtmCustomer();
@@ -423,7 +424,8 @@ public class ATM_GUI {
 										
 						entertrans2=true;
 						enterpich=false;
-						
+						enableButtons();
+						disableKeyPad();
 					}
 					else
 					{
@@ -770,6 +772,13 @@ public class ATM_GUI {
 		dtrpnExitTransaction.setEditable(false);
 		dtrpnExitTransaction.setBounds(22, 321, 91, 34);
 		frame.getContentPane().add(dtrpnExitTransaction);
+		
+		JLabel lbl_keypad = new JLabel("");
+		lbl_keypad.setHorizontalAlignment(SwingConstants.CENTER);
+		ImageIcon lbkeypd = new ImageIcon("images/keypad-frame.png");
+		lbl_keypad.setIcon(lbkeypd);
+		lbl_keypad.setBounds(246, 477, 299, 209);
+		frame.getContentPane().add(lbl_keypad);
 			
 		
 	}
