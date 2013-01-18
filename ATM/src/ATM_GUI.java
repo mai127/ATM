@@ -706,7 +706,9 @@ public class ATM_GUI {
 		atmScr.setFont(new Font("Tahoma", Font.BOLD, 24));
 		atmScr.setBounds(186, 144, 409, 180);
 		atmScr.setBorder(javax.swing.BorderFactory.createLineBorder(Color.black,2));
-		atmScr.setText("Dwse arithmo kartas kai \npatise to \nkoumpi tis kartas");
+		atmScr.setText("Dwse arithmo kartas kai patise to koumpi tis kartas");
+		atmScr.setLineWrap(true);
+		atmScr.setWrapStyleWord(true);
 		frame.getContentPane().add(atmScr);
 		
 		JLabel label = new JLabel("");
