@@ -108,7 +108,7 @@ public class ATM_GUI {
 		frame.setResizable(false);
 		frame.getContentPane().setForeground(SystemColor.desktop);
 		frame.getContentPane().setBackground(new Color(169, 169, 169));
-		frame.setBounds(100, 100, 821, 726);
+		frame.setBounds(100, 100, 805, 726);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setContentPane(new JLabel(new ImageIcon("images/atm-bg1.jpg")));
 		frame.getContentPane().setLayout(null);
@@ -349,7 +349,7 @@ public class ATM_GUI {
 						atmInf.setTransaction(tr);
 						atmInf.identifies();
 						if(atmInf.isAuthenticated()){
-							atmScr.setText("Parakalw epilexte\ntin sunalagi\nsas");
+							atmScr.setText("\nSelect transaction");
 							enterpin=false;
 							textField.setText("");
 							enableButtons();
@@ -376,7 +376,7 @@ public class ATM_GUI {
 						enterbal=false;
 						textField.setText("");
 						String s=getsBalance();
-						atmScr.setText("To upoloipo sas einai:\n"+s);
+						atmScr.setText("\nBalance:\t$"+s);
 						enableButtons();
 						disableKeyPad();
 				}
@@ -388,7 +388,7 @@ public class ATM_GUI {
 							atmInf.identifies();
 							tr1=null;
 							textField.setText("");
-							atmScr.setText("Euxaristoume gia\n tin sunalagi");
+							atmScr.setText("\nDeposit Transaction Completed");
 							enterdep=false;
 							enableButtons();
 							disableKeyPad();
@@ -396,7 +396,7 @@ public class ATM_GUI {
 						else
 						{
 							enterdep=true;
-							atmScr.setText("parakalw \neisagete poso\nkai patiste\nenter");
+							atmScr.setText("\nPlease first enter Amount and press Enter");
 						}
 				}
 				else if(enterwith){
@@ -407,7 +407,7 @@ public class ATM_GUI {
 							atmInf.identifies();
 							tr1=null;
 							textField.setText("");
-							atmScr.setText("Euxaristoume gia\n tin sunalagi");
+							atmScr.setText("\nWithdrawal Transaction Completed");
 							enterwith=false;
 							enableButtons();
 							disableKeyPad();
@@ -415,14 +415,14 @@ public class ATM_GUI {
 						else
 						{
 						enterwith=true;
-						atmScr.setText("parakalw \neisagete poso\nkai patiste\nenter");
+						atmScr.setText("\nPlease first enter Amount and press Enter");
 						}
 				}
 				else if(entertrans){
 					if(!textField.getText().isEmpty()){
 						int t=Integer.parseInt(textField.getText());
 						textField.setText("");
-						atmScr.setText("Dwse poso\nmetaforas");
+						atmScr.setText("\nEnter Transfer Amount");
 										
 						entertrans2=true;
 						enterpich=false;
@@ -430,9 +430,9 @@ public class ATM_GUI {
 					}
 					else
 					{
-					entertrans=true;
-					entertrans2=false;
-					atmScr.setText("parakalw Dwste logariasmo\n metaforas\nkai patise enter");
+						entertrans=true;
+						entertrans2=false;
+						atmScr.setText("\nPlease first enter Transfer Account Number and press Enter");
 					}
 				
 						entertrans=false;
@@ -445,18 +445,16 @@ public class ATM_GUI {
 						atmInf.identifies();
 						tr1=null;
 						textField.setText("");
-						atmScr.setText("H metafora sas\negine me epitixia");
+						atmScr.setText("\nCompleted Transfer Amount");
 						entertrans2=false;
 						enableButtons();
 						disableKeyPad();
 					}
-					else
-					{
-					entertrans2=true;
-					atmScr.setText("parakalw Dwste poso\n metaforas\nkai patise enter");
+					else {
+						entertrans2=true;
+						atmScr.setText("\nPlease first enter Transfer Account Number and press Enter");
 					}
-				
-						entertrans2=false;
+					entertrans2=false;
 				}
 				else if(enterpich){
 					if(!textField.getText().isEmpty()){
@@ -466,20 +464,19 @@ public class ATM_GUI {
 						atmInf.identifies();
 						tr1=null;
 						textField.setText("");
-						atmScr.setText("To pin sas\nallaxe me epitixia");
+						atmScr.setText("\nPIN Successfully Changed");
 						enterpich=false;
 						enableButtons();
 						disableKeyPad();
 					}
-					else
-					{
-					enterpich=true;
-					atmScr.setText("parakalw \neisagete neo pin\nkai patiste\nenter");
+					else {
+						enterpich=true;
+						atmScr.setText("\nEnter new PIN and press Enter");
 					}
 					
 				}
 				else{
-					atmScr.setText("parakalw epilexte\nsunalagi");
+					atmScr.setText("\nSelect Transaction");
 					enableButtons();
 				}
 			}
@@ -503,15 +500,15 @@ public class ATM_GUI {
 //-------- button handlers------------------------------------------------------
 		btWithdrawal.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				atmScr.setText("Parakalw eisagete\nposo analipsis\nkai patiste\nenter");
+				atmScr.setText("\nEnter Withdrawal Amount and press Enter");
 				enterwith=true;
 				disableButtons();
 				enableKeyPad();
-				}
-			});
+			}
+		});
 		btDeposit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				atmScr.setText("Parakalw eisagete\nposo katathesis\nkai patiste\nenter");
+				atmScr.setText("\nEnter Deposit Amount and press Enter");
 				enterdep=true;
 				disableButtons();
 				enableKeyPad();
@@ -522,15 +519,15 @@ public class ATM_GUI {
 				public void actionPerformed(ActionEvent arg0) {
 					enterbal=true;
 					textField.setText("");
-					atmScr.setText("Erwtisi upoloipou?\nEpilexte enter \ngia epivevaiwsh");
+					atmScr.setText("\nBalance Inquiry?\nPress Enter to confirm");
 					disableButtons();
 					enableKeyPad();
 				}
-			});
+		});
 		
 		btPinChange.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				atmScr.setText("Eisagete to neo\npin kai patiste\nenter");
+				atmScr.setText("\nEnter new PIN and press Enter");
 				enterpich=true;
 				disableButtons();
 				enableKeyPad();
@@ -547,7 +544,7 @@ public class ATM_GUI {
 					entertrans=false;
 					entertrans2=false;
 					textField.setText("");
-					atmScr.setText("H synalagi\nakurwthike\nparakalw epilexte\nsunalagi");
+					atmScr.setText("\nTransaction Canceled\nSelect Transaction");
 					enableButtons();
 					enableKeyPad();
 				}
@@ -562,26 +559,23 @@ public class ATM_GUI {
 					lblCard.setText("No"+c);
 					textField.setText("");
 					btCard.setEnabled(false);
-					atmScr.setText("Dwse Pin kai patise enter");
+					atmScr.setText("\nEnter PIN and press Enter");
 					enterpin=true;
 				}
 				else{
-					atmScr.setText("Dwse arithmo kartas kai \npatise to \nkoumpi tis kartas");
+					atmScr.setText("\nEnter account number and press Insert Card slot");
 				}
 	
-				}
+			}
 		});
 		
 		btTransfer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				textField.setText("");
-				atmScr.setText("Dwse logariasmo\n metaforas\nkai patise enter");
+				atmScr.setText("\nEnter Transfer Account and press Enter");
 				
 				entertrans=true;
-
-
-	
-				}
+			}
 		});
 		btExit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -593,7 +587,7 @@ public class ATM_GUI {
 					p=0;
 					t=0;
 					//atmScr.setText("Telos sunalagwn\nParakalw paralavete\ntin karta sas");
-					atmScr.setText("Telos sunalagwn\nParakalw paralavete\ntin karta sas\npatwntas to koumpi\ntis kartas");
+					atmScr.setText("\nTransactions Completed\nPlease press Insert Card slot and recieve your Card");
 					lblCard.setText("_");
 					disableButtons();
 					btExTrans.setEnabled(false);
@@ -602,9 +596,9 @@ public class ATM_GUI {
 				}
 
 				else
-					atmScr.setText("Parakalw oloklirwste\ntis sunalages sas\nprwta");
+					atmScr.setText("\nPlease first complete your Transactions");
 	
-				}
+			}
 		});
 		
 //-------------------------------- END of Button handlers---------------------------------------
@@ -679,7 +673,7 @@ public class ATM_GUI {
 		frame.getContentPane().add(btExTrans);
 			
 		
-		btCard.setBounds(637, 389, 162, 6);
+		btCard.setBounds(617, 403, 162, 6);
 
 		frame.getContentPane().add(btCard);
 		
@@ -696,17 +690,17 @@ public class ATM_GUI {
 		lblCard.setForeground(Color.BLACK);
 		lblCard.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblCard.setBackground(Color.LIGHT_GRAY);
-		lblCard.setBounds(634, 364, 166, 23);
+		lblCard.setBounds(614, 378, 166, 23);
 		frame.getContentPane().add(lblCard);
 	
 		
 		atmScr.setForeground(Color.BLACK);
 		atmScr.setEditable(false);
 		atmScr.setBackground(new Color(51, 153, 255));
-		atmScr.setFont(new Font("Tahoma", Font.BOLD, 24));
+		atmScr.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		atmScr.setBounds(186, 144, 409, 180);
 		atmScr.setBorder(javax.swing.BorderFactory.createLineBorder(Color.black,2));
-		atmScr.setText("Dwse arithmo kartas kai patise to koumpi tis kartas");
+		atmScr.setText("\nEnter account number and press Insert Card slot");
 		atmScr.setLineWrap(true);
 		atmScr.setWrapStyleWord(true);
 		frame.getContentPane().add(atmScr);
@@ -714,13 +708,13 @@ public class ATM_GUI {
 		JLabel label = new JLabel("");
 		ImageIcon lbInsCard = new ImageIcon("images/insert-card.png");
 		label.setIcon(lbInsCard);
-		label.setBounds(703, 404, 27, 35);
+		label.setBounds(683, 418, 27, 35);
 		frame.getContentPane().add(label);
 		
 		JLabel hl_label = new JLabel("");
 		ImageIcon lbHeadline = new ImageIcon("images/ATM-Machine.jpg");
 		hl_label.setIcon(lbHeadline);
-		hl_label.setBounds(150, 17, 477, 86);
+		hl_label.setBounds(155, 21, 477, 86);
 		hl_label.setBorder(javax.swing.BorderFactory.createLineBorder(Color.black,2));
 		frame.getContentPane().add(hl_label);
 		
@@ -750,10 +744,10 @@ public class ATM_GUI {
 		
 		JEditorPane dtrpnTransfer = new JEditorPane();
 		dtrpnTransfer.setEditable(false);
-		dtrpnTransfer.setText("Transfer");
+		dtrpnTransfer.setText("Transfer\nAmount");
 		dtrpnTransfer.setFont(new Font("Tahoma", Font.BOLD, 14));
 		dtrpnTransfer.setOpaque(false);
-		dtrpnTransfer.setBounds(680, 166, 91, 20);
+		dtrpnTransfer.setBounds(680, 155, 91, 35);
 		frame.getContentPane().add(dtrpnTransfer);
 		
 		JEditorPane dtrpnPinChange = new JEditorPane();
@@ -773,11 +767,11 @@ public class ATM_GUI {
 		frame.getContentPane().add(dtrpnConfirmPin);
 		
 		JEditorPane dtrpnExitTransaction = new JEditorPane();
-		dtrpnExitTransaction.setText("Exit Transac");
+		dtrpnExitTransaction.setText("Exit\nTransaction");
 		dtrpnExitTransaction.setOpaque(false);
 		dtrpnExitTransaction.setFont(new Font("Tahoma", Font.BOLD, 14));
 		dtrpnExitTransaction.setEditable(false);
-		dtrpnExitTransaction.setBounds(22, 335, 91, 20);
+		dtrpnExitTransaction.setBounds(22, 321, 91, 34);
 		frame.getContentPane().add(dtrpnExitTransaction);
 			
 		
