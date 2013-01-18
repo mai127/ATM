@@ -779,7 +779,6 @@ public class ATM_GUI {
 		lbl_keypad.setIcon(lbkeypd);
 		lbl_keypad.setBounds(246, 477, 299, 209);
 		frame.getContentPane().add(lbl_keypad);
-			
 		
 	}
 	String getsBalance(){
