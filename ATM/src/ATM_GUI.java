@@ -1,5 +1,6 @@
 import java.awt.EventQueue;
 
+import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -31,12 +32,11 @@ public class ATM_GUI {
 	Transaction tr,tr1,tr2;
 	ATMInfo atmInf = new ATMInfo("Aristoteloys sqr. 165", "Ethniki Trapeza");
 	
-	//read stream
+	  //read stream
 	ByteArrayOutputStream baos = new ByteArrayOutputStream();
     PrintStream ps = new PrintStream(baos);
     PrintStream old = System.out;
     
-	
 	int p,c,t;
 	boolean entercard=false;
 	boolean enterpin=false;
@@ -47,7 +47,7 @@ public class ATM_GUI {
 	boolean entertrans=false;
 	boolean entertrans2=false;
 	
-	//Buttons and labels
+	  // Selection buttons, ediotr panels and labels
 	JButton btCard = new JButton(" ");
 	JButton btExTrans = new JButton("");
 	JButton btExit = new JButton("");
@@ -56,8 +56,19 @@ public class ATM_GUI {
 	JButton btDeposit = new JButton("");
 	JButton btPinChange = new JButton("");
 	JButton btTransfer = new JButton("");
-	JLabel lblCard = new JLabel("_");
+	JLabel lblCard = new JLabel("Card");
+	JLabel label = new JLabel("");
+	JLabel hl_label = new JLabel("");
+	JLabel lbl_keypad = new JLabel("");
+	JEditorPane dtrpnWithdrawal = new JEditorPane();
+	JEditorPane dtrpnDeposit = new JEditorPane();
+	JEditorPane dtrpnBalance = new JEditorPane();
+	JEditorPane dtrpnTransfer = new JEditorPane();
+	JEditorPane dtrpnPinChange = new JEditorPane();
+	JEditorPane dtrpnConfirmPin = new JEditorPane();
+	JEditorPane dtrpnExitTransaction = new JEditorPane();
 	
+	  // keypad buttons
 	JButton bt1 = new JButton("");
 	JButton bt2 = new JButton("");
 	JButton bt3 = new JButton("");
@@ -101,6 +112,7 @@ public class ATM_GUI {
 	 */
 	private void initialize() {
 				
+		  // settings of main project frame
 		frame = new JFrame();
 		frame.setResizable(false);
 		frame.getContentPane().setForeground(SystemColor.desktop);
@@ -110,20 +122,10 @@ public class ATM_GUI {
 		frame.setContentPane(new JLabel(new ImageIcon("images/atm-bg1.jpg")));
 		frame.getContentPane().setLayout(null);
 		frame.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		
-		textField = new JTextField();
-		textField.setFont(new Font("Tahoma", Font.BOLD, 14));
-		textField.setForeground(Color.black);
-		textField.setBackground(new Color(0, 153, 255));
-		textField.setEditable(false);
-		textField.setBounds(186, 335, 409, 34);
-		textField.setColumns(4);
-		textField.setBorder(javax.swing.BorderFactory.createLineBorder(Color.black,2));
-		frame.getContentPane().add(textField);
 
-// --- keypad creation -----------------------------------------------------		
+// --- keypad setting ----------------------------------------------------------		
 		
-		  // creation and settings of button 1
+		  // settings of button '1'
 		ImageIcon bt1icon = new ImageIcon("images/1.png");
 		bt1.setIcon(bt1icon);
 		bt1.addActionListener(new ActionListener() {
@@ -139,7 +141,7 @@ public class ATM_GUI {
 		
 		frame.getContentPane().add(bt1);
 		  
-		  // creation and settings of button 2		
+		  // settings of button '2'		
 		ImageIcon bt2icon = new ImageIcon("images/2.png");
 		bt2.setIcon(bt2icon);
 		bt2.addActionListener(new ActionListener() {
@@ -154,7 +156,7 @@ public class ATM_GUI {
 		bt2.setBounds(321, 490, 51, 42);
 		frame.getContentPane().add(bt2);
 		
-		  // creation and settings of button 3
+		  // settings of button '3'
 		ImageIcon bt3icon = new ImageIcon("images/3.png");
 		bt3.setIcon(bt3icon);
 		bt3.addActionListener(new ActionListener() {
@@ -169,7 +171,7 @@ public class ATM_GUI {
 		bt3.setBounds(382, 490, 51, 42);
 		frame.getContentPane().add(bt3);
 		
-		  // creation and settings of button 4
+		  // settings of button '4'
 		ImageIcon bt4icon = new ImageIcon("images/4.png");
 		bt4.setIcon(bt4icon);
 		bt4.setBackground(Color.WHITE);
@@ -185,7 +187,7 @@ public class ATM_GUI {
 		bt4.setBounds(260, 538, 51, 42);
 		frame.getContentPane().add(bt4);
 		
- 		  // creation and settings of button 5
+ 		  // settings of button '5'
 		ImageIcon bt5icon = new ImageIcon("images/5.png");
 		bt5.setIcon(bt5icon);
 		bt5.addActionListener(new ActionListener() {
@@ -200,7 +202,7 @@ public class ATM_GUI {
 		bt5.setBounds(321, 538, 51, 42);
 		frame.getContentPane().add(bt5);
 		
-	      // creation and settings of button 6
+	      // settings of button '6'
 		ImageIcon bt6icon = new ImageIcon("images/6.png");
 		bt6.setIcon(bt6icon);
 		bt6.addActionListener(new ActionListener() {
@@ -215,7 +217,7 @@ public class ATM_GUI {
 		bt6.setBounds(382, 538, 51, 42);
 		frame.getContentPane().add(bt6);
 		
-		  // creation and settings of button 7
+		  // settings of button '7'
 		ImageIcon bt7icon = new ImageIcon("images/7.png");
 		bt7.setIcon(bt7icon);
 		bt7.addActionListener(new ActionListener() {
@@ -230,7 +232,7 @@ public class ATM_GUI {
 		bt7.setBounds(260, 586, 51, 42);
 		frame.getContentPane().add(bt7);
 		
-		  // creation and settings of button 8
+		  // settings of button '8'
 		ImageIcon bt8icon = new ImageIcon("images/8.png");
 		bt8.setIcon(bt8icon);
 		bt8.addActionListener(new ActionListener() {
@@ -245,7 +247,7 @@ public class ATM_GUI {
 		bt8.setBounds(321, 586, 51, 42);
 		frame.getContentPane().add(bt8);
 
-		  // creation and settings of button 9
+		  // settings of button '9'
 		ImageIcon bt9icon = new ImageIcon("images/9.png");
 		bt9.setIcon(bt9icon);
 		bt9.addActionListener(new ActionListener() {
@@ -260,7 +262,7 @@ public class ATM_GUI {
 		bt9.setBounds(382, 586, 51, 42);
 		frame.getContentPane().add(bt9);
 		
-		  // creation and settings of button 0
+		  // settings of button '0'
 		ImageIcon bt0icon = new ImageIcon("images/0.png");
 		bt0.setIcon(bt0icon);
 		bt0.addActionListener(new ActionListener() {
@@ -275,7 +277,7 @@ public class ATM_GUI {
 		bt0.setBounds(321, 634, 51, 42);
 		frame.getContentPane().add(bt0);
 		
-		  // creation and settings of button x
+		  // settings of button 'x' (left on button '0')
 		ImageIcon btxicon = new ImageIcon("images/x-y.png");
 		JButton btx = new JButton(btxicon);
 		btx.setOpaque(false);
@@ -285,7 +287,7 @@ public class ATM_GUI {
 		btx.setBounds(260, 634, 51, 42);
 		frame.getContentPane().add(btx);
 		
-		  // creation and settings of button x
+		  // settings of button 'y' (right on button '0')
 		JButton bty = new JButton(btxicon);
 		bty.setOpaque(false);
 		bty.setFocusPainted(false);
@@ -294,7 +296,7 @@ public class ATM_GUI {
 		bty.setBounds(382, 634, 51, 42);
 		frame.getContentPane().add(bty);
 		
-		  // creation and settings of button cancel
+		  // creation and settings of button 'cancel'
 		ImageIcon btcancelicon = new ImageIcon("images/cancel.png");
 		JButton btcancel = new JButton(btcancelicon);
 		btcancel.addActionListener(new ActionListener() {
@@ -309,15 +311,14 @@ public class ATM_GUI {
 		btcancel.setBorderPainted(false);
 		frame.getContentPane().add(btcancel);
 		
-		  // creation and settings of button clear
+		  // creation and settings of button 'clear'
 		ImageIcon btclearicon = new ImageIcon("images/clear.png");
 		JButton btclear = new JButton(btclearicon);
 		btclear.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(!textField.getText().isEmpty()) {
 					int caretPos = textField.getCaretPosition()-1;
-					textField.setText(textField.getText().substring(0, caretPos) + 
-						textField.getText().substring(caretPos+1));
+					textField.setText(textField.getText().substring(0, caretPos) + textField.getText().substring(caretPos+1));
 				}
 			}
 		});
@@ -328,7 +329,7 @@ public class ATM_GUI {
 		btclear.setBounds(459, 538, 75, 42);
 		frame.getContentPane().add(btclear);
 		 
-		  // creation and settings of button enter
+		  // creation and settings of button 'enter'
 		ImageIcon btentericon = new ImageIcon("images/enter.png");
 		JButton btEnter = new JButton(btentericon);
 		btEnter.setOpaque(false);
@@ -338,47 +339,71 @@ public class ATM_GUI {
 		btEnter.setBounds(459, 586, 75, 42);
 		frame.getContentPane().add(btEnter);
 		
+		  // creation and settings of button 'z' (beneath button enter) 	
+		ImageIcon btzicon = new ImageIcon("images/z.png");
+		JButton btz = new JButton(btzicon);
+		btz.setOpaque(false);
+		btz.setFocusPainted(false);
+		btz.setContentAreaFilled(false);
+		btz.setBorderPainted(false);
+		btz.setBounds(459, 634, 75, 42);
+		frame.getContentPane().add(btz);		
+	
+// --- end of keypad setting ---------------------------------------------------	
+		
+// --- ActionListener of button 'Enter' ----------------------------------------
 		btEnter.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 
-				if(enterpin){
+				  // user enters pin 
+				if(enterpin) {
 						p=Integer.parseInt(textField.getText());
 						tr=new PinValidation(c,p,bank1.accountCard(c));
 						atmInf.setTransaction(tr);
 						atmInf.identifies();
-						if(atmInf.isAuthenticated()){
-							atmScr.setText("\nSelect transaction");
+						  /*
+						   * if user entered correct Card Number and PIN 
+						   *   proceeds with transactions,
+						   * else he re-enters credentials
+						   */
+						if(atmInf.isAuthenticated()) {   
+							atmScr.setText("Select Transaction");
 							enterpin=false;
-							textField.setText("");
-							enableButtons();
-							disableKeyPad();
-							btExit.setEnabled(true);
-							btExTrans.setEnabled(true);
+							textField.setText("");      // clears identification data from text field  
+							enableButtons();            // enables transaction buttons and
+							disableKeyPad();		    // disables keypad numbers
+							btExit.setEnabled(true);    // exit card option is enabled, when user wants to take back his card 
+							btExTrans.setEnabled(true); // exit transaction option is enabled, if user selected wrong transaction
+							btCard.setBackground(Color.green);
 						}
-						else{
-							atmScr.setText("Wrong credentials\nPlease try Again");
+						else {  
+							atmScr.setText("Wrong credentials!\nPlease try Again");
 							btCard.setEnabled(true);
 							textField.setText("");
-							atmInf.newAtmCustomer();
-							c=0;
-							p=0;
-							t=0;
+							atmInf.newAtmCustomer();  // clears all data from transaction list
+							  /*
+							   * holds card number in memory (val c) and zeros pin number (val p)
+							   * so that the user re-enters the correct pin
+							   */
+							//c=0;	// card number
+							p=0;	// pin
+							t=0;	
 						}
-				}
-				else if(enterbal){
-						tr1=new Query(bank1.accountCard(c));
-						atmInf.setTransaction(tr1);
+				}  
+				else if(enterbal) {		
+						tr1=new Query(bank1.accountCard(c));  // creates new Query Transaction
+						atmInf.setTransaction(tr1); 
 						//atmInf.identifies();
 						
 						tr1=null;
 						enterbal=false;
 						textField.setText("");
 						String s=getsBalance();
-						atmScr.setText("\nBalance:\t$"+s);
+						atmScr.setText("Balance:\t$"+s+"\nSelect another Transaction or press Exit Card");
 						enableButtons();
 						disableKeyPad();
-				}
-				else if(enterdep){
+				} 
+				else if(enterdep) {
 						if(!textField.getText().isEmpty()){
 							int a=Integer.parseInt(textField.getText());
 							tr1=new Deposit(a,bank1.accountCard(c));
@@ -386,15 +411,14 @@ public class ATM_GUI {
 							atmInf.identifies();
 							tr1=null;
 							textField.setText("");
-							atmScr.setText("\nDeposit Transaction Completed");
+							atmScr.setText("Deposit Transaction Completed!\n\nSelect another Transaction or press Exit Card");
 							enterdep=false;
 							enableButtons();
 							disableKeyPad();
 						}
-						else
-						{
+						else {
 							enterdep=true;
-							atmScr.setText("\nPlease first enter Amount and press Enter");
+							atmScr.setText("Please first enter Amount and press ENTER");
 						}
 				}
 				else if(enterwith){
@@ -405,36 +429,33 @@ public class ATM_GUI {
 							atmInf.identifies();
 							tr1=null;
 							textField.setText("");
-							atmScr.setText("\nWithdrawal Transaction Completed");
+							atmScr.setText("Withdrawal Transaction Completed!\n\nSelect another Transaction or press Exit Card");
 							enterwith=false;
 							enableButtons();
 							disableKeyPad();
 						}
-						else
-						{
-						enterwith=true;
-						atmScr.setText("\nPlease first enter Amount and press Enter");
+						else {
+							enterwith=true;
+							atmScr.setText("Please first enter Amount and press ENTER");
 						}
 				}
 				else if(entertrans){
 					if(!textField.getText().isEmpty()){
 						int t=Integer.parseInt(textField.getText());
 						textField.setText("");
-						atmScr.setText("\nEnter Transfer Amount");
+						atmScr.setText("Enter Transfer Amount");
 										
 						entertrans2=true;
 						enterpich=false;
 						enableButtons();
 						disableKeyPad();
 					}
-					else
-					{
+					else {
 						entertrans=true;
 						entertrans2=false;
-						atmScr.setText("\nPlease first enter Transfer Account Number and press Enter");
+						atmScr.setText("Please first enter Transfer Account Number and press ENTER");
 					}
-				
-						entertrans=false;
+					entertrans=false;
 				}
 				else if(entertrans2){
 					if(!textField.getText().isEmpty()){
@@ -444,14 +465,14 @@ public class ATM_GUI {
 						atmInf.identifies();
 						tr1=null;
 						textField.setText("");
-						atmScr.setText("\nCompleted Transfer Amount");
+						atmScr.setText("Completed Transfer Amount");
 						entertrans2=false;
 						enableButtons();
 						disableKeyPad();
 					}
 					else {
 						entertrans2=true;
-						atmScr.setText("\nPlease first enter Transfer Account Number and press Enter");
+						atmScr.setText("Please first enter Transfer Account Number and press ENTER");
 					}
 					entertrans2=false;
 				}
@@ -463,43 +484,29 @@ public class ATM_GUI {
 						atmInf.identifies();
 						tr1=null;
 						textField.setText("");
-						atmScr.setText("\nPIN Successfully Changed");
+						atmScr.setText("PIN Successfully Changed");
 						enterpich=false;
 						enableButtons();
 						disableKeyPad();
 					}
 					else {
 						enterpich=true;
-						atmScr.setText("\nEnter new PIN and press Enter");
+						atmScr.setText("Enter new PIN and press ENTER");
 					}
-					
 				}
-				else{
-					atmScr.setText("\nSelect Transaction");
+				else {
+					atmScr.setText("Select Transaction");
 					enableButtons();
 				}
 			}
 		});
-					
-					
-				
-		
-		
-		  // creation and settings of button z	
-		ImageIcon btzicon = new ImageIcon("images/z.png");
-		JButton btz = new JButton(btzicon);
-		btz.setOpaque(false);
-		btz.setFocusPainted(false);
-		btz.setContentAreaFilled(false);
-		btz.setBorderPainted(false);
-		btz.setBounds(459, 634, 75, 42);
-		frame.getContentPane().add(btz);
-		
-// --- end of keypad creation ----------------------------------------------
+//--- end of ActionListener of button 'Enter'-----------------------------------					
+						
+
 //-------- button handlers------------------------------------------------------
 		btWithdrawal.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				atmScr.setText("\nEnter Withdrawal Amount and press Enter");
+				atmScr.setText("Enter Withdrawal Amount and press ENTER");
 				enterwith=true;
 				disableButtons();
 				enableKeyPad();
@@ -507,7 +514,7 @@ public class ATM_GUI {
 		});
 		btDeposit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				atmScr.setText("\nEnter Deposit Amount and press Enter");
+				atmScr.setText("\nEnter Deposit Amount and press ENTER");
 				enterdep=true;
 				disableButtons();
 				enableKeyPad();
@@ -518,7 +525,7 @@ public class ATM_GUI {
 				public void actionPerformed(ActionEvent arg0) {
 					enterbal=true;
 					textField.setText("");
-					atmScr.setText("\nBalance Inquiry?\nPress Enter to confirm");
+					atmScr.setText("\nBalance Inquiry?\n\nPress ENTER to confirm");
 					disableButtons();
 					enableKeyPad();
 				}
@@ -526,7 +533,7 @@ public class ATM_GUI {
 		
 		btPinChange.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				atmScr.setText("\nEnter new PIN and press Enter");
+				atmScr.setText("\nEnter new PIN and press ENTER");
 				enterpich=true;
 				disableButtons();
 				enableKeyPad();
@@ -547,31 +554,29 @@ public class ATM_GUI {
 					enableButtons();
 					enableKeyPad();
 				}
-
 			}
 		});
 		
 		btCard.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				if(lblCard.getText().equals("_")&&!textField.getText().isEmpty()){
+				if(lblCard.getText().equals("Card")&&!textField.getText().isEmpty()){
 					c=Integer.parseInt(textField.getText());
 					lblCard.setText("No"+c);
 					textField.setText("");
 					btCard.setEnabled(false);
-					atmScr.setText("\nEnter PIN and press Enter");
+					atmScr.setText("Enter PIN and press ENTER");
 					enterpin=true;
 				}
 				else{
-					atmScr.setText("\nEnter account number and press Insert Card slot");
+					atmScr.setText("Enter account number and press Card slot");
 				}
-	
 			}
 		});
 		
 		btTransfer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				textField.setText("");
-				atmScr.setText("\nEnter Transfer Account and press Enter");
+				atmScr.setText("Enter Transfer Account and press ENTER");
 				
 				entertrans=true;
 			}
@@ -585,74 +590,95 @@ public class ATM_GUI {
 					c=0;
 					p=0;
 					t=0;
-					//atmScr.setText("Telos sunalagwn\nParakalw paralavete\ntin karta sas");
-					atmScr.setText("\nTransactions Completed\nPlease press Insert Card slot and recieve your Card");
-					lblCard.setText("_");
+					atmScr.setText("\nTransactions Completed\n\nPlease press Card slot and recieve your Card");
+					lblCard.setText("Card");
 					disableButtons();
+					btCard.setBackground(null);
 					btExTrans.setEnabled(false);
 					btExit.setEnabled(false);
 					enableKeyPad();
 				}
-
 				else
 					atmScr.setText("\nPlease first complete your Transactions");
 	
 			}
-		});
-		
+		});		
 //-------------------------------- END of Button handlers---------------------------------------
-		
+		  
+		  // when application starts...
 		disableButtons();
 		btExTrans.setEnabled(false);
 		btExit.setEnabled(false);
+		
+		  // settings of TextArea (the ATM screen) 
+		atmScr.setForeground(Color.BLACK);
+		atmScr.setEditable(false);
+		atmScr.setBackground(new Color(51, 153, 255));
+		atmScr.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		atmScr.setBounds(186, 144, 409, 180);
+		atmScr.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.black,2), BorderFactory.createEmptyBorder(10, 10, 10, 10)));
+		atmScr.setText("Enter Card number and press Card slot");
+		atmScr.setLineWrap(true);
+		atmScr.setWrapStyleWord(true);
+		frame.getContentPane().add(atmScr);
+		
+		  // settings of text field (to enter card number, pin and amounts)
+		textField = new JTextField();
+		textField.setFont(new Font("Tahoma", Font.BOLD, 14));
+		textField.setForeground(Color.black);
+		textField.setBackground(new Color(0, 153, 255));
+		textField.setEditable(false);
+		textField.setBounds(186, 335, 409, 34);
+		textField.setColumns(4);
+		textField.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.black,2), BorderFactory.createEmptyBorder(0, 10, 0, 10)));
+		frame.getContentPane().add(textField);
+		
+		  // setting of button 'Withdrawal'
 		btWithdrawal.setIcon(btxicon);
 		btWithdrawal.setOpaque(false);
 		btWithdrawal.setFocusPainted(false);
 		btWithdrawal.setContentAreaFilled(false);
 		btWithdrawal.setBorderPainted(false);
-		
 		btWithdrawal.setBounds(105, 155, 83, 47);
-		
 		frame.getContentPane().add(btWithdrawal);
 		
+		  // setting of button 'Deposit'
 		btDeposit.setIcon(btxicon);
 		btDeposit.setOpaque(false);
 		btDeposit.setFocusPainted(false);
 		btDeposit.setContentAreaFilled(false);
 		btDeposit.setBorderPainted(false);
-		
 		btDeposit.setBounds(105, 210, 83, 47);	
-		
 		frame.getContentPane().add(btDeposit);
-		
+		  
+		  // setting of button 'Balance'
 		btBalance.setIcon(btxicon);
 		btBalance.setOpaque(false);
 		btBalance.setFocusPainted(false);
 		btBalance.setContentAreaFilled(false);
 		btBalance.setBorderPainted(false);
-		
 		btBalance.setBounds(105, 265, 83, 47);
-		
 		frame.getContentPane().add(btBalance);
 		
+		  // setting of button 'Transfer Amount'
 		btTransfer.setIcon(btxicon);
 		btTransfer.setOpaque(false);
 		btTransfer.setFocusPainted(false);
 		btTransfer.setContentAreaFilled(false);
 		btTransfer.setBorderPainted(false);
-		
 		btTransfer.setBounds(599, 155, 83, 47);
 		frame.getContentPane().add(btTransfer);
 	
+		  // setting of button 'Pin Change'
 		btPinChange.setIcon(btxicon);
 		btPinChange.setOpaque(false);
 		btPinChange.setFocusPainted(false);
 		btPinChange.setContentAreaFilled(false);
 		btPinChange.setBorderPainted(false);
-		
 		btPinChange.setBounds(599, 210, 83, 47);
 		frame.getContentPane().add(btPinChange);
-	
+
+		  // setting of button 'Exit Card'
 		btExit.setIcon(btxicon);
 		btExit.setOpaque(false);
 		btExit.setFocusPainted(false);
@@ -661,8 +687,7 @@ public class ATM_GUI {
 		btExit.setBounds(599, 266, 83, 47);
 		frame.getContentPane().add(btExit);
 		
-
-
+		  // settings of button 'Exit Transactions'
 		btExTrans.setIcon(btxicon);
 		btExTrans.setOpaque(false);
 		btExTrans.setFocusPainted(false);
@@ -670,62 +695,54 @@ public class ATM_GUI {
 		btExTrans.setBorderPainted(false);
 		btExTrans.setBounds(105, 320, 83, 47);
 		frame.getContentPane().add(btExTrans);
-			
-		
+		  
+		  // setting of button 'Card' (Card Slot)
 		btCard.setBounds(617, 403, 162, 6);
-
 		frame.getContentPane().add(btCard);
 		
 		JSeparator separator = new JSeparator();
-		separator.setForeground(Color.BLACK);
-		
-		
-		separator.setBackground(Color.BLACK);
+		separator.setForeground(Color.darkGray);
+		separator.setBackground(Color.lightGray);
 		separator.setBounds(22, 464, 754, 6);
 		frame.getContentPane().add(separator);
 		
-	
+		  // setting of label 'Card' (shows Card and Card Number)
 		lblCard.setHorizontalAlignment(SwingConstants.CENTER);
 		lblCard.setForeground(Color.BLACK);
 		lblCard.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblCard.setBackground(Color.LIGHT_GRAY);
 		lblCard.setBounds(614, 378, 166, 23);
 		frame.getContentPane().add(lblCard);
-	
-		
-		atmScr.setForeground(Color.BLACK);
-		atmScr.setEditable(false);
-		atmScr.setBackground(new Color(51, 153, 255));
-		atmScr.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		atmScr.setBounds(186, 144, 409, 180);
-		atmScr.setBorder(javax.swing.BorderFactory.createLineBorder(Color.black,2));
-		atmScr.setText("\nEnter account number and press Insert Card slot");
-		atmScr.setLineWrap(true);
-		atmScr.setWrapStyleWord(true);
-		frame.getContentPane().add(atmScr);
-		
-		JLabel label = new JLabel("");
+
+		  // settings of label 'card insertion' (icon beneath Card button)
 		ImageIcon lbInsCard = new ImageIcon("images/insert-card.png");
 		label.setIcon(lbInsCard);
 		label.setBounds(683, 418, 27, 35);
 		frame.getContentPane().add(label);
 		
-		JLabel hl_label = new JLabel("");
+		  // settings of label 'ATM' (ATM sign)
 		ImageIcon lbHeadline = new ImageIcon("images/ATM-Machine.jpg");
 		hl_label.setIcon(lbHeadline);
 		hl_label.setBounds(155, 21, 477, 86);
-		hl_label.setBorder(javax.swing.BorderFactory.createLineBorder(Color.black,2));
+		hl_label.setBorder(BorderFactory.createLineBorder(Color.black,2));
 		frame.getContentPane().add(hl_label);
 		
-		JEditorPane dtrpnWithdrawal = new JEditorPane();
+		  // settings of label keypad (keypad frame image)
+		lbl_keypad.setHorizontalAlignment(SwingConstants.CENTER);
+		ImageIcon lbkeypd = new ImageIcon("images/keypad-frame.png");
+		lbl_keypad.setIcon(lbkeypd);
+		lbl_keypad.setBounds(246, 477, 299, 209);
+		frame.getContentPane().add(lbl_keypad);
+		
+		  // settings of editor panel 'Withdrawal' (Text near withdrawal button)
 		dtrpnWithdrawal.setEditable(false);
 		dtrpnWithdrawal.setOpaque(false);
 		dtrpnWithdrawal.setFont(new Font("Tahoma", Font.BOLD, 14));
 		dtrpnWithdrawal.setText("Withdrawal");
 		dtrpnWithdrawal.setBounds(22, 166, 91, 20);
 		frame.getContentPane().add(dtrpnWithdrawal);
-		
-		JEditorPane dtrpnDeposit = new JEditorPane();
+		  
+		  // settings of editor panel 'Deposit' (Text near deposit button)
 		dtrpnDeposit.setEditable(false);
 		dtrpnDeposit.setText("Deposit");
 		dtrpnDeposit.setFont(new Font("Tahoma", Font.BOLD, 14));
@@ -733,7 +750,7 @@ public class ATM_GUI {
 		dtrpnDeposit.setBounds(22, 222, 91, 20);
 		frame.getContentPane().add(dtrpnDeposit);
 		
-		JEditorPane dtrpnBalance = new JEditorPane();
+		  // settings of editor panel 'Balance' (Text near balance button)
 		dtrpnBalance.setEditable(false);
 		dtrpnBalance.setText("Balance");
 		dtrpnBalance.setFont(new Font("Tahoma", Font.BOLD, 14));
@@ -741,7 +758,7 @@ public class ATM_GUI {
 		dtrpnBalance.setBounds(22, 278, 91, 20);
 		frame.getContentPane().add(dtrpnBalance);
 		
-		JEditorPane dtrpnTransfer = new JEditorPane();
+		  // settings of editor panel 'Transfer Amount' (Text near transfer Amount button)
 		dtrpnTransfer.setEditable(false);
 		dtrpnTransfer.setText("Transfer\nAmount");
 		dtrpnTransfer.setFont(new Font("Tahoma", Font.BOLD, 14));
@@ -749,7 +766,7 @@ public class ATM_GUI {
 		dtrpnTransfer.setBounds(680, 155, 91, 35);
 		frame.getContentPane().add(dtrpnTransfer);
 		
-		JEditorPane dtrpnPinChange = new JEditorPane();
+		  // settings of editor panel 'Pin Change' (Text near transfer Pin Change button)
 		dtrpnPinChange.setEditable(false);
 		dtrpnPinChange.setText("Pin Change");
 		dtrpnPinChange.setFont(new Font("Tahoma", Font.BOLD, 14));
@@ -757,7 +774,7 @@ public class ATM_GUI {
 		dtrpnPinChange.setBounds(680, 222, 91, 20);
 		frame.getContentPane().add(dtrpnPinChange);
 		
-		JEditorPane dtrpnConfirmPin = new JEditorPane();
+		  // settings of editor panel 'Confirm Pin' (Text near Confirm Pin button)
 		dtrpnConfirmPin.setEditable(false);
 		dtrpnConfirmPin.setText("Exit Card");
 		dtrpnConfirmPin.setFont(new Font("Tahoma", Font.BOLD, 14));
@@ -765,22 +782,25 @@ public class ATM_GUI {
 		dtrpnConfirmPin.setBounds(680, 278, 91, 20);
 		frame.getContentPane().add(dtrpnConfirmPin);
 		
-		JEditorPane dtrpnExitTransaction = new JEditorPane();
+		  // settings of editor panel 'Exit Transaction' (Text near Exit Transaction button)
 		dtrpnExitTransaction.setText("Exit\nTransaction");
 		dtrpnExitTransaction.setOpaque(false);
 		dtrpnExitTransaction.setFont(new Font("Tahoma", Font.BOLD, 14));
 		dtrpnExitTransaction.setEditable(false);
 		dtrpnExitTransaction.setBounds(22, 321, 91, 34);
 		frame.getContentPane().add(dtrpnExitTransaction);
+
 		
-		JLabel lbl_keypad = new JLabel("");
-		lbl_keypad.setHorizontalAlignment(SwingConstants.CENTER);
-		ImageIcon lbkeypd = new ImageIcon("images/keypad-frame.png");
-		lbl_keypad.setIcon(lbkeypd);
-		lbl_keypad.setBounds(246, 477, 299, 209);
-		frame.getContentPane().add(lbl_keypad);
-		
+		/*
+		JLabel lbl_cash = new JLabel("");
+		ImageIcon lcash = new ImageIcon("images/cash.jpg");
+		lbl_cash.setIcon(lcash);
+		lbl_cash.setVisible(false);
+		lbl_cash.setBounds(93, 399, 300, 50);
+		frame.getContentPane().add(lbl_cash);
+		*/
 	}
+	
 	String getsBalance(){
 		System.setOut(ps);
 		atmInf.identifies();
@@ -790,17 +810,18 @@ public class ATM_GUI {
 	    String s=baos.toString();
 	    baos.reset();
 		return s;
-		
 	}
 	
+	  // enable selection buttons
 	void enableButtons(){
 		btBalance.setEnabled(true);
 		btWithdrawal.setEnabled(true);
 		btDeposit.setEnabled(true);
 		btPinChange.setEnabled(true);
 		btTransfer.setEnabled(true);
-		
 	}
+	
+	  // disable selection buttons
 	void disableButtons(){
 		btBalance.setEnabled(false);
 		btWithdrawal.setEnabled(false);
@@ -808,6 +829,8 @@ public class ATM_GUI {
 		btPinChange.setEnabled(false);
 		btTransfer.setEnabled(false);
 	}
+	
+	  // enable keypad buttons
 	void enableKeyPad(){
 		bt1.setEnabled(true);
 		bt2.setEnabled(true);
@@ -820,6 +843,8 @@ public class ATM_GUI {
 		bt9.setEnabled(true);
 		bt0.setEnabled(true);
 	}
+	
+	  // disable keypad buttons
 	void disableKeyPad(){
 		bt1.setEnabled(false);
 		bt2.setEnabled(false);

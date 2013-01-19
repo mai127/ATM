@@ -35,14 +35,11 @@ public class ATMInfo {
 		transaction.add(null);
 	}
 	public void identifies() {
-		if(isAuthenticated()){
+		if(isAuthenticated())
 			transaction.get(transaction.size()-1).accountHandler();
-			//System.out.println(transaction.get(transaction.size()-1).transType());
-		}
-		else{
-			//System.out.println(transaction.get(0).transType());
+		else
 			System.out.println("User Not authenticated");
-			}
+			
 		
 	}
 	
@@ -53,7 +50,7 @@ public class ATMInfo {
 	
 	public boolean isAuthenticated(){
 		transaction.get(1).accountHandler();
-		//System.out.println(transaction.get(1).transType());
+		
 		if(transaction.get(1).transType().equals("Authenticated"))
 			return true;
 		else
