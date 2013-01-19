@@ -514,7 +514,7 @@ public class ATM_GUI {
 		});
 		btDeposit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				atmScr.setText("\nEnter Deposit Amount and press ENTER");
+				atmScr.setText("Enter Deposit Amount and press ENTER");
 				enterdep=true;
 				disableButtons();
 				enableKeyPad();
@@ -525,7 +525,7 @@ public class ATM_GUI {
 				public void actionPerformed(ActionEvent arg0) {
 					enterbal=true;
 					textField.setText("");
-					atmScr.setText("\nBalance Inquiry?\n\nPress ENTER to confirm");
+					atmScr.setText("Balance Inquiry?\n\nPress ENTER to confirm");
 					disableButtons();
 					enableKeyPad();
 				}
@@ -533,7 +533,7 @@ public class ATM_GUI {
 		
 		btPinChange.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				atmScr.setText("\nEnter new PIN and press ENTER");
+				atmScr.setText("Enter new PIN and press ENTER");
 				enterpich=true;
 				disableButtons();
 				enableKeyPad();
@@ -550,7 +550,7 @@ public class ATM_GUI {
 					entertrans=false;
 					entertrans2=false;
 					textField.setText("");
-					atmScr.setText("\nTransaction Canceled\nSelect Transaction");
+					atmScr.setText("Transaction Canceled\n\nSelect Transaction");
 					enableButtons();
 					enableKeyPad();
 				}
@@ -590,7 +590,7 @@ public class ATM_GUI {
 					c=0;
 					p=0;
 					t=0;
-					atmScr.setText("\nTransactions Completed\n\nPlease press Card slot and recieve your Card");
+					atmScr.setText("Transactions Completed\n\nPlease press Card slot and recieve your Card");
 					lblCard.setText("Card");
 					disableButtons();
 					btCard.setBackground(null);
@@ -599,7 +599,7 @@ public class ATM_GUI {
 					enableKeyPad();
 				}
 				else
-					atmScr.setText("\nPlease first complete your Transactions");
+					atmScr.setText("Please first complete your Transactions");
 	
 			}
 		});		
