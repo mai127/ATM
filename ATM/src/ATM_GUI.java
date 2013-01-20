@@ -380,12 +380,13 @@ public class ATM_GUI {
 							atmScr.setText("Wrong credentials!\nPlease try Again");
 							btCard.setEnabled(true);
 							textField.setText("");
-							atmInf.newAtmCustomer();  // clears all data from transaction list
+							atmInf.newAtmCustomer();// clears all data from transaction list
+							lblCard.setText("Card");
 							  /*
 							   * holds card number in memory (val c) and zeros pin number (val p)
 							   * so that the user re-enters the correct pin
 							   */
-							//c=0;	// card number
+							c=0;	// card number
 							p=0;	// pin
 							t=0;	
 						}
