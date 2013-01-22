@@ -47,7 +47,7 @@ public class ATM_GUI {
 	boolean entertrans=false;
 	boolean entertrans2=false;
 	
-	  // Selection buttons, ediotr panels and labels
+	  // Selection buttons, editor panels and labels
 	JButton btCard = new JButton(" ");
 	JButton btExTrans = new JButton("");
 	JButton btExit = new JButton("");
@@ -377,7 +377,7 @@ public class ATM_GUI {
 							btCard.setBackground(Color.green);
 						}
 						else {  
-							atmScr.setText("Wrong credentials!\nPlease try Again");
+							atmScr.setText("Wrong credentials!\n\nPlease try Again");
 							btCard.setEnabled(true);
 							textField.setText("");
 							atmInf.newAtmCustomer();// clears all data from transaction list
@@ -551,7 +551,7 @@ public class ATM_GUI {
 					entertrans=false;
 					entertrans2=false;
 					textField.setText("");
-					atmScr.setText("Transaction Canceled\n\nSelect Transaction");
+					atmScr.setText("Transaction Canceled\n\nSelect Another Transaction");
 					enableButtons();
 					enableKeyPad();
 				}
@@ -569,7 +569,7 @@ public class ATM_GUI {
 					enterpin=true;
 				}
 				else{
-					atmScr.setText("Enter account number and press Card slot");
+					atmScr.setText("Enter Card number and press Card slot");
 				}
 			}
 		});
@@ -791,15 +791,6 @@ public class ATM_GUI {
 		dtrpnExitTransaction.setBounds(22, 321, 91, 34);
 		frame.getContentPane().add(dtrpnExitTransaction);
 
-		
-		/*
-		JLabel lbl_cash = new JLabel("");
-		ImageIcon lcash = new ImageIcon("images/cash.jpg");
-		lbl_cash.setIcon(lcash);
-		lbl_cash.setVisible(false);
-		lbl_cash.setBounds(93, 399, 300, 50);
-		frame.getContentPane().add(lbl_cash);
-		*/
 	}
 	
 	String getsBalance(){
