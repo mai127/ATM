@@ -37,7 +37,7 @@ public class ATM_GUI {
     PrintStream ps = new PrintStream(baos);
     PrintStream old = System.out;
     
-	int p,c,t;
+	int p,c,t,t1,a1,a2;
 	boolean entercard=false;
 	boolean enterpin=false;
 	boolean enterwith=false;
@@ -378,16 +378,7 @@ public class ATM_GUI {
 				} 
 				else if(enterdep) {
 						if(!textField.getText().isEmpty()){
-							int a=Integer.parseInt(textField.getText());
-							tr1=new Deposit(a,bank1.accountCard(c));
-							atmInf.setTransaction(tr1);
-							atmInf.identifies();
-							tr1=null;
-							textField.setText("");
-							atmScr.setText("Deposit Transaction Completed!\n\nSelect another Transaction or press Exit Card");
-							enterdep=false;
-							enableButtons();
-							disableKeyPad();
+							enterDeposit();
 						}
 						else {
 							enterdep=true;
@@ -396,16 +387,7 @@ public class ATM_GUI {
 				}
 				else if(enterwith){
 						if(!textField.getText().isEmpty()){
-							int a=Integer.parseInt(textField.getText());
-							tr1=new Withdraw(a,bank1.accountCard(c));
-							atmInf.setTransaction(tr1);
-							atmInf.identifies();
-							tr1=null;
-							textField.setText("");
-							atmScr.setText("Withdrawal Transaction Completed!\n\nSelect another Transaction or press Exit Card");
-							enterwith=false;
-							enableButtons();
-							disableKeyPad();
+							enterWithdraw();
 						}
 						else {
 							enterwith=true;
@@ -414,14 +396,8 @@ public class ATM_GUI {
 				}
 				else if(entertrans){
 					if(!textField.getText().isEmpty()){
-						int t=Integer.parseInt(textField.getText());
-						textField.setText("");
-						atmScr.setText("Enter Transfer Amount");
-										
-						entertrans2=true;
-						enterpich=false;
-						enableButtons();
-						disableKeyPad();
+						t1=Integer.parseInt(textField.getText());
+						enterTrans1();
 					}
 					else {
 						entertrans=true;
@@ -432,16 +408,7 @@ public class ATM_GUI {
 				}
 				else if(entertrans2){
 					if(!textField.getText().isEmpty()){
-						int a=Integer.parseInt(textField.getText());
-						tr1=new AmountTransfer(a,bank1.accountCard(c),bank1.accountAccountNo(t));
-						atmInf.setTransaction(tr1);
-						atmInf.identifies();
-						tr1=null;
-						textField.setText("");
-						atmScr.setText("Completed Transfer Amount");
-						entertrans2=false;
-						enableButtons();
-						disableKeyPad();
+						enterTrans2();
 					}
 					else {
 						entertrans2=true;
@@ -451,16 +418,7 @@ public class ATM_GUI {
 				}
 				else if(enterpich){
 					if(!textField.getText().isEmpty()){
-						int a=Integer.parseInt(textField.getText());
-						tr1=new PinChange(a,bank1.accountCard(c));
-						atmInf.setTransaction(tr1);
-						atmInf.identifies();
-						tr1=null;
-						textField.setText("");
-						atmScr.setText("PIN Successfully Changed");
-						enterpich=false;
-						enableButtons();
-						disableKeyPad();
+						enterPinChange();
 					}
 					else {
 						enterpich=true;
@@ -858,6 +816,66 @@ public class ATM_GUI {
 		textField.setText("");
 		String s=getsBalance();
 		atmScr.setText("Balance:\t$"+s+"\nSelect another Transaction or press Exit Card");
+		enableButtons();
+		disableKeyPad();
+	}
+	void enterDeposit(){
+		int a=Integer.parseInt(textField.getText());
+		tr1=new Deposit(a,bank1.accountCard(c));
+		atmInf.setTransaction(tr1);
+		atmInf.identifies();
+		tr1=null;
+		textField.setText("");
+		atmScr.setText("Deposit Transaction Completed!\n\nSelect another Transaction or press Exit Card");
+		enterdep=false;
+		enableButtons();
+		disableKeyPad();
+		
+	}
+	
+	void enterWithdraw(){
+		int a=Integer.parseInt(textField.getText());
+		tr1=new Withdraw(a,bank1.accountCard(c));
+		atmInf.setTransaction(tr1);
+		atmInf.identifies();
+		tr1=null;
+		textField.setText("");
+		atmScr.setText("Withdrawal Transaction Completed!\n\nSelect another Transaction or press Exit Card");
+		enterwith=false;
+		enableButtons();
+		disableKeyPad();
+		
+	}
+	void enterTrans1(){
+		textField.setText("");
+		atmScr.setText("Enter Transfer Amount");
+						
+		entertrans2=true;
+		enterpich=false;
+		enableButtons();
+		disableKeyPad();
+	}
+	void enterTrans2(){
+		a1=Integer.parseInt(textField.getText());
+		tr1=new AmountTransfer(a1,bank1.accountCard(c),bank1.accountAccountNo(t1));
+		atmInf.setTransaction(tr1);
+		atmInf.identifies();
+		tr1=null;
+		textField.setText("");
+		atmScr.setText("Completed Transfer Amount");
+		entertrans2=false;
+		enableButtons();
+		disableKeyPad();
+	}
+	void enterPinChange(){
+		int a=Integer.parseInt(textField.getText());
+		tr1=new PinChange(a,bank1.accountCard(c));
+		atmInf.setTransaction(tr1);
+		atmInf.identifies();
+		tr1=null;
+		textField.setText("");
+		atmScr.setText("PIN Successfully Changed");
+		enterpich=false;
 		enableButtons();
 		disableKeyPad();
 	}
