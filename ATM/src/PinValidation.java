@@ -21,7 +21,7 @@ public class PinValidation extends Transaction{
 	}
 	public String transType() {
 		// TODO Auto-generated method stub
-		if (flag == true)
+		if (flag)
 			return "Authenticated";
 		else
 			return "Not Authenticated";
