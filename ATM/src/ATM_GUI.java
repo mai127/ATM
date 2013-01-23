@@ -367,42 +367,14 @@ public class ATM_GUI {
 						   * else he re-enters credentials
 						   */
 						if(atmInf.isAuthenticated()) {   
-							atmScr.setText("Select Transaction");
-							enterpin=false;
-							textField.setText("");      // clears identification data from text field  
-							enableButtons();            // enables transaction buttons and
-							disableKeyPad();		    // disables keypad numbers
-							btExit.setEnabled(true);    // exit card option is enabled, when user wants to take back his card 
-							btExTrans.setEnabled(true); // exit transaction option is enabled, if user selected wrong transaction
-							btCard.setBackground(Color.green);
+							authenticated();
 						}
 						else {  
-							atmScr.setText("Wrong credentials!\n\nPlease try Again");
-							btCard.setEnabled(true);
-							textField.setText("");
-							atmInf.newAtmCustomer();// clears all data from transaction list
-							lblCard.setText("Card");
-							  /*
-							   * holds card number in memory (val c) and zeros pin number (val p)
-							   * so that the user re-enters the correct pin
-							   */
-							c=0;	// card number
-							p=0;	// pin
-							t=0;	
+							notAuthenticated();
 						}
 				}  
 				else if(enterbal) {		
-						tr1=new Query(bank1.accountCard(c));  // creates new Query Transaction
-						atmInf.setTransaction(tr1); 
-						//atmInf.identifies();
-						
-						tr1=null;
-						enterbal=false;
-						textField.setText("");
-						String s=getsBalance();
-						atmScr.setText("Balance:\t$"+s+"\nSelect another Transaction or press Exit Card");
-						enableButtons();
-						disableKeyPad();
+						enterBalance();
 				} 
 				else if(enterdep) {
 						if(!textField.getText().isEmpty()){
@@ -849,5 +821,44 @@ public class ATM_GUI {
 		bt9.setEnabled(false);
 		bt0.setEnabled(false);
 		
+	}
+	void authenticated(){
+		atmScr.setText("Select Transaction");
+		enterpin=false;
+		textField.setText("");      // clears identification data from text field  
+		enableButtons();            // enables transaction buttons and
+		disableKeyPad();		    // disables keypad numbers
+		btExit.setEnabled(true);    // exit card option is enabled, when user wants to take back his card 
+		btExTrans.setEnabled(true); // exit transaction option is enabled, if user selected wrong transaction
+		btCard.setBackground(Color.green);
+		
+	}
+	void notAuthenticated(){
+		atmScr.setText("Wrong credentials!\n\nPlease try Again");
+		btCard.setEnabled(true);
+		textField.setText("");
+		atmInf.newAtmCustomer();// clears all data from transaction list
+		lblCard.setText("Card");
+		  /*
+		   * holds card number in memory (val c) and zeros pin number (val p)
+		   * so that the user re-enters the correct pin
+		   */
+		c=0;	// card number
+		p=0;	// pin
+		t=0;	
+		
+	}
+	void enterBalance(){
+		tr1=new Query(bank1.accountCard(c));  // creates new Query Transaction
+		atmInf.setTransaction(tr1); 
+		//atmInf.identifies();
+		
+		tr1=null;
+		enterbal=false;
+		textField.setText("");
+		String s=getsBalance();
+		atmScr.setText("Balance:\t$"+s+"\nSelect another Transaction or press Exit Card");
+		enableButtons();
+		disableKeyPad();
 	}
 }

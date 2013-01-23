@@ -52,10 +52,7 @@ public class Account {
 	}
 	
 	public boolean pinValidation(int num,int pin){
-		if(card.getPin()==pin&&card.getCardNO()==num)
-			return true;
-		else 
-			return false; 
+		return card.pinValidations(num, pin);
 		
 	}
 	
