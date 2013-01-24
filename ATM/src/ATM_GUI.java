@@ -27,8 +27,11 @@ public class ATM_GUI {
 	private JTextField textField;
 	Bank bank1 = new Bank();
 	Card crd = new Card(1234567890,12345);
-	Account accnt = new Account(1234554321, 1020);
+	Account accnt = new Account(1234554321,1020);
 	Customer custmr = new Customer("Papadopoulos Giannis", "Egnatia 127 str.", accnt);
+	Card crd2 = new Card(123456,12345);
+	Account accnt2 = new Account(1234567,5040);
+	Customer custmr2 = new Customer("Balafas Sotirios", "Tsimiski 77 str.", accnt2);
 	Transaction tr,tr1,tr2;
 	ATMInfo atmInf = new ATMInfo("Aristoteloys sqr. 165", "Ethniki Trapeza");
 	
@@ -104,6 +107,9 @@ public class ATM_GUI {
 		accnt.setCard(crd);
 		bank1.addCard(crd);
 		bank1.addCustomer(custmr);
+		accnt2.setCard(crd2);
+		bank1.addCard(crd2);
+		bank1.addCustomer(custmr2);
 		initialize();
 	}
 
@@ -442,14 +448,13 @@ public class ATM_GUI {
 				}
 				else if(entertrans){
 					if(!textField.getText().isEmpty()){
-						int t=Integer.parseInt(textField.getText());
+						t=Integer.parseInt(textField.getText());
 						textField.setText("");
 						atmScr.setText("Enter Transfer Amount");
 										
 						entertrans2=true;
 						enterpich=false;
-						enableButtons();
-						disableKeyPad();
+						
 					}
 					else {
 						entertrans=true;
@@ -460,8 +465,8 @@ public class ATM_GUI {
 				}
 				else if(entertrans2){
 					if(!textField.getText().isEmpty()){
-						int a=Integer.parseInt(textField.getText());
-						tr1=new AmountTransfer(a,bank1.accountCard(c),bank1.accountAccountNo(t));
+						double as=Double.parseDouble(textField.getText());
+						tr1=new AmountTransfer(as,bank1.accountCard(c),bank1.accountAccountNo(t));
 						atmInf.setTransaction(tr1);
 						atmInf.identifies();
 						tr1=null;
@@ -578,7 +583,8 @@ public class ATM_GUI {
 			public void actionPerformed(ActionEvent arg0) {
 				textField.setText("");
 				atmScr.setText("Enter Transfer Account and press ENTER");
-				
+				disableButtons();
+				enableKeyPad();
 				entertrans=true;
 			}
 		});

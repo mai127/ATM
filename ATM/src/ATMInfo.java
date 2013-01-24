@@ -52,6 +52,7 @@ public class ATMInfo {
 		transaction.get(1).accountHandler();
 		
 		if(transaction.get(1).transType().equals("Authenticated"))
+			
 			return true;
 		else
 			return false;

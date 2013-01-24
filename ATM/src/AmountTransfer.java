@@ -1,11 +1,11 @@
 
 public class AmountTransfer extends Transaction{
 	
-	private int amount;
+	private double amount;
 	private int accountNumber;
 	
 	
-	public AmountTransfer(int amou,Account originalAccount,Account TransferAccount){
+	public AmountTransfer(double amou,Account originalAccount,Account TransferAccount){
 		amount=amou;
 		account=originalAccount;
 		transAc=TransferAccount;
@@ -13,7 +13,7 @@ public class AmountTransfer extends Transaction{
 	}
 	@Override
 	public void accountHandler() {
-		int temp=0;
+		double temp=0;
 		if(account.getBalance()>=amount){
 			account.setBalance(account.getBalance()-amount);
 			temp=amount;

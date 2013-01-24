@@ -12,7 +12,7 @@ public class Account {
 	public void setOwner(String owner) {
 		this.owner = owner;
 	}
-	public double getAccountNumber() {
+	public int getAccountNumber() {
 		return AccountNumber;
 	}
 	public void setAccountNumber(int AccountNumber) {

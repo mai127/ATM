@@ -36,11 +36,16 @@ public class Card {
 		accountNo=0;
 	}
 	public boolean pinValidations(int num,int pins){
-		if(pin==pins&&cardNo==num)
-			return true;
-		else 
-			return false; 
 		
+		if(pin==pins&&cardNo==num){
+	
+			return true;
+		}
+		else {
+	
+			return false;
+			
+		}
 	}
 	public boolean access (int p){
 		if(pin==p)

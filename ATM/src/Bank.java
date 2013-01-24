@@ -23,8 +23,9 @@ public class Bank {
 	public Account accountCard(int n){
 		int i;
 		for(i=0;i<customer.size();i++){
-			if(customer.get(i).getAccount().getCard()==n);
+			if(customer.get(i).getAccount().getCard()==n){
 				break;
+			}
 		}
 		
 		return customer.get(i).getAccount();
@@ -32,8 +33,9 @@ public class Bank {
 	public Account accountAccountNo(int n){
 		int i;
 		for(i=0;i<customer.size();i++){
-			if(customer.get(i).getAccount().getAccountNumber()==n);
+			if(customer.get(i).getAccount().getAccountNumber()==n){
 				break;
+			}
 		}
 		
 		return customer.get(i).getAccount();
